@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>选择注册方式</title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.all.css" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/registerType.css" />
+	</head>
+
+	<body>
+		<!--<header class="personMsgArea">
+			<p class="title">
+				<a class="mui-action-back back">
+					<span>×</span>
+				</a>
+				<span id="title">~欢迎注册~</span>
+			</p>
+		</header>-->
+		<div class="mui-content">
+			<div class="container">
+				<p>请选择您的注册方式：</p>
+				<div class="type">
+					<div class="general circle" data-type='0'>
+						<span class="iconfont icon-gou-copy"></span>
+						<p>普通注册</p>
+					</div>
+					<div class="contractor circle" data-type='1'>
+						<span class="iconfont"></span>
+						<p>企业注册</p>
+					</div>
+				</div>
+				<div class="next">下一步</div>
+			</div>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script src="js/mui.picker.all.js"></script>
+		<script src="js/base.js"></script>
+		<script type="text/javascript">
+			var register = '';
+			mui('.type').on('tap', '.circle', function() {
+				register = h(this).attr('data-type');
+				h(this).find('span').addClass('icon-gou-copy').parent().siblings().find('span').removeClass('icon-gou-copy');
+			});
+			h('.next').tap(function() {
+				if(register == 0) { //普通用户
+					services.nativeJump('registerStatusOne.html', 'registerStatusOne.html', '欢迎注册',{type:0});
+				} else if(register == 1) { //企业注册
+					services.nativeJump('contractor.html', 'contractor.html', '欢迎注册',{type:1});
+				}
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link href="css/mui.css" rel="stylesheet"/>
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/mine.css" />
+	</head>
+	<body>
+		<div class="wrap">
+			<!--用户头像及信息-->
+			<div class="personMsg">
+				<p class="userImg"> 
+					<img src="images/head_confideng.png" alt="" />
+				</p>
+				<div class="userName">
+					<span id="userName" style="display: none;"></span>
+					<p id="auditPre" style="display: none;">企业认证审核中</p>
+					<p id="auditSucc" style="display: none;">您已成为企业用户,可享受专属优惠</p>
+					<p id="auditErr" style="display: none;">企业认证审核失败,请到个人资料查看</p>
+					<div class="isLoginBox" id="isShowUserName" style="display: none;">
+						<a href="javascript:void(0)" id="login">登录</a>
+						/
+						<a href="javascript:void(0)" id="register">注册</a>
+					</div>
+				</div>
+			</div>
+			<!--用户操作-->
+			<div class="userHandle">
+				<ul id="userHandleList">
+					<li>
+						<a href="javascript:void(0)" data-typeId="1">
+							<span class="allOrderIcon Icon1"></span>
+							<span class="allOrder">全部订单</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" data-typeId="2">
+							<span class="allOrderIcon Icon2"></span>
+							<span class="allOrder">待支付</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" data-typeId="3">
+							<span class="allOrderIcon Icon3"></span>
+							<span class="allOrder">待收货</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" data-typeId="4">
+							<span class="allOrderIcon Icon4"></span>
+							<span class="allOrder">待评价</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--列表页--> 
+		<div class="mui-content mineList" id="userHand">
+			<ul>
+				<li>
+					<a href="javascript:void(0)" data-url="account.html" id="account">
+						<span class="iconfont icon-gerenziliao mineicon"></span>
+						<span class="jumpTxt">个人资料</span>
+						<span class="iconfont icon-s-right arrow"></span>
+					</a> 
+				</li>
+				<!--<li>
+					<a href="javascript:void(0)" data-url="historyOrder.html" class="aboutUser">
+						<span class="iconfont icon-lishidingdan mineicon"></span>
+						<span class="jumpTxt">历史配单</span>
+						<span class="iconfont icon-s-right arrow"></span>
+					</a> 
+				</li>-->
+				<li>
+					<a href="javascript:void(0)" data-url="address.html" class="aboutUser">
+						<span class="iconfont icon-shouhuodizhi mineicon"></span>
+						<span class="jumpTxt">收货地址</span>
+						<span class="iconfont icon-s-right arrow"></span>
+					</a> 
+				</li>
+				<li class="aboutUser">
+					<a href="javascript:void(0)" data-url="editPwd.html" class="aboutUser">
+						<span class="iconfont icon-xiugaimima mineicon"></span>
+						<span class="jumpTxt">密码修改</span>
+						<span class="iconfont icon-s-right arrow"></span>
+					</a> 
+				</li>
+			</ul>
+			<ul class="marTop">
+				<li>
+					<a href="javascript:void(0)" id="concatUs">
+						<span class="iconfont icon-lianxiwomen mineicon"></span>
+						联系我们
+						<span class="iconfont icon-s-right arrow"></span>
+					</a> 
+				</li>
+				<!--<li>
+					<a href="javascript:void(0)">
+						<span class="iconfont icon-guanyuwomen mineicon"></span>
+						关于我们
+						<span class="iconfont icon-s-right arrow"></span>
+					</a> 
+				</li>-->
+			</ul>
+			<!--<ul class="marTop">
+				<li>
+					<a href="javascript:void(0)" id="erweima">
+						<span class="iconfont icon-erweima mineicon"></span>
+						应用二维码
+						<span class="iconfont icon-s-right arrow"></span>
+					</a> 
+				</li>
+				<li>
+					<a href="javascript:void(0)">
+						<span class="iconfont icon-haoyoutuijian mineicon"></span>
+						推荐给好友
+						<span class="iconfont icon-s-right arrow"></span>
+					</a> 
+				</li>
+			</ul>-->
+			<!--退出当前账号-->
+			<div class="quit" id="quitArea"> 
+				<input type="button" value="退出当前账号" id="quitBtn"/>
+			</div>
+			<!--<div>
+				<a href="javascript:void(0);" id="qiut">退出</a>
+			</div>-->
+		</div>
+		<!--二维码-->
+		<div class="erweimaBox" id="erweimaBox" style="display: none;"> 
+			<p class="erweimaTitle">应用下载地址</p>
+			<div class="erweimaImg">
+				<img src="images/erweima.png" alt="" />
+			</div> 
+		</div> 
+		<!--遮罩层-->
+		<div id="mark" style="display: none;"></div> 
+		
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/viewsjs/mine.js"></script>
+	</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/mui.picker.all.css" />
+		<link rel="stylesheet" href="css/mine.css" />
+	</head>
+
+	<body>
+		<!--<header class="personMsgArea">
+			<p class="title">
+				<a class="mui-action-back back">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</a>
+				<span id="title"></span>
+			</p>
+		</header>-->
+		<div class="mui-content">
+			<div class="content">
+				<form action="" id="addressBox">
+					<ul class="perMsgTop">
+						<li>
+							<div class="padding20">
+								<label for="username" class="personMsgTxt">收货人 :</label>
+								<input type="text" id="username" class="addressPage" name="username" data-rule="required;username;" data-rule-username="[/^[^! @#$%^&*()?/]{2,10}$/,'收货人格式错误']" placeholder="请输入2至10个字符,不包含特殊字符" />
+							</div>
+						</li>
+						<li>
+							<div class="padding20">
+								<label for="tel" class="personMsgTxt">联系电话 :</label>
+								<input type="text" id="tel" class="addressPage" name="tel" data-rule="required;tel;" data-rule-tel="[/^[1][34578]\d{9}$/,'联系电话格式错误']" placeholder="请输入11位手机号" />
+							</div>
+						</li>
+						<li class="clearFloat" id="areaBox">
+							<div class="padding20 clearFloat">
+								<span class="lf personMsgTxt">
+							所在地区 :
+						</span>
+								<div class="rf" style="line-height: 1.15rem;">
+									<span class="sexName">
+							<span id="state">北京市</span><span id="city">东城区</span><span id="district"></span>
+									</span>
+									<span class="iconfont icon-s-right perMsgArrow"></span>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="padding20">
+								<label for="address" class="personMsgTxt">详细地址 :</label>
+								<input type="text" id="address" class="addressPage" name="address" data-rule="required;address;" data-rule-address="[/^[^! @#$%^&*()?/]*$/,'请输入正确的地址,不包含特殊字符']" placeholder="请输入正确的地址,不包含特殊字符" />
+							</div>
+						</li>
+						<li id="defaultAddress">
+							<div class="padding20 flexBox">
+								<span class="personMsgTxt">设为默认地址 </span>
+								<input type="button" id="setDefualt" value="确认"/>
+							</div>
+						</li>
+					</ul>
+					<!--新建收货地址按钮-->
+					<div class="addBtn">
+						<input type="button" value="保存地址" id="saveAddress" />
+					</div>
+				</form>
+			</div>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.picker.all.js"></script>
+		<script src="js/city.data-3.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/viewsjs/delAddress.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

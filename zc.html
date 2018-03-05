@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/zc.css" />
+	</head>
+
+	<body>
+		<div class="mui-off-canvas-wrap mui-slide-in" id="offCanvasWrapper">
+			<!--侧滑菜单-->
+			<aside id="offCanvasSide" class="mui-slide-in mui-off-canvas-left mui-transitioning">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<ul class="programClassfiy" id="programClassfiyList">
+						<script type="text/html" id="programClassfiyBox">
+							<li class="itemActive">
+								<a href="javascript:void(0);" data-typeId="">
+									<span class="iconfont icon-yuan"></span> 全部
+								</a>
+							</li>
+							<%for( i = 0; i < model.item.length-1; i++) {%>
+							<li>
+								<a href="javascript:void(0);" data-typeId="<%=model.item[i].id%>">
+									<span class="iconfont icon-yuan"></span>
+									<%=model.item[i].itmeName%>
+								</a>
+							</li>
+							<%}%>
+						</script>
+					</ul>
+				</div>
+			</aside>
+			<!--主界面-->
+			<div class="mui-inner-wrap">
+				<div class="mui-content" id="offCanvasContentScroll">
+					<header class="zcHeader">
+						<a href="javascript:void(0)" class="mui-action-back" id="close">×</a>
+						<div id="zcBanner">
+							<script type="text/html" id="zcBannerBox">
+								<img src="<%=model.banner.phImg%>" />
+							</script>
+						</div>
+					</header>
+					<!--排行榜-->
+					<div class="rankList">
+						<ul class="rankClass clearFloat" id="rankClass">
+							<li class="brandRankActive" data-index="1">
+								品牌排行
+							</li>
+							<li data-index="2">
+								支持排行
+							</li>
+						</ul>
+						<div id="classifyBox">
+							<div>
+								<ul class="brandRank" id="brandRankBox">
+									<script type="text/html" id="brandRankoList">
+										<%for( i = 0; i < model.companies.length; i++) {%>
+										<li>
+											<a href="javascript:void(0);" data-name="<%=model.companies[i].name%>">
+												<img src="<%=model.companies[i].imgUrl%>" alt="<%=model.companies[i].name%>" />
+											</a>
+										</li>
+										<%}%>
+									</script>
+								</ul>
+							</div>
+							<div style="display: none;">
+								<ul class="supporRank clearFloat" id="supportRankBox">
+									<script type="text/html" id="supportRankList">
+										<%for( i = 0; i < model.users.length; i++) {%>
+										<%if(i<3) {%>
+										<li>
+											<%if(model.users[i].sex==1) {%>
+											<p class="userHeader">
+									 	<img src="images/head_man.png"/>
+									 </p>
+											<%}%>
+											<%if(model.users[i].sex==2) {%>
+											<p class="userHeader">
+									 	<img src="images/head_women.png"/>
+									 </p>
+											<%}%>
+											<%if(model.users[i].sex==3||model.users[i].sex==null) {%>
+											<p class="userHeader">
+									 	<img src="images/head_confideng.png"/>  
+									 </p>
+											<%}%>
+											<p class="zcUserName">
+									 	<%=model.users[i].username%>
+									 </p>
+										</li>
+										<%}%>
+										<%}%>
+									</script>
+								</ul>
+							</div>
+
+						</div>
+					</div>
+					<!--众筹汇-->
+					<div class="zcProBox">
+						<p>众筹汇</p>
+						<ul class="zcProList" id="zcProList">
+							<script type="text/html" id="zcProBox">
+								<%for( i = 0; i < model.list.length; i++) {%>
+								<li class="rich_media_content">
+									<a href="javascript:void(0)" data-zcId="<%=model.list[i].commodityId%>" class="jumpZcDetail">
+										<div class="zcImg">
+											<img alt="" data-lazyload="<%=model.list[i].ph%>" src="images/img_loading.png" />
+										</div>
+										<p class="zcProIntro">
+											<%=model.list[i].title%>
+										</p>
+									</a>
+									<p class="zcPrecessNum">
+										<span><%=(model.list[i].buyNumber/model.list[i].firstNum).toFixed(2)*100%>%</span> (已筹集)
+									</p>
+									<div class="zcProcessBar">
+										<span style="<%=(model.list[i].buyNumber/model.list[i].firstNum).toFixed(2)*100%>%"></span>
+									</div>
+									<div class="zcPrice clearFloat">
+										<span class="lf">¥<%=(model.list[i].price/100).toFixed(2)%></span> &nbsp;起
+										<a href="javascript:void(0)" class="rf jumpZcDetail" data-zcId="1">参与众筹</a>
+									</div>
+								</li>
+								<%}%>
+							</script>
+						</ul>
+					</div>
+					<!-- off-canvas backdrop -->
+					<div class="mui-off-canvas-backdrop"></div>
+					<!--侧滑按钮-->
+					<div class="slideBtn" id="offCanvasShow"></div>
+				</div>
+			</div>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.lazyload.js"></script>
+		<script src="js/mui.lazyload.img.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/viewsjs/zc.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

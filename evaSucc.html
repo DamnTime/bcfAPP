@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/evaluate.css" />
+	</head>
+
+	<body>
+		<header class="evaSuccHeaderBox">
+			<div class="evaSuccHeader"></div>
+			<!--弧线-->
+			<div class="evaSuccArc"></div>
+			<!--返回首页-->
+			<div class="evaSuccIntro">
+				<div class="evaSuccGou"></div>
+				<p>&nbsp;评价成功 !</p>
+				<a href="javascript:void(0)" id="goIndex">返回首页</a>
+			</div>
+		</header>
+		<!--主体部分-->
+		<div class="mui-content" id="continuEvaBox">
+			<script type="text/html" id="continuEvaList">
+				<%if(model.goods.length>0) {%>
+				<div class="continuEva">
+					<span class="evaSuccLine"></span>
+					<span>继续评价</span>
+					<span class="evaSuccLine"></span>
+				</div>
+				<ul class="evaluateList" id="evaluateList">
+					<%for( i = 0; i < model.goods.length; i++) {%>
+					<li class="clearFloat">
+						<div class="evaluateImg lf">
+							<a href="javascript:void(0)" class="jumpProDetail">
+								<img src="<%=model.goods[i].phimage%>" alt="" />
+							</a>
+						</div>
+						<div class="evaluatePro rf">
+							<p><%=model.goods[i].title%></p>
+							<div>
+								<a href="javascript:void(0)" class="border jumpEvaluate" data-id="<%=i%>" data-proId="<%=model.goods[i].commodityId%>">去评价</a>
+							</div>
+						</div>
+					</li>
+					<%}%>
+				</ul>
+				<%}%>
+			</script>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/viewsjs/evaSucc.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

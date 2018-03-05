@@ -1,0 +1,648 @@
+html,body{
+	width: 100%;
+	height: 100%;
+	margin: 0 ;
+	padding: 0;
+	background-color: rgba(249,247,246,1);
+}
+/*众筹详情*/
+.proDetailHeader{
+	width: 100%;
+	height: 1.7rem;
+	border-bottom: 1px solid #ddd;
+	background-color: rgba(247,247,247,1);
+	padding: 0.7rem 0 0 0;
+	box-sizing: border-box;
+}
+.icon-chevron-copy-copy{
+	color: #333;
+	font-size: 0.66rem;
+	font-weight: 500;
+}
+.icon-shenglvehao{
+	color: #333;
+	font-size: 0.66rem;
+}
+.moreSeverice{
+	position:relative;
+}
+.proDetailHeader>div.moreSeverice,.moreSeverice>div.mui-row,div.mui-row>div{
+	height: 100%;
+}
+.height100>a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.severiceList{
+	position:absolute;
+	top: 1.2rem;
+	right: 0.26rem;
+	border-radius: 0.08rem;
+	background-color: rgba(0,0,0,0.4);
+	z-index: 999;
+}
+.severiceList li{
+	padding: 0 0.4rem;
+	line-height: 0.93rem;
+	border-bottom: 1px solid #FFFFFF;
+}
+.severiceList li a{
+	color: #FFFFFF;
+	font-size: 12px;
+}
+.severiceList li:last-child{
+	border-bottom: 0;
+}
+.zcDetailTitle{
+	width: 100%;
+	text-align: center;
+	font-size: 0.48rem;
+	color: #333333;
+	font-weight: 500;
+}
+.triangle{
+	position: absolute;
+	top: 0.9rem;
+	right: 0.6rem;
+	width: 0;
+    height: 0;
+    border-left: 0.25rem solid transparent;
+    border-right: 0.25rem solid transparent;
+    border-bottom: 0.3rem solid rgba(0,0,0,0.4);
+	z-index: 999;
+}
+.active{
+	background-color: rgba(255,61,0,1);
+	color: #FFFFFF !important;
+}
+.isShow{
+	display: block !important;
+}
+.mui-content{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.mescroll{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	padding-bottom: 1.2rem;
+	padding-top: 1.7rem;
+}
+.banner img{
+	width: 100%;
+	height: 5.33rem;
+	vertical-align: bottom;
+}
+/*流程*/
+.flow{
+	background-color: rgba(256,256,256,1);
+}
+.flowList{
+	display: flex;
+	justify-content: space-around;
+	padding: 0.26rem 0.53rem;
+}
+.flowList li{
+	text-align: center;
+}
+.flowImg{
+	display: inline-block;
+	width: 1.06rem;
+	height: 1.06rem;
+}
+.flowList li:first-child .flowImg{
+	background: url(../images/zc_detailchoose.png);
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.flowList li:nth-child(3) .flowImg{
+	background: url(../images/zc_detailbuy.png);
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.flowList li:nth-child(5) .flowImg{
+	background: url(../images/zc_detailpay.png);
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.flowList li:last-child .flowImg{
+	background: url(../images/zc_detailreturn.png);
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.flwoTxt{
+	text-align: center;
+}
+.flwoTxt{
+	font-size: 0.32rem;
+	color: #333333;
+	font-weight: 500;
+}
+.flowArrow{
+	width: 0.88rem;
+	height: 0.13rem;
+	background: url(../images/zc_detailarrow.png);
+	-webkit-background-size: cover;
+	background-size: cover;
+	margin-top: 0.46rem;
+}
+/*众筹主体*/
+.zcContent{
+	margin-top: 0.18rem;
+	padding: 0.26rem;
+	background-color: rgba(256,256,256,1);
+}
+.zcStatus{
+	width: 100%;
+	height: 0.53rem;
+	line-height: 0.53rem;
+}
+.zcStatus a{
+	width: 1.04rem;
+	height: 0.45rem;
+	line-height: 0.45rem;
+	text-align: center;
+	border: 1px solid #ff3d00;
+	font-size: 0.29rem;
+	color: #ff3d00;
+}
+.zcStatus span{
+	font-size: 0.34rem;
+	color: #666666;
+}
+.zcStatus span>span{
+	font-size: 0.42rem;
+	color: #e73b05;
+}
+.zcPro{
+	height: 2.2em;
+	margin-top: 0.06rem;
+	margin-bottom: 0.13rem;
+	font-size: 0.4rem;
+	line-height: 1.2em;
+	color: #333333;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.zcIntro{
+	background-color: rgba(245,245,245,1);
+}
+.zcIntro li{
+	float: left;
+	display: table;
+	width: 33.33%;
+	height: 1.17rem;
+	text-align: center;
+	position: relative;
+}
+.zcIntro li>div{
+	display: table-cell;
+	vertical-align: middle;
+}
+.zcIntro li>div span:first-child{
+	font-size: 0.37rem;
+	line-height: 0.37rem;
+	color: #333333;
+	display: block;
+}
+.zcIntro li>div span:last-child{
+	font-size: 0.26rem;
+	color: #666666;
+}
+.zcDetailProcess{
+	margin-top: 0.4rem;
+	height: 0.53rem;
+	margin-bottom: 0.13rem;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.zcDetailProcess>span:first-child{
+	font-size: 0.34rem;
+	color: #9e9e9e;
+}
+.processNum{
+	font-size: 0.34rem;
+	color: #ff3d00;
+}
+.processBar{
+	display: inline-block;
+	width: 6.66rem;
+	height: 0.13rem;
+	position: relative;
+	border-radius: 0.06rem;
+	background-color: rgba(199,199,199,1);
+}
+.processBar span{
+	position: absolute;
+	top: 0;
+	left: 0;
+	/*width:80%;*/
+	height: 0.13rem;
+	border-radius: 0.06rem;
+	background: url(../images/zc_detailprocessbar.png) no-repeat center;
+	background-size: cover;
+}
+/*活动选择*/
+.chooseParty{
+	padding: 0 0.26rem;
+	margin: 0.13rem 0;
+	height: 1.17rem;
+	line-height: 1.17rem;
+	background-color: rgba(256,256,256,1);
+}
+.chooseParty>span{
+	width: 20%;
+	font-size: 0.37rem;
+	color: #333333;
+}
+#choosePartyId{
+	width: 80%;
+	height: 0.6rem;
+	margin-top: 0.285rem;
+	overflow: hidden;
+}
+#choosePartyId li{
+	float: left;
+	margin-right: 0.4rem;
+	width: 1.3rem;
+	height: 0.58rem;
+	line-height: 0.58rem;
+	text-align: center;
+	border-radius: 3px;
+}
+#choosePartyId li:after{
+	border-color: #DDDDDD;
+}
+#choosePartyId li a{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	color: #c7c7c7;
+	border: 1px solid #DDDDDD;
+}
+.chooseActive a{
+	color: #ff3d00 !important;
+	border-color: #ff3d00 !important;
+}
+/*市场价*/
+.marlPrice{
+	width: 100%;
+	height: 1.17rem;
+	line-height: 1.17rem;
+	font-size: 0.37rem;
+	color: #333333;
+	margin-top: 0.2rem;
+	padding: 0 0.26rem;
+	background-color: rgba(256,256,256,1);
+	border-bottom: 1px solid #DDDDDD;
+	overflow: hidden;
+}
+.marlPrice>span{
+	font-size: 0.48rem;
+	color: #f40808;
+}
+.zcPriceList{
+	/*margin-top: 0.2rem;*/
+	background-color: rgba(256,256,256,1);
+	width: 100%;
+}
+.zcPriceList li{
+	width: 100%;
+	height: 1.17rem;
+	padding: 0 0.26rem;
+	line-height: 1.17rem;
+	border-bottom: 1px solid #DDDDDD;
+}
+.zcTime{
+	font-size: 0.37rem;
+	color: #333333;
+}
+.zcTime>span{
+	font-size: 0.37rem;
+	color: #ff3d00;
+}
+.zcresult{
+	font-size: 0.48rem;
+	color: #f40808;
+}
+.countDown{
+	width: 100%;
+	height: 1.17rem;
+	background-color: rgba(256,256,256,1);
+	border-top: 1px solid #DDDDDD;
+	border-bottom:1px solid #DDDDDD;
+	line-height: 1.17rem;
+	overflow: hidden;
+}
+.countDown>p{
+	font-size: 0.37rem;
+	color: #333333;
+}
+.countDown i{
+	display: inline-block;
+	width:0.69rem;
+	height: 0.69rem;
+	border-radius: 0.04rem;
+	line-height: 0.69rem;
+	text-align: center;
+	background-color: rgba(255,61,0,1);
+	font-size: 0.48rem;
+	color: #FFFFFF;
+	vertical-align: middle;
+}
+#timer{
+	min-width: 2.8rem;
+	height: 100%;
+	background-color: rgba(255,61,0,1);
+	color: #FFFFFF;
+	font-size: 0.34rem;
+	text-align: center;
+	padding: 0 0.08rem;
+}
+
+/*数量库存*/
+.stockBox{
+	padding: 0 0.26rem;
+	height: 1.17rem;
+	line-height: 1.17rem;
+	background-color: rgba(255,255,255,1);
+	margin-top: 0.2rem;
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.stockBox>p{
+	font-size: 0.37rem;
+	color: #9e9e9e;
+}
+.stockBox>p span:first-child{
+	color: #333333;
+}
+.numberBox{
+	height: 100%;
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	border: 1px solid #333333;
+	border-radius: 3px;
+}
+.numberBox span,.numberBox input{
+	height: 0.66rem;
+	line-height: 0.66rem;
+	text-align: center;
+	font-size: 0.34rem;
+}
+.numberBox span{
+	width: 0.66rem;
+	-webkit-tap-highlight-color:rgba(0,0,0,1) !important;
+	color: #666666;
+}
+.numberBox span.minus{
+	margin-top: 2px;
+}
+.numberBox input{
+	width: 1.13rem;
+	height: 0.66rem;
+	border-color: #333333;
+	border-width:1px;
+	border-top: 0;
+	border-bottom: 0;
+	border-radius: 0;
+}
+/*tab切换*/
+.zcTab{
+	width: 100%;
+	height: 1.2rem;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: nowrap;
+	background-color: rgba(256,256,256,1);
+	margin-top: 0.2rem;
+	border-bottom:1px solid #DDDDDD;
+}
+.zcTab li{
+	width: 33.33%;
+	height: 100%;
+	text-align: center;
+	line-height: 1.2rem;
+	position:relative;
+}
+.zcTab li a{
+	display: inline-block;
+	width: 80%;
+	height: 100%;
+	font-size: 0.37rem;
+	color: #333333;
+	text-align: center;
+	line-height: 1.2rem;
+	border-bottom: 2px solid transparent;
+}
+.zcTab li em,.zcIntro li em{
+	position: absolute;
+	top: 50%;
+	right: 0;
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	width: 1px;
+	height: 0.48rem;
+	background-color: rgba(231,231,231,1);
+}
+.zcTabActive a{
+	color: #FF3D00 !important;
+	border-bottom: 2px solid #FF3D00 !important;
+}
+.comzc{
+	background-color: rgba(256,256,256,1);
+}
+/*详情图*/
+.zcProgramDetail{
+	padding: 0 0.26rem;
+}
+.zcProgramDetail img{
+	width: 100%;
+	vertical-align: top;
+}
+/*项目进展*/
+.programProcess{
+	padding: 0.26rem;
+}
+.programProcess li{
+	width: 100%;
+	height: 1.1rem;
+	position: relative;
+}
+.programTime{
+	width: 1.68rem;
+	font-size: 0.29rem;
+	color: #666666;
+	text-align: center;
+}
+.programTxt{
+	width: 7.33rem;
+}
+.firmName{
+	font-size: 0.34rem;
+	color: #333333;
+}
+.buyNum{
+	font-size: 0.34rem;
+	color: #a8a8a8;
+	margin-left: 0.08rem;
+}
+.buyNum span{
+	font-size: 0.34rem;
+	color: #FF3D00;
+}
+.programTxt p:last-child{
+	font-size: 0.32rem;
+	color: #666666;
+}
+.piontBox{
+	position:absolute;
+	left: 1.8rem;
+	top: 0.08rem;
+	text-align: center;
+}
+.piont{
+	display: block;
+	width: 0.18rem;
+	height: 0.18rem;
+	border-radius: 0.09rem;
+	background-color: rgba(199,199,199,1);
+}
+.firstPiont{
+	background-color: rgba(234,93,16,1) !important;
+}
+.line{
+	display: inline-block;
+	width: 2px;
+	height: 1rem;
+	background-color: rgba(199,199,199,1);
+}
+/*公司排名*/
+.firmRank{
+	padding: 0.26rem;
+}
+.firmRank li{
+	width: 100%;
+	height: 2.88rem;
+	line-height: 2.88rem;
+	text-align: center;
+	margin-bottom: 0.13rem;
+	position: relative;
+}
+.num1{
+	background: url(../images/firm_rank01.png) no-repeat center;
+	background-size: cover;
+	font-size: 0.53rem;
+	color: #ffe44f;
+}
+.num1 span,.num2 span,.num3 span{
+	position: absolute;
+	bottom:0.26rem;
+	right: 0.13rem;
+	font-size: 0.4rem;
+	line-height: 0.4rem;
+}
+.num2{
+	background: url(../images/firm_rank02.png) no-repeat center;
+	background-size: cover;
+	font-size: 0.53rem;
+	color: #8dc5fe;
+}
+.num3{
+	background: url(../images/firm_rank03.png) no-repeat center;
+	background-size: cover;
+	font-size: 0.53rem;
+	color: #e49e8d;
+}
+
+/*底部*/
+.bottomHandle{
+	position: fixed;
+	bottom: 0;
+	left: 0 ;
+	right: 0;
+	width: 100%;
+	height: 1.2rem;
+	border-top:1px solid #DDDDDD;
+	background-color: rgba(256,256,256,1);
+	padding-left: 0.26rem;
+}
+.addOrder{
+	height: 100%;
+	display: table;
+}
+.addOrderBox{
+	display: table-cell;
+	vertical-align: middle;
+}
+.addOrderBox>p{
+	text-align: center;
+	line-height: 0.4rem;
+}
+.addOrderBox>p span{
+	font-size: 0.4rem;
+	color: #717077;
+}
+.addOrderBox>span{
+	font-size: 0.29rem;
+	color: #7a7980;
+	line-height: 0.29rem;
+}
+.userFun a{
+	height: 1.2rem;
+	line-height: 1.2rem;
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 0.4rem;
+}
+#immBuy{
+	width: 2.9rem;
+	height: 100%;
+	background-color: rgba(220,195,54,1);
+}
+#subBuy{
+	width: 2.9rem;
+	height: 100%;
+	background-color: rgba(255,61,0,1);
+}
+.proBox{
+	padding-bottom: 1.4rem;
+}
+/*禁止点击*/
+.subBuyDisablied{
+	background-color: rgba(199,199,199,1) !important;
+}
+/*遮罩层*/
+#mark{
+	position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.3);
+}
+/*暂无数据*/
+.noData{
+	text-align: center;
+	line-height: 1.1rem;
+	font-size: 0.4rem;
+	color: #FF3D00;
+}
+.noData>span{
+	font-size: 0.4rem;
+}

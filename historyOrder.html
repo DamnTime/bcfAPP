@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link href="css/mui.css" rel="stylesheet"/>
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/historyOrder.css" />
+	</head>
+	<body>
+		<header class="historyHearder">
+			<div class="headerTitle">
+				<ul id="classItem">
+					<li class="historyActive" data-orderId='0'>
+						<a href="javascript:void(0)">全部</a>
+					</li>
+					<li data-orderId='1'> 
+						<a href="javascript:void(0)">未失效</a>
+					</li> 
+					<li data-orderId='2'>
+						<a href="javascript:void(0)">已失效</a>
+					</li>
+				</ul> 
+				<a href="javascript:void(0)" class="mui-action-back mui-icon mui-icon-left-nav"></a>
+			</div> 
+			
+			
+			<div id="classDetail">
+				<!--全部-->
+				<div class="img_scroll">
+					<div class="img_box" id="allOrder">
+						<a href="javascript:void(0)" class="normalImg bigImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+					</div>
+				</div>
+				
+				<!--未失效-->
+				<div class="img_scroll" style="display: none;">
+					<div class="img_box" id="hasEffc">
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg bigImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+					</div>
+				</div>
+				
+				<!--已失效-->
+				<div class="img_scroll" style="display: none;">
+					<div class="img_box" id="loseEffc">
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg bigImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+						<a href="javascript:void(0)" class="normalImg">
+							<img src="images/history_img01.png"/>
+						</a>
+					</div>
+				</div>
+			</div>
+			
+		</header> 
+		<!--阴影部分--> 
+		<div class="shindow"></div>
+		
+		<!--主体-->
+		<div class="mui-content">
+			
+			<div id="orderClassBox">
+				<!--全部-->
+				<div class="classBox">
+					<ul class="orderIntroList">
+						<li>
+							<span class="lf">小区安防系统配单</span>
+							<span class="rf"> 
+								<span class="iconfont icon-shanchu"></span>
+								<span class="iconfont icon-bianji"></span>
+							</span>
+						</li>
+						<li> 
+							<span class="lf">天地伟业拼接屏</span>
+							<span class="rf"> 
+								数量: <span class="orderCount">1</span>
+									<span>&yen;298.00</span>
+							</span>
+						</li>
+						<li> 
+							<span class="lf">天地伟业拼接屏</span>
+							<span class="rf"> 
+								数量: <span class="orderCount">1</span>
+									<span>&yen;298.00</span>
+							</span>
+						</li>
+						<li> 
+							<span class="lf">全部</span>
+							<span class="rf"> 
+								数量: <span class="orderCount">1</span>
+									<span>&yen;298.00</span>
+							</span>
+						</li>
+					</ul>
+				</div>
+				
+				<!--未失效-->
+				<div class="classBox" style="display: none;">
+					<ul class="orderIntroList">
+						<li>
+							<span class="lf">小区安防系统配单</span>
+							<span class="rf"> 
+								<span class="iconfont icon-shanchu"></span>
+								<span class="iconfont icon-bianji"></span>
+							</span>
+						</li>
+						<li> 
+							<span class="lf">天地伟业拼接屏</span>
+							<span class="rf"> 
+								数量: <span class="orderCount">1</span>
+									<span>&yen;298.00</span>
+							</span>
+						</li>
+						<li> 
+							<span class="lf">天地伟业拼接屏</span>
+							<span class="rf"> 
+								数量: <span class="orderCount">1</span>
+									<span>&yen;298.00</span>
+							</span>
+						</li>
+						<li> 
+							<span class="lf">未失效</span>
+							<span class="rf"> 
+								数量: <span class="orderCount">1</span>
+									<span>&yen;298.00</span>
+							</span>
+						</li>
+					</ul>
+				</div>
+				<!--已失效-->
+				<div class="classBox" style="display: none;">
+					<ul class="orderIntroList">
+						<li>
+							<span class="lf">小区安防系统配单</span>
+							<span class="rf"> 
+								<span class="iconfont icon-shanchu"></span>
+								<span class="iconfont icon-bianji"></span>
+							</span>
+						</li>
+						<li> 
+							<span class="lf">天地伟业拼接屏</span>
+							<span class="rf"> 
+								数量: <span class="orderCount">1</span>
+									<span>&yen;298.00</span>
+							</span>
+						</li>
+						<li> 
+							<span class="lf">天地伟业拼接屏</span>
+							<span class="rf"> 
+								数量: <span class="orderCount">1</span>
+									<span>&yen;298.00</span>
+							</span>
+						</li>
+						<li> 
+							<span class="lf">已失效</span>
+							<span class="rf"> 
+								数量: <span class="orderCount">1</span>
+									<span>&yen;298.00</span>
+							</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+		<!--立即购买-->
+		<div class="comImmBtn canImm">
+			<button type="button">立即购买 <span>(&yen;298.00)</span></button>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/base.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			
+			
+			//全部ajax
+			function allOrder(){
+				
+				//渲染全部的DOM
+			}
+			//未失效ajax
+			function allOrder(){
+				
+				//渲染未失效的DOM
+			}
+			//已失效ajax
+			function allOrder(){
+				
+				//渲染已失效的DOM
+			}
+			
+			//tab切换并分别加载各item第一项
+			mui('#classItem').on('tap','li',function(){
+				h(this).addClass('historyActive').siblings().removeClass('historyActive');
+				var index=parseInt(h(this).attr('data-orderId'));
+				//图片列表
+				h('#classDetail').find('.img_scroll').eq(index).show().siblings().hide();
+				//图片列表对应的文字
+				h('#orderClassBox').find('.classBox').eq(index).show().siblings().hide();
+				switch (index){
+					case 1:
+						break;
+					case 2:
+						break;
+					case 3:
+						break;
+					default:
+						break;
+				}
+			});
+			//为各分类下图片添加单击事件
+			mui('#allOrder').on('tap','a',function(){
+				h(this).addClass('bigImg').siblings().removeClass('bigImg');
+				//调用对应的方法
+				
+			});
+			
+			mui('#hasEffc').on('tap','a',function(){
+				h(this).addClass('bigImg').siblings().removeClass('bigImg');
+				//调用对应的方法
+				
+			});
+			
+			mui('#loseEffc').on('tap','a',function(){
+				h(this).addClass('bigImg').siblings().removeClass('bigImg');
+				//调用对应的方法
+				
+			});
+			
+			//删除
+			mui('#orderClassBox').on('tap','.icon-shanchu',function(){
+				var btnArray = ['否', '是'];
+                mui.confirm('确认删除？', '提示', btnArray, function(e) {
+                    if (e.index == 1) {
+                        console.log(1);
+                        //
+                    } else {
+                        console.log(2);
+                    }
+                })
+			});
+		</script>
+	</body>
+</html>

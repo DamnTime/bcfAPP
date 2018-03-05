@@ -1,0 +1,77 @@
+html,body{
+	width: 100%;
+	height: 100%;
+	margin: 0 ;
+	padding: 0;
+	background-color: rgba(249,247,246,1);
+}
+
+/*主体*/
+.error{
+	width: 100%;
+	height: auto;
+	background-color: rgba(249,247,246,1);
+	padding: 0 0.7rem;
+}
+.errorMsg{
+	font-size: 0.37rem;
+	font-weight: 600;
+	line-height: 1.8rem;
+}
+.mui-content form>ul{
+	width: 100%;
+	height: auto;
+	background-color: rgba(255,255,255,1);
+}
+.mui-content form>ul>li{
+	width: 100%;
+	height: 1.22rem;
+	display: flex;
+	justify-content: space-between;
+	line-height: 1.17rem;
+	color: rgba(51,51,51,1);
+	font-size: 0.37rem;
+	position: relative;
+	padding: 0 0.26rem;
+}
+.mui-content form>ul>li>label{
+	position: absolute;
+	/*left: 0.4rem;*/
+}
+.mui-content form>ul>li>input{
+	width: 100%;
+	height: 1.2rem;
+	color: rgba(158,158,158,1);
+	text-align: right;
+	outline: none;
+	border: none;
+	font-size: 0.37rem;
+	margin-bottom: 0;
+	padding-left:3rem;	
+}
+/*.mui-content form>ul>li>input.border:after{
+	border-color: transparent;
+}*/
+.mui-content form>ul>li>div{
+	color: rgba(158,158,158,1);
+}
+.mui-content form>ul>li>div>span.icon-s-right{
+	font-size: 0.33rem;
+}
+.contractorSubmit{
+	background-color: rgba(249,247,246,1);
+	text-align: center;
+}
+input[type=button]{
+	display: inline-block;
+	width: 7.86rem;
+	height: 1.04rem;
+	background-color: rgba(255,61,0,1);
+	color: rgba(255,255,255,1);
+	font-size: 0.4rem;
+	margin-top: 0.93rem;
+	text-align: center;
+	/*line-height: 1rem;*/
+	outline: none;
+	border: none;
+}

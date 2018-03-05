@@ -1,0 +1,600 @@
+html,body{
+	width: 100%;
+	height: 100%;
+	margin: 0 ;
+	padding: 0;
+	background-color: rgba(249,247,246,1);
+}
+.content{
+	width: 100%;
+	height: 100%;
+}
+.wrap{
+	width: 100%;
+	height: 4.86rem;
+	background: url(../images/bg_person.png) no-repeat center;
+	background-size: cover;
+	position: relative;
+}
+.personMsg{
+	position: absolute;
+	width: 100%;
+	top: 52%;
+	left: 50%; 
+	transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	display: -webkit-flex;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.userImg{
+	text-align: center;
+	margin-right: 0.13rem;
+}
+.userImg img{
+	width: 1.86rem;
+	height: 1.86rem;
+}
+.userName{
+	color: #FFFFFF;
+}
+.userName>span{
+	font-size: 18px;
+	font-weight: bold;
+}
+.userName>p{
+	font-size: 14px;
+}
+.userHandle{
+	position: absolute;
+	bottom:0;
+	left: 50%;
+	transform: translate(-50%,50%);
+	-moz-transform: translate(-50%,50%);
+	-ms-transform: translate(-50%,50%);
+	-webkit-transform: translate(-50%,50%);
+	width: 9.86rem; 
+	height: 1.97rem;
+	background: url(../images/mine_bg_01.png) no-repeat center;
+	background-size: cover;
+}	
+.userHandle>ul{
+	display: flex;
+	width: 100%;
+	height: 100%;
+	justify-content: space-around;
+	flex-wrap: nowrap;
+	align-content: center;
+}
+.userHandle>ul>li{
+	width: 25%;
+	height: 80%;
+	text-align: center;
+	display: table;
+}
+.userHandle>ul>li>a{
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	height: 100%;
+}
+.allOrderIcon{
+	display: inline-block;
+	width: 0.96rem;
+	height: 0.96rem;
+	}
+.Icon1{
+	background: url(../images/all_order.png) no-repeat center;
+	background-size: cover;
+	-webkit-background-size: cover;
+}
+.Icon2{
+	background: url(../images/wait_pay.png) no-repeat center;
+	background-size: cover;
+	-webkit-background-size: cover;
+}
+.Icon3{
+	background: url(../images/receipt.png) no-repeat center;
+	background-size: cover;
+	-webkit-background-size: cover;
+}
+.Icon4{
+	background: url(../images/be_evaluated.png) no-repeat center;
+	background-size: cover;
+	-webkit-background-size: cover;
+}
+.allOrder{
+	display: block;
+	text-align: center;
+	width: 100%;
+	font-size:  0.34rem;
+	line-height: 0.34rem;
+	color: #333333;
+}
+.mineList{
+	margin-top: 1.33rem !important;
+	padding-bottom: 0.13rem;
+}
+.mineList ul{
+	background-color: rgba(255,255,255,1);
+}
+.mineList li{
+	height: 1.2rem;
+	line-height: 1.2rem;
+	border-bottom: 1px solid #E0DEDD;
+}
+.mineList li a{
+	display: block;
+	width: 9.46rem;
+	height: 100%;
+	margin: 0 auto;
+	font-size: 0.37rem;
+	color: #333333;
+}
+.arrow{
+	float: right;
+	font-size: 0.37rem;
+	font-weight: bold;
+	color: #9E9E9E;
+}
+.marTop{
+	margin-top: 0.26rem;
+}
+.mineicon{
+	font-size: 0.46rem;
+	color: #333333 !important;
+}
+/*.icon-shouhuodizhi{
+	font-size: 0.66rem;
+}*/
+.mui-navigate-right{
+	font-size: 0.37rem;
+	color: #333333;
+}
+.contactUs{
+	margin-top: 0.29rem;
+}
+
+
+/*个人资料*/
+.personMsgArea{
+	width: 100%;
+	height: 1.7rem;
+	padding-top: 0.93rem;
+	box-sizing: border-box;
+	background-color: rgba(255,61,0,1);
+}
+.perMsgTop,.perMsgBottom{
+	margin-top: 0.4rem;
+}
+.perMsgTop li,.perMsgBottom li{
+	border-bottom: 1px solid #CCCCCC;
+	height: 1.17rem;
+	line-height: 1.17rem;
+	background-color: rgba(256,256,256,1);
+	overflow: hidden;
+	position: relative;
+}
+.perMsgTop li label{
+	position: absolute;
+	left: 0.26rem;
+	width: 2rem;
+	height: 100%;
+}
+.personMsgTxt{
+	font-size: 0.37rem;
+	color: #333333;
+}
+.row{
+	padding: 0 0.26rem;
+}
+.perMsgTop li input[type="text"]{
+	width: 100%;
+	height: 1rem;
+	font-size: 0.37rem;
+	vertical-align: middle;
+	color: #9e9e9e;
+	border: 0;
+	padding-left: 2rem;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.sexName{
+	margin-right: 0.13rem;
+	color: #9e9e9e;
+	font-size: 0.37rem;
+}
+.perMsgBottom li{
+	padding: 0 0.26rem;
+}
+.perMsgBottom li>div{
+	height: 100%;
+}
+.perMsgArrow{
+	font-size: 0.34rem;
+	color: #9e9e9e;
+	font-weight: bold;
+}
+
+/*收货地址*/
+.addressList>li{
+	padding: 0.26rem;
+	background-color: rgba(256,256,256,1);
+	margin-top: 0.4rem;
+	position: relative;
+}
+.addressItem{
+	display: flex;
+	width: 100%;
+	height: 1.73rem;
+	flex-wrap: nowrap;
+	align-content: center;
+}
+.addressItem .beautyCheck label{
+	left: -0.26rem;
+	padding-left: 0.26rem;
+	width: 1.06rem;
+}
+.addressItem>li{
+	width: 100%;
+	height: 100%;
+}
+.addressItem>li:first-child,.addressItem>li:last-child{
+	width: 10%;
+}
+.middel{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+}
+.middel1{
+	/*left: 0.26rem;*/
+}
+.middel2{
+	width: 8%;
+	right: 0;
+	border-left: 1px solid #CCCCCC;
+}
+.uName,.uPhone{
+	font-size: 0.48rem;
+	color: #333333;
+	font-weight: 400;
+}
+.uName{
+	margin-right: 0.66rem;
+}
+.defaultAdd{
+	position: relative;
+	margin-left: 0.58rem;
+}
+.default{
+	display: inline-block;
+	width: 1.01rem;
+	height: 0.4rem;
+	line-height: 0.4rem;
+	text-align: center;
+	font-size: 0.32rem;
+	color: #ff3d00;
+}
+.uAddress{
+	font-size: 0.34rem;
+	color: #666666;
+}
+.del{
+	width: 0.61rem;
+	height: 0.61rem;
+	border-radius: 50%;
+	border: 1px solid #ff3d00;
+	line-height: 0.61rem;
+	text-align: center;
+	color: #ff3d00;
+	float: right;
+}
+.del span{
+	font-size: 0.4rem;
+	color: #ff3d00;
+}
+.validationErr{
+	border: 1px solid red !important;
+}
+
+/*美化checkbox*/
+.beautyCheck{
+	height: 100%;
+	position: relative;
+}
+.beautyCheck input[type="radio"]:checked + label i{
+  background:#FF3D00;
+  color: #ffffff;
+}
+.beautyCheck label{
+	position: absolute;
+	top: 50%;
+	left: 0.06rem;
+	width: 0.66rem;
+	height: 0.66rem;
+	text-align: left;
+	line-height: 0.66rem;
+	transform:translateY(-50%);
+	-ms-transform:translateY(-50%); 	
+	-moz-transform:translateY(-50%); 	
+	-webkit-transform:translateY(-50%); 
+	-o-transform:translateY(-50%);
+}
+.beautyCheck input[type="radio"]{
+  display: none;
+}
+.beautyCheck label i {
+  font-size:0.26rem;
+  font-style:normal;
+  display:inline-block;
+  width:0.42rem;height:0.42rem;
+  border-radius: 0.21rem;
+  border: 1px solid #FF3D00;
+  text-align:center;
+  line-height:0.42rem;
+  color:transparent;
+  vertical-align:middle;
+}
+/*删除按钮*/
+.delBtn{
+	font-size: 0.48rem !important;
+    color: #FFFFFF !important;
+    background-color: rgba(249,6,6,1) !important;
+}
+
+/*新建收货地址*/
+.addBtn{
+	position:fixed;
+	bottom:0.53rem;
+	left: 50%;
+	transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	width: 7.86rem;
+	height: 1.04rem;
+}
+.addBtn input[type="button"],.addBtn a{
+	display: block;
+	width: 7.86rem;
+	height: 1.04rem;
+	background-color: rgba(255,61,0,1);
+	color: #FFFFFF;
+	font-size: 0.4rem;
+	border-radius: 3px;
+	border: 0;
+}
+.addBtn a{
+	line-height: 1.04rem;
+	text-align: center;
+}
+/*switch开关*/
+/*.switchBtn{
+	position:relative;
+	height: 1.17rem;
+	line-height: 1.17rem;
+}*/
+.flexBox>input{
+	vertical-align: middle;
+	padding: 0 0.26rem;
+	height: 0.62rem;
+	line-height: 0.62rem;
+	border-radius: 0.31rem;
+	font-size: 12px;
+	color: #FFFFFF;
+	background-color: rgba(255,61,0,1);
+	border: 0;
+}
+.flexBox{
+	display: flex;
+	display: -webkit-flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.perMsgTop input::-webkit-input-placeholder{color:#c7c7c7;font-size: 0.34rem;}
+/*修改密码*/
+.formList{
+	margin-top: 0.4rem;
+	padding: 0 0.26rem;
+}
+.formList li{
+	width: 100%;
+	height: 1.17rem;
+	background-color: rgba(256,256,256,1);
+	margin-bottom: 0.4rem;
+	border-radius: 4px;
+	padding: 0.06rem 0;
+	box-sizing: border-box;
+	position: relative;
+}
+.formList li input{
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	border:0;
+	padding-left: 2.13rem;
+	font-size: 12px;
+	color: #666666;
+}
+.formList li label{
+	width: 2rem;
+	position: absolute;
+	top: 50%;
+	left: 0.26rem;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	font-size: 12px;
+	color: #666666;
+	font-weight: 400;
+}
+.sureBtn{
+	text-align: center;
+}
+.sureBtn input[type=button]{
+	display: inline-block;
+	width: 7.86rem;
+	height: 1.04rem;
+	background-color: rgba(255,61,0,1);
+	color: #FFFFFF;
+	font-size: 14px;
+	border-radius: 3px;
+	padding: 0;
+	border: 0;
+}
+.erweimaBox{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	width: 6.66rem;
+	background-color: rgb(256,256,256);
+	z-index: 999;
+	border-radius: 0.17rem;
+}
+.erweimaTitle{
+	text-align: center;
+	padding: 0.2rem;
+	font-size: 0.42rem;
+	font-weight: 800;
+	color: #333333;
+	border-bottom: 1px solid #ddd;
+}
+.erweimaImg{
+	margin-top: 0.21rem;
+	text-align: center;
+	padding: 0.34rem;
+}
+.erweimaImg img{
+	width: 4rem;
+}
+#mark{
+	position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 900;
+    background-color: rgba(0,0,0,.3);
+}
+.isLoginBox a{
+	color: #FFFFFF;
+	font-size: 14px;
+}
+ 
+
+/*忘记密码*/
+.back{
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding-left: 0.26rem;
+	width: 1.33rem;
+	height: 0.8rem;
+	text-align: left;
+}
+.back>span{
+	font-size: 0.53rem;
+	color: #FFFFFF;
+}
+.forgetPwdContent{
+	padding: 0.26rem;
+	border-bottom: 1px solid #DDDDDD;
+	margin-bottom: 0.13rem;
+}
+.handleTitle{
+	font-size: 0.37rem;
+	color: #333333;
+	margin-bottom: 0.26rem;
+}
+.forgetInputList li{
+	margin-bottom: 0.4rem;
+	background-color: rgba(256,256,256,1);
+	line-height: 1.17rem;
+	padding-left: 0.13rem;
+	border: 1px solid #DDDDDD;
+	border-radius: 0.08rem;
+}
+.forgetInputList li:first-child{
+	position: relative;
+}
+#getCode{
+	position: absolute;
+	top: 50%;
+	right: 0.13rem;
+	transform:translateY(-50%);
+	-ms-transform:translateY(-50%); 	
+	-moz-transform:translateY(-50%); 	
+	-webkit-transform:translateY(-50%); 
+	-o-transform:translateY(-50%); 
+	transform: translateY(-50%);
+	width: 2.24rem;
+	height: 0.69rem;
+	text-align: center;
+	line-height: 0.69rem;
+	border-radius: 0.34rem;
+	padding-left: 0;
+	border: 0;
+	font-size: 0.32rem;
+	background-color: rgba(255,61,0,1);
+	color: #FFFFFF;
+	padding: 0;
+}
+.forgetInputList li input{
+	height: 0.93rem;
+	line-height: 0.93rem;
+	border: 0;
+	width: 80%;
+	padding-left: 0.26rem;
+	font-size: 0.37rem;
+}
+.forgetPwdBtn{
+	margin-top: 0.93rem;
+	text-align: center;
+}
+.forgetPwdBtn input[type=button]{
+	width: 7.86rem;
+	height: 1.04rem;
+	font-size: 0.4rem;
+	border: 0;
+	border-radius: 0.08rem;
+}
+.forgetErr{
+	background-color: rgba(239,239,239,1) !important;
+	color: #9e9e9e !important;
+}
+.forgetSucc{
+	background-color: rgba(255,61,0,1) !important;
+	color: #FFFFFF !important;
+}
+.noUseCode{
+	background-color: rgba(239,239,239,1) !important;
+	color: #9e9e9e !important;
+}
+#phoneNum{
+	width: 58% !important;
+}
+
+/*退出当前账号*/
+.quit{
+	width: 100%;
+	margin-top: 0.48rem;
+	text-align: center; 
+}
+.quit input[type=button]{
+	display: inline-block;
+	width: 7.86rem;
+	height: 1.04rem;
+	border-radius: 0.05rem;
+	background-color: rgba(255,61,0,1);
+	color: #FFFFFF;
+	font-size: 0.4rem;
+	border: 0;
+}

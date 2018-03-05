@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.all.css" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/businessSucc.css" />
+	</head>
+
+	<body>
+		<div class="mui-content padding20">
+			<div class="busiBox">
+				<div class="busiToast">
+					<span class="iconfont icon-chenggong"></span>
+					<span>提交成功</span>
+				</div>
+				<ul class="busiList">
+					<li>您的工程商认证信息提交成功</li>
+					<li>我们将在两个工作日内日进行审核，并告知审核结果</li>
+					<li>请耐心等待，谢谢!</li>
+				</ul>
+			</div>
+			<div class="returnHome">
+				<a href="javascript:void(0);" id="returnHome">返回首页</a>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/h.min.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script type="text/javascript">
+			mui.init({
+
+			});
+			mui.plusReady(function() {
+				var wv = plus.webview.currentWebview();
+				wv.setStyle({
+					'popGesture': 'none'
+				});
+				//回到首页
+				h('#returnHome').tap(function() {
+					var allWv = plus.webview.all();
+					var _self = plus.webview.currentWebview();
+					for(var i = 0, len = allWv.length; i < len; i++) {
+						if(allWv[i].id == _self.id) {
+							continue;
+						} else {
+							allWv[i].close('none');
+						}
+					}
+					var creatMain = plus.webview.create('main.html', 'main.html');
+					creatMain.show('slide-in-left');
+					_self.close('slide-out-right');
+				});
+			});
+		</script>
+	</body>
+
+</html>

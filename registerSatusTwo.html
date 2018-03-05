@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/register.css" />
+	</head>
+
+	<body>
+		<!--<header>
+			<p class="title">
+				<a class="mui-action-back back">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</a>
+		    	<span id="title">设置密码</span>
+			</p>
+		</header> -->
+		<div class="mui-content">
+			<div class="padding20">
+				<ul class="registerList">
+					<li>
+						<label for="setPwd" class="loginLeft" placeholder="请输入6到20位字符">设置密码:</label>
+						<input type="password" id="setPwd" />
+					</li>
+					<li>
+						<label for="surePwd" class="loginLeft">确认密码:</label>
+						<input type="password" id="surePwd" />
+					</li>
+				</ul>
+				<div class="nextStatus">
+					<input id="pwdBtn" type="button" class="errNext" disabled="disabled" value="确定" />
+				</div>
+			</div>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				swipeBack: false
+			});
+			var totelData = {};
+			mui.plusReady(function() {
+				var slef = plus.webview.currentWebview();
+				slef.setStyle({
+					'popGesture': 'none',
+					scrollIndicator: 'none'
+				});
+				//再按一次退出应用
+				services.againQuite();
+				//获取前面的数据
+				totelData = JSON.parse(slef.constructor);
+				totelData.type = slef.type;
+			})
+			var password = null;
+			var passwordAgain = null;
+			//监听input框输入
+			var inputPwd = false;
+			var inputrePwd = false;
+			document.getElementById("setPwd").addEventListener('input', function() {
+				if(this.value.length > 0) {
+					inputPwd = true;
+					if(inputPwd && inputrePwd) {
+						h('#pwdBtn').removeAttr('disabled').removeClass('errNext').addClass('sucNext')
+					}
+				} else {
+					inputPwd = false;
+					if(inputPwd || inputrePwd) {
+						h('#pwdBtn').attr('disabled', 'true').removeClass('sucNext').addClass('errNext')
+					}
+				}
+			});
+			document.getElementById("surePwd").addEventListener('input', function() {
+				if(this.value.length > 0) {
+					inputrePwd = true;
+					if(inputPwd && inputrePwd) {
+						h('#pwdBtn').removeAttr('disabled').removeClass('errNext').addClass('sucNext')
+					}
+				} else {
+					inputrePwd = false;
+					if(inputPwd || inputrePwd) {
+						h('#pwdBtn').attr('disabled', 'true').removeClass('sucNext').addClass('errNext')
+					}
+				}
+			});
+			//点击提交按钮
+			h('#pwdBtn').tap(function() {
+				password = h('#setPwd').val();
+				passwordAgain = h('#surePwd').val();
+				if(!/^[0-9A-Za-z]{6,20}$/.test(password)) {
+					mui.alert('密码格式不正确!');
+					return false;
+				} else if(password != passwordAgain) {
+					mui.alert("两次密码输入不相同");
+					return false;
+				} else {
+					totelData.password = password;
+					totelData.passwordAgain = passwordAgain;
+					console.log(JSON.stringify(totelData));
+					mui.ajax(services.baseUrl + '/customer/register', {
+						data: services.Encrypt(JSON.stringify(totelData)),
+						beforeSend: function(request) {
+							services.beforeHeader(request);
+						},
+						type: 'post',
+						timeout: 20000,
+						success: function(data) {
+							var res = JSON.parse(services.Decrypt(data));
+							if(res.status == 200) {
+								mui.toast('注册成功');
+								setTimeout(function() {
+									mui.openWindow({
+										url: 'login.html',
+										id: 'login.html',
+										waiting: {
+											autoShow: true,
+											title: '正在加载...'
+										},
+										extras: {
+											isRegister: true
+										}
+									});
+								}, 1500)
+							} else {
+								mui.alert(res.msg);
+							}
+						},
+						error: function(xhr, type, errorThrown) {
+							mui.toast("系统繁忙请稍后重试");
+						}
+					});
+				}
+			});
+		</script>
+	</body>
+
+</html>

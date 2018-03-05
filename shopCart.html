@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/shopCart.css" />
+	</head>
+
+	<body>
+		<header>
+			<p>购物车</p>
+		</header>
+		<div class="mui-content">
+			<div class="shopCartMain" id='comContent' style="display: none;">
+				<ul class="container" id="shopCartBox">
+					<script type="text/html" id="shopCartList">
+						<%for( i = 0; i < model.outlines.length; i++) {%>
+						<li>
+							<div class="mui-row clearFloat shopCartList">
+								<div class="mui-col-xs-1 mui-col-sm-1 beautyCheck">
+									<%if(model.outlines[i].goodsType==2&&model.outlines[i].sysTime-model.outlines[i].endTime<0&&model.outlines[i].status==1) {%>
+									<input type="checkbox" id="isTick<%=i%>" value="<%=model.outlines[i].priceId%>" checked='true' class="singleInput">
+									<label for="isTick<%=i%>"><i>✓</i></label>
+									<%}%>
+									<%if(model.outlines[i].goodsType==0&&model.outlines[i].status==1){%>
+									<input type="checkbox" id="isTick<%=i%>" value="<%=model.outlines[i].priceId%>" checked='true' class="singleInput">
+									<label for="isTick<%=i%>"><i>✓</i></label>
+									<%}%>
+									<%if(model.outlines[i].goodsType==3&&model.outlines[i].status==1){%>
+									<input type="checkbox" id="isTick<%=i%>" value="<%=model.outlines[i].priceId%>" checked='true' class="singleInput">
+									<label for="isTick<%=i%>"><i>✓</i></label>
+									<%}%>
+									<%if(model.outlines[i].goodsType==1&&model.outlines[i].status==1){%>
+									<input type="checkbox" id="isTick<%=i%>" value="<%=model.outlines[i].priceId%>" checked="true" class="singleInput">
+									<label for="isTick<%=i%>"><i>✓</i></label>
+									<%}%>
+								</div>
+								<div class="mui-col-xs-3 mui-col-sm-3 proImg" data-url="<%=model.outlines[i].commodityId%>">
+									<img src="<%=model.outlines[i].pcimage%>" alt="" />
+									<!--<i class="proVal"></i>-->
+									<%if(model.outlines[i].status===2||model.outlines[i].status===3) {%>
+									<span>已下架</span>
+									<%}%>
+									<%if((model.outlines[i].sysTime-model.outlines[i].endTime)>0) {%>
+									<span>已过期</span>
+									<%}%>
+								</div>
+								<div class="mui-col-xs-8 mui-col-sm-8 proIntro">
+									<p class="proTxt">
+										<%=model.outlines[i].title%>
+									</p>
+									<div class="proPrice clearFloat">
+										<span class="lf">¥<span class="singlePrice"><%=(model.outlines[i].oldPrice/100).toFixed(2)%></span></span>
+										<div class="rf">
+											<span class="iconfont icon-jian">
+											
+										</span>
+											<input type="number" class="selectCount" value="<%=model.outlines[i].number%>" data-commodityId="<%=model.outlines[i].commodityId%>" data-priceId="<%=model.outlines[i].priceId%>"/>
+											<span class="iconfont icon-jia">
+											
+										</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<%}%>
+					</script>
+				</ul>
+				<!--结算-->
+				<div class="settleMent clearFloat">
+					<div class="total lf">
+						<span class="beautyCheck allSelectChk">
+							<input type="checkbox" id="isTick" checked='checked'>
+          					<label for="isTick1"><i>√</i></label>
+          					<span class="allSelectTxt"></span>全选
+						</span>&nbsp;
+						<span>合计:</span>
+						<span class="totalSettle" id="totalPrice"></span>
+					</div>
+					<div class="settleMentBtn rf">
+						<span class="delBtn" id="deleteBtn">删除</span>
+						<span class="settltBtn" id="jumpRefer" data-url="referOrder.html">结算</span>
+					</div>
+				</div>
+			</div>
+			<!--未登录-->
+			<div id="noRigester" style="display: none;">
+				<p>
+					<img src="images/fail_load.png"/>
+				</p>
+				<p>
+					您还未登录,请登录~
+				</p>
+			</div>
+			<!--购物车为空-->
+			<div id="nullShopCart" style="display: none;">
+				<p>
+					<img src="images/null_shopCart.png"/>
+				</p>
+				<p>
+					您的购物车空空如也
+				</p>
+			</div>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/viewsjs/shopCart.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

@@ -1,0 +1,434 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta content="telephone=no" name="format-detection">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/mescroll.min.css" />
+		<link rel="stylesheet" href="css/proDetail.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav proDetailHeader">
+			<div class="padding20 moreSeverice">
+				<div class="mui-row">
+					<div class="mui-col-xs-1 mui-col-sm-1 height100">
+						<a class="mui-action-back lf iconfont icon-chevron-copy-copy"></a>
+					</div>
+					<div class="mui-col-xs-10 mui-col-sm-10">
+						<ul class="tabList" id="tabL">
+							<li class="active">商品</li>
+							<li>详情</li>
+							<li>评价</li>
+						</ul>
+					</div>
+					<div class="mui-col-xs-1 mui-col-sm-1 height100">
+						<a href="javascript:void(0)" class="iconfont icon-shenglvehao rf" id="more"></a>
+					</div>
+				</div>
+				<div class="severBox" id="moreSe" style="display: none;">
+					<ul class="severiceList" id="severiceList">
+						<li data-index="0">
+							<a href="javascirpt:void(0)">
+								<i class="iconfont icon-shouye"></i> 首页
+							</a>
+						</li>
+						<!--<li>
+							<a href="javascirpt:void(0)">
+								<i class="iconfont icon-gouwuche-copy"></i> 购物车
+							</a>
+						</li>-->
+						<li data-index="2">
+							<a href="javascirpt:void(0)">
+								<i class="iconfont icon-kefu"></i> 客服
+							</a>
+						</li>
+						<!--<li>
+							<a href="javascirpt:void(0)">
+								<i class="iconfont icon-shouye"></i> 分享
+							</a>
+						</li>-->
+					</ul>
+					<span class="triangle"></span>
+				</div>
+			</div>
+		</header>
+		<div class="mui-content contentBox">
+			<div id="proIn" class="isShow mescroll" style="display: none;">
+				<script id="proInBox" type="text/html">
+					<!--商品-->
+					<div class="proIntro" id="proDetailImgList">
+						<div class="proDetailImg">
+							<div class="mui-slider">
+								<div class="mui-slider-group">
+									<%for( i = 0; i < model.imgList.length; i++) {%>
+									<div class="mui-slider-item">
+										<a href="javascript:void(0)" data-url="<%=model.imgList[i].url%>">
+											<img src="<%=model.imgList[i].url%>" />
+										</a>
+									</div>
+									<%}%>
+								</div>
+							</div>
+							<!--图片索引-->
+							<div class="picIndex">
+								<span id="currentIndex">1</span>/<span id="totalIndex"><%=model.imgList.length%></span>
+							</div>
+						</div>
+						<p class="proDetailTxt padding20">
+							<%=model.title%>
+						</p>
+					</div>
+					<!--市场价-->
+					<%if(model.goodsType === 0||model.goodsType === 3) {%>
+					<div class="markPrice padding20">
+						<p>
+							<span class="priceTxt">市场价 : </span>
+							<span class="priceNum" id="marketPrice"><%=model.pojos[0].price / 100==0?'面议':'¥'+(model.pojos[0].price / 100).toFixed(2)%></span>
+						</p>
+						<%if(userRole==1) {%>
+						<p>
+							<span class="priceTxt">专属价 : </span>
+							<span class="priceNum" id="businessPrice"><%=model.pojos[0].thirdPrice / 100==0?'面议':'¥'+(model.pojos[0].thirdPrice / 100).toFixed(2)%></span>
+						</p>
+						<%}%>
+					</div>
+					<%}%>
+					<div class="newPrice">
+						<!--商品特价-->
+						<%if(model.overTime && model.goodsType === 2) {%>
+						<div class="speProBox clearFloat" id="proSpeBox">
+							<div class="lf" id="proSpePriceBox">
+								<span class="spePriceTitle">特价商品</span>
+								<ul>
+									<li>
+										<span class="priceTxt">市场价 : </span>
+										<span class="speNewPrice" id="spePrice"><%=model.pojos[0].specialOffer/ 100==0?'面议':'¥'+(model.pojos[0].specialOffer/ 100).toFixed(2)%></span>
+										<span class="oldPrice" id="originalPrice">
+								<%=model.pojos[0].price/100==0?'面议':'¥'+(model.pojos[0].price/ 100).toFixed(2)%>
+								<i class="speLine"></i>
+								</span>
+									</li>
+									<%if(userRole==1) {%>
+									<li>
+										<span class="priceTxt">专属价 : </span>
+										<span class="speNewPrice" id="comPanySpePrice"><%=model.pojos[0].thirdSpecial/ 100==0?'面议':'¥'+(model.pojos[0].thirdSpecial/ 100).toFixed(2)%></span>
+										<span class="oldPrice" id="oriComSpePrice">
+								<%=model.pojos[0].thirdPrice/ 100==0?'面议':'¥'+(model.pojos[0].thirdPrice/ 100).toFixed(2)%> 
+								<i class="speLine"></i>
+								</span>
+									</li>
+									<%}%>
+								</ul>
+							</div>
+							<div class="rf">
+								<div class="timeBox">
+									<p>距活动结束</p>
+									<div id="timer">
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<%}%>
+						<!--如果是众筹商品-->
+						<%if(model.goodsType === 1 && model.stauts === 1 && (model.nowTime -model.overTime) < 0) {%>
+						<div class="zcProBox clearFloat" id="isGoZcBox">
+							<div class="lf">
+								<span class="spePriceTitle zcTitle">筹</span>
+								<ul>
+									<li>
+										<span class="priceTxt">
+												市场价 : 
+											</span>
+										<span class="priceNum" id="zcPrice"><%=model.pojos[0].price/ 100==0?'面议':'¥'+(model.pojos[0].price/ 100).toFixed(2)%>起</span>
+									</li>
+									<%if(userRole==1) {%>
+									<li>
+										<span class="priceTxt">
+												专属价 : 
+											</span>
+										<span class="priceNum" id="zcCompanyPrice"><%=model.pojos[0].thirdPrice/ 100==0?'面议':'¥'+(model.pojos[0].thirdPrice/ 100).toFixed(2)%>起</span>
+									</li>
+									<%}%>
+								</ul>
+							</div>
+							<div class="rf goZc">
+								<a href="javascript:void(0)" id="goZc" data-proid="<%=model.id%>">去众筹</a>
+							</div>
+						</div>
+						<%}%>
+					</div>
+					<!--参数选择-->
+					<%if(model.pojos[0].one&&model.pojos[0].price / 100!=0) {%>
+					<div class="paramBox clearFloat padding20">
+						<span class="lf">选择参数 : </span>
+						<ul class="lf" id="paramArea">
+							<li class="chooseParam paramActive">
+								<span data-price="<%=(model.pojos[0].price/100).toFixed(2)%>" data-spePrice="<%=(model.pojos[0].specialOffer/100).toFixed(2)%>" data-companyPrice="<%=(model.pojos[0].thirdPrice/100).toFixed(2)%>" data-speCompanyPrice="<%=(model.pojos[0].thirdSpecial/100).toFixed(2)%>" data-priceid="<%=model.pojos[0].id%>"><%=model.pojos[0].one%></span>
+							</li>
+							<%for( i = 1; i < model.pojos.length; i++) {%>
+							<li class="chooseParam">
+								<span data-price="<%=(model.pojos[i].price/100).toFixed(2)%>" data-spePrice="<%=(model.pojos[i].specialOffer/100).toFixed(2)%>" data-companyPrice="<%=(model.pojos[i].thirdPrice/100).toFixed(2)%>" data-speCompanyPrice="<%=(model.pojos[i].thirdSpecial/100).toFixed(2)%>" data-priceid="<%=model.pojos[i].id%>"><%=model.pojos[i].one%></span>
+							</li>
+							<%}%>
+						</ul>
+					</div>
+					<%}%>
+					<!--数量-->
+					<div class="buyNum padding20">
+						<div>
+							数量: <span class="count" id="changeCount">x1</span>
+						</div>
+						<div>
+							<div class="numberBox">
+								<span class="minus iconfont icon-jian"></span>
+								<input type="number" value="1" class="border" id="selectNumber" />
+								<span class="add iconfont icon-jia"></span>
+							</div>
+						</div>
+					</div>
+					<!--评论-->
+					<%if(model.messages.length>0) {%>
+					<div class="recomBox">
+						<p class="recomTitle">
+							<span class="padding20">评论</span>
+							<span id="recomNum">(<%=model.messages.length%>)</span>
+						</p>
+						<%for( i = 0; i < model.messages.length; i++) {%>
+						<%if(i<2) {%>
+						<div class="padding20">
+							<!--用户评价-->
+							<div class="userRecom">
+								<div class="userRecomTop clearFloat">
+									<div class="userMsg lf">
+										<span class="userName"><%= ($imports.jsonChange(model.messages[i].msg)).username%></span>
+									</div>
+									<div class="userStar rf">
+										<%for( j = 0; j <5; j++) {%>
+										<%if(j <($imports.jsonChange(model.messages[i].msg)).grade) {%>
+										<span class="iconfont icon-iconfontxingxing startActive"></span>
+										<%}%>
+										<%if(j>=($imports.jsonChange(model.messages[i].msg)).grade) {%>
+										<span class="iconfont icon-iconfontxingxing"></span>
+										<%}%>
+										<%}%>
+									</div>
+								</div>
+							</div>
+							<!--用户评价-->
+							<p class="userRecom">
+								<%= ($imports.jsonChange(model.messages[i].msg)).msg%>
+							</p>
+							<!--上传图片列表-->
+							<%if(($imports.jsonChange(model.messages[i].msg)).imgUrl.length>0) {%>
+							<ul class="pictureList clearFloat mui-content-padded">
+								<%for( k = 0; k < ($imports.jsonChange(model.messages[i].msg)).imgUrl.length; k++) {%>
+								<li>
+									<img src="<%=($imports.jsonChange(model.messages[i].msg)).imgUrl[k]%>" alt="" />
+								</li>
+								<%}%>
+							</ul>
+							<%}%>
+							<%if(($imports.jsonChange(model.messages[i].msg)).sonMsg) {%>
+							<p class="sonMsgTitle">
+								<%= ($imports.jsonChange(model.messages[i].msg)).sonMsg.username%>
+							</p>
+							<p class="sonMsg">
+								<%= ($imports.jsonChange(model.messages[i].msg)).sonMsg.msg%>
+							</p>
+							<%}%>
+						</div>
+						<%}%>
+						<%}%>
+						<!--查看更多-->
+						<%if(model.messages.length>2) {%>
+						<div class="padding20 clearFloat">
+							<a href="javascript:void(0)" class="rf" id="seeMoreRecom">查看更多评论</a>
+						</div>
+						<%}%>
+					</div>
+					<!--暂无评论-->
+					<%if(model.messages.length<=0) {%>
+					<p class="errNull">
+						<span class="iconfont icon-shibai"></span> 暂无评论
+					</p>
+					<%}%>
+					<%}%>
+					<!--售后服务-->
+					<%if(model.brandLogo) {%>
+					<div class="recomBox">
+						<p class="recomTitle">
+							<span class="padding20">售后服务</span>
+						</p>
+						<div class="padding20">
+							<%==model.brandLogo.guarantee%>
+						</div>
+					</div>
+					<%}%>
+					<!--规格参数-->
+					<div class="recomBox">
+						<p class="recomTitle">
+							<span class="padding20">规格参数</span>
+						</p>
+						<ul class="speParam" id="speParamBox">
+							<li>
+								<span>品牌</span>
+								<span><%=brand%></span>
+							</li>
+							<%for( q = 0; q < $imports.jsonChange(model.parament).length; q++) {%>
+							<li>
+								<span><%=$imports.jsonChange(model.parament)[q].group%></span>
+								<span><%=$imports.jsonChange(model.parament)[q].params%></span>
+							</li>
+							<%}%>
+						</ul>
+				</script>
+				</div>
+
+				<!--详情-->
+				<div class="proMs mescroll" id="proM" style="display: none;">
+					<script id="proMBox" type="text/html">
+						<%==model.htmlDetail%>
+					</script>
+				</div>
+				<!--评价区域-->
+				<div class="proRecom" id="proRe" style="display: none;">
+					<div class="mescroll" id="mescroll">
+						<div id="proReList" data-pageNum='1' class="padding20">
+							<script type="text/html" id="proReBox">
+								<%if(model.rows.length>0) {%>
+								<%for( i = 0; i < model.rows.length; i++) {%>
+								<div class="userRecom">
+									<div class="userRecomTop clearFloat">
+										<div class="userMsg lf">
+											<span class="userName"><%=model.rows[i].username%></span>
+										</div>
+										<div class="userStar rf">
+											<%for( j = 0; j <5; j++) {%>
+											<%if(j <model.rows[i].grade) {%>
+											<span class="iconfont icon-iconfontxingxing startActive"></span>
+											<%}%>
+											<%if(j>=model.rows[i].grade) {%>
+											<span class="iconfont icon-iconfontxingxing"></span>
+											<%}%>
+											<%}%>
+										</div>
+									</div>
+								</div>
+								<!--用户评价-->
+								<p class="userRecom">
+									<%=model.rows[i].msg%>
+								</p>
+								<!--上传图片列表-->
+								<%if(model.rows[i].imgUrl.length>0) {%>
+								<ul class="pictureList clearFloat">
+									<%for( k = 0; k < model.rows[i].imgUrl.length; k++) {%>
+									<li>
+										<img src="<%=model.rows[i].imgUrl[k]%>" />
+									</li>
+									<%}%>
+								</ul>
+								<%}%>
+								<!--商家回复-->
+								<%if(model.rows[i].sonMsg) {%>
+								<p class="sonMsgTitle userMsg">商家回复 : </p>
+								<p class="sonMsg">
+									<%=model.rows[i].sonMsg.msg%>
+								</p>
+								<%}%>
+								<%}%>
+								<%}else{%>
+									<p class="noData">
+										<span class="iconfont icon-shibai"></span> 暂无数据
+									</p>
+									<%}%>
+							</script>
+						</div>
+					</div>
+
+					<!--<div class="recomPageTitle clearFloat">
+						<span class="lf" class="recomPageNum">
+							评价
+							<span id="recomCount">(999)</span>
+						</span>
+						<span class="rf">
+							好评率
+							<span id="goodRecom">100%</span>
+						</span>
+					</div>-->
+					<!--评价类别-->
+					<!--<ul class="recomClassify" id="recomList">
+						<li class="recomActive">
+							<a href="javascript:void(0)" class="recBox">
+								<p>1000</p>
+								<p>全部评价</p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" class="recBox">
+								<p>1000</p>
+								<p>好评</p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" class="recBox">
+								<p>1000</p>
+								<p>差评</p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:void(0)" class="recBox">
+								<p>1000</p>
+								<p>有图</p>
+							</a>
+						</li>
+					</ul>-->
+					<!--评价列表-->
+
+				</div>
+			</div>
+			<!--底部操作-->
+			<div class="bottomHandle" id="handle">
+				<!--加入配单-->
+				<!--<a href="javascript:void(0)" class="lf addOrder">
+				<div class="addOrderBox">
+					<p>
+					</p>
+					<span>加入配单</span>
+				</div>
+			</a>-->
+				<!--立即购买-->
+				<div class="rf clearFloat userFun">
+					<input type="hidden" id="priceId" value="" />
+					<input type="hidden" id="commtyid" value="" />
+					<a href="javascript:void(0)" class="lf" id="addShopcart">加入购物车</a>
+					<!--<a href="javascript:void(0)" class="lf" id="immBuy">立即购买</a>-->
+				</div>
+			</div>
+			<!--遮罩层-->
+			<div id="mark" style="display: none;"></div>
+			<div class="loadingImg">
+				<img src="images/loading.gif" alt="" />
+			</div>
+			<script src="js/h.min.js"></script>
+			<script src="js/mui.min.js"></script>
+			<script src="js/art-template.js"></script>
+			<script src="js/mui.zoom.js"></script>
+			<!--<script src="js/mui.previewimage.js"></script>-->
+			<script src="js/aes.js"></script>
+			<script src="js/mode-ecb.js"></script>
+			<script src="js/base.js"></script>
+			<script src="js/mescroll.min.js"></script>
+			<script src="js/viewsjs/proDetail.js"></script>
+
+	</body>
+
+</html>

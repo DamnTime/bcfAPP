@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/mescroll.min.css" />
+		<link rel="stylesheet" href="css/program.css" />
+	</head>
+
+	<body>
+		<div class="mui-off-canvas-wrap mui-slide-in" id="offCanvasWrapper">
+			<!--侧滑菜单-->
+			<aside id="offCanvasSide" class="mui-slide-in mui-off-canvas-left mui-transitioning">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<ul class="programClassfiy" id="programClassfiyList">
+						<script type="text/html" id="programClassfiyBox">
+							<%for( i = 0; i < model.names.length; i++) {%>
+							<li data-classId="<%=model.names[i].id%>"><span class="iconfont icon-yuan"></span>
+								<%=model.names[i].name%>
+							</li>
+							<%}%>
+						</script>
+					</ul>
+				</div>
+			</aside>
+			<!--搜索条及返回页面-->
+			<div class="findProgram">
+				<div class="clearFloat">
+					<!--返回按钮-->
+					<a href="javascript:void(0)" class="mui-action-back lf" id="close">×</a>
+					<div class="searchBox rf">
+						<form action="" id="searchBtn">
+							<ul>
+								<li>
+									<i class="iconfont icon-sousuo searchIcon"></i>
+									<input type="search" placeholder="小区监控" id="searchWord" data-default="小区监控">
+								</li>
+								<li>
+									<button type="submit">
+													<span class="iconfont icon-right"></span>
+												</button>
+								</li>
+							</ul>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!--主界面-->
+			<div class="mui-inner-wrap">
+				<div class="mui-content" id="offCanvasContentScroll">
+					<div id="mescroll" class="mescroll">
+						<header>
+							<!--banner-->
+							<div id="banner">
+								<script id="bannerBox" type="text/html">
+									<img src="<%=model.nav%>" alt="" />
+								</script>
+							</div>
+						</header>
+						<div class="padding20">
+							<div class="classifyList" id="nextClassify" style="display: none;">
+								<ul class="clearFloat" id="nextClassBox">
+									<script type="text/html" id="nextClassList">
+										<%for( i = 0; i < model.length; i++) {%>
+										<li>
+											<a href="javascript:void(0)" data-id="<%=model[i].id%>">
+												<%=model[i].name%>
+											</a>
+										</li>
+										<%}%>
+									</script>
+								</ul>
+							</div>
+							<p class="hotProgram" id="hotProg">热门方案</p>
+							<div class="padding20 paramBox" id="pagenation">
+								<ul class="programList" id="pagenationList" data-pageNum='1'>
+									<script type="text/html" id="innerList">
+										<%for( i = 0; i < model.list.rows.length; i++) {%>
+										<li data-pdfUrl="<%=model.list.rows[i].pdf%>">
+											<div class="programImg">
+												<img src="images/img_loading.png" data-lazyload="<%=model.list.rows[i].image%>" />
+											</div>
+											<div class="programIntro">
+												<p class="programTitle">
+													<%=model.list.rows[i].title%>
+												</p>
+												<p class="programTxt">
+													<%=model.list.rows[i].introduce%>
+												</p>
+												<!--预览及下载-->
+												<div class="showUpload clearFloat">
+													<div class="rf clearFloat">
+														<span class="show lf">
+													<span class="iconfont icon-yulan"></span>
+														<%=model.list.rows[i].click%>
+														</span>
+														<span class="upload lf">
+													<span class="iconfont icon-xiazai"></span>
+														<%=model.list.rows[i].download%>
+														</span>
+													</div>
+												</div>
+											</div>
+										</li>
+										<%}%>
+									</script>
+								</ul>
+							</div>
+							<!-- off-canvas backdrop -->
+							<div class="mui-off-canvas-backdrop"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--侧滑按钮-->
+		<div class="slideBtn" id="offCanvasShow"></div>
+		<!--loading-->
+		<div class="loadingImg">
+			<img src="images/loading.gif" alt="" />
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/mescroll.min.js"></script>
+		<!--<script src="js/mescroll-option.js"></script>-->
+		<script src="js/art-template.js"></script>
+		<script src="js/mui.lazyload.js"></script>
+		<script src="js/mui.lazyload.img.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/viewsjs/program.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

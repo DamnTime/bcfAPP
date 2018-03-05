@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/mui.picker.all.css" />
+		<link rel="stylesheet" href="css/mine.css" />
+	</head>
+
+	<body>
+		<!--<header class="personMsgArea">
+			<p class="title">
+				<a class="mui-action-back back">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</a>
+		    	<span>收货地址</span>
+			</p>
+		</header>-->
+
+		<div class="mui-content">
+			<div class="content">
+				<ul class="addressList" id="addList">
+					<script type="text/html" id="userMsg">
+						<%for( i = 0; i < model.length; i++) {%>
+						<li class="mui-table-view-cell" data-addressid="<%=model[i].id%>">
+							<%if(!model[i].isDefault) {%>
+							<div class="mui-slider-right mui-disabled">
+								<a class="mui-btn mui-btn-red delBtn">删除</a>
+							</div>
+							<%}%>
+							<div class="mui-slider-handle mui-table">
+								<div class="mui-table-cell">
+									<ul class="addressItem">
+										<li class="beautyCheck">
+											<div class="middel middel1">
+												<input type="radio" id="isTick<%=i%>" value="<%=model[i].id%>" data-uname="<%=model[i].usernmae%>" data-uPhone="<%=model[i].userId%>" data-uAddress="<%=model[i].addressInfo%>" name="addVal">
+												<label for="isTick<%=i%>"><i>√</i></label>
+											</div>
+										</li>
+
+										<li>
+											<p class="userMsg" id="user">
+
+												<span class="uName"><%=model[i].usernmae%></span>
+												<span class="uPhone"><%=model[i].userId%></span>
+												<%if(model[i].isDefault) {%>
+												<span class="defaultAdd">	
+												<span class="default border">默认</span>
+												</span>
+												<%}%>
+											</p>
+											<p class="uAddress">
+												<%=model[i].addressInfo%>
+											</p>
+
+										</li>
+										<li>
+											<a href="javascript:;" class="jumpPro" data-proid="<%=model[i].id%>">
+												<div class="middel middel2">
+													<p class="del">
+														<span class="iconfont icon-bianji"></span>
+													</p>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<%}%>
+					</script>
+				</ul>
+				<!--新建收货地址按钮-->
+				<div class="addBtn">
+					<a href="javascript:void(0)" id="jumpAdd">+ 新建收货地址</a>
+				</div>
+			</div>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/viewsjs/address.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

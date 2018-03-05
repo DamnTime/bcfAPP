@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>查看全部</title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/brandMore.css" />
+	</head>
+
+	<body>
+		<!--<header class="personMsgArea">
+			<p class="title">
+				<a class="mui-action-back back">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</a>
+				<span id="title">安防监控系统</span>
+				<span id="number">
+					共<span>84</span>个
+				</span>
+			</p>
+		</header>-->
+		<p class="moreBrandTitle">
+			<span id="brandName"></span> 共
+			<span id="brandNum"></span>个
+		</p>
+		<div class="mui-content">
+			<ul class="acdClassList" id="brandMoreBox">
+				<script type="text/html" id="brandMoreList">
+					<%for( i = 0; i < model.list.length; i++) {%>
+					<%for( j = 0; j < model.list[i].list.length; j++) {%>
+					<li>
+						<a href="javascript:void(0)" data-search="<%=model.list[i].list[j].name%>">
+							<img src="<%=model.list[i].list[j].logo%>" alt="" />
+						</a>
+					</li>
+					<%}%>
+					<%}%>
+				</script>
+			</ul>
+		</div>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/h.min.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/mui.lazyload.js"></script>
+		<script src="js/mui.lazyload.img.js"></script>
+		<script src="js/viewsjs/brandMore.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

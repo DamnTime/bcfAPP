@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta content="telephone=no" name="format-detection">
+		<title>入口页</title>
+		<script src="js/rem.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+	</head>
+	<body>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/base.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			//只有ios支持的功能需要在Android平台隐藏；
+			var aniShow = "pop-in";
+			var menu = null,
+				showMenu = false;
+			var isInTransition = false;
+			var _self;
+			if(mui.os.android) {
+				var list = document.querySelectorAll('.ios-only');
+				if(list) {
+					for(var i = 0; i < list.length; i++) {
+						list[i].style.display = 'none';
+					}
+				}
+				//Android平台暂时使用slide-in-right动画
+				if(parseFloat(mui.os.version) < 4.4) {
+					aniShow = "slide-in-right";
+				}
+			}
+			mui.plusReady(function() {
+				//读取本地存储，检查是否为首次启动
+				var showGuide = localStorage["lauchFlag"];
+				//仅支持竖屏显示
+				plus.screen.lockOrientation("portrait-primary");
+				plus.navigator.setFullscreen(false);
+				if(showGuide) {
+//					plus.navigator.closeSplashscreen();
+					services.returnHome('slide-in-right', 'slide-out-left');
+				} else {
+					//显示启动导航
+					mui.openWindow({
+						id: 'guide.html',
+						url: 'guide.html',
+						styles: {
+							popGesture: "none"
+						},
+						show: {
+							aniShow: 'none'
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+				}
+			});
+		</script>
+	</body>
+
+</html>

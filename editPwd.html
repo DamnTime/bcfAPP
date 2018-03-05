@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/mine.css" />
+	</head>
+
+	<body>
+		<!--<header class="personMsgArea">
+			<p class="title">
+				<a class="mui-action-back back">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</a>
+		    	<span id="title">修改密码</span>
+			</p>
+		</header>-->
+		<div class="mui-content">
+			<div class="content">
+				<form action="" id="editForm">
+					<ul class="formList">
+						<li>
+							<label class="inputTitle" for="tel">手机号码 :</label>
+							<input type="number" name="tel" data-rule-tel="[/^[1][34578]\d{9}$/,'手机号格式错误']" data-tip="请输入11位手机号" id="tel" class="editPwd"/>
+						</li>
+						<li>
+							<label class="inputTitle" for="ucode">手机验证码:</label>
+							<input type="button" id="getCode" value="获取验证码">
+							<input type="text" id="code" data-rule-code="required;code;" data-tip="请输入验证码" name="code"/>
+						</li>
+						<li>
+							<label class="inputTitle" for="password">设置密码 :</label>
+							<input type="password" name="password" data-rule-password="[/^[0-9A-Za-z]{6,20}$/,'密码格式错误']" data-tip="请输入6到20位密码" id="password"  class="editPwd"/>
+						</li>
+						<li>
+							<label class="inputTitle" for="passwordAgain">确认密码 :</label>
+							<input type="password" name="passwordAgain" data-rule-passwordAgain="[/^[0-9A-Za-z]{6,20}$/,'密码格式错误']" id="passwordAgain"  class="editPwd"/>
+						</li>
+					</ul>
+					<!--确认按钮-->
+					<div class="sureBtn">
+						<input type="button" id="sureBtn" value="确定"/>
+					</div>
+				</form>
+			</div>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/viewsjs/editPwd.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

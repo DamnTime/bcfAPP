@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>工程商认证</title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.all.css"/>
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/contractorIdentity.css"/>
+	</head>
+	<body>
+		<div class="mui-content">
+			<div class="error">
+				<span class="errorImg"></span>
+				<span class="errorMsg">您提交的工程商认证信息有误，请重新提交</span>
+			</div>
+			<form id="contractorForm">
+				<ul>
+					<li class="border">
+						<label for="userName">用户名：</label>
+						<input type="text" 
+							id="userName"
+							name="userName"
+							data-rule="required;userName;"
+                       		data-rule-userName="[/^[1][34578]\d{9}$/,'手机号格式错误']"
+                       		placeholder="请输入11位手机号"
+							/>
+					</li>
+					<li class="border">
+						<label for="companyName">公司名称：</label>
+						<input type="text" 
+							id="companyName" 
+							name="companyName"
+							data-rule="required;companyName;"
+                       		data-rule-companyName="[/^[^! @#$%^&*()?/]*$/,'公司名格式错误']"
+                       		placeholder="请输入正确的公司名称，不包含特殊字符"
+							/>
+					</li>
+					<li class="border">
+						<label for="legalPerson">公司法人：</label>
+						<input type="text" 
+							id="legalPerson"
+							name="legalPerson"
+							data-rule="required;legalPerson;"
+                       		data-rule-legalPerson="[/^[^! @#$%^&*()?/]{2,15}$/,'格式错误']"
+                       		placeholder="请输入2至15个字符，不包含特殊字符"
+							/>
+					</li>
+					<li class="border">
+						<label for="registerAddress">注册所在地：</label>
+						<input type="text" 
+							id="registerAddress"
+							name="registerAddress"
+							data-rule="required;registerAddress;"
+                       		data-rule-registerAddress="[/^[^! @#$%^&*()?/]*$/,'地址格式错误']"
+                       		placeholder="请输入正确的地址，不包含特殊字符"
+							/>
+					</li>
+					<li class="border">
+						<label for="companyAddress">公司地址：</label>
+						<input type="text" 
+							id="companyAddress"
+							name="companyAddress"
+							data-rule="required;companyAddress;"
+                       		data-rule-companyAddress="[/^[^! @#$%^&*()?/]*$/,'地址格式错误']"
+                       		placeholder="请输入正确的地址，不包含特殊字符"
+							/>
+					</li>
+					<li class="border">
+						<label for="companyTle">公司电话：</label>
+						<input type="text" 
+							id="companyTle"
+							name="companyTle"
+							data-rule="required;companyTle;"
+                       		data-rule-companyTle="[/^((0\d{2,3}-\d{7,8})|(1[3584]\d{9}))$/,'电话格式错误']"
+                       		placeholder="请输入公司电话"
+							/>
+					</li>
+					<li class="border">
+						<label for="companyTle">开户银行：</label>
+						<input type="text" 
+							id="bankName"
+							name="bankName"
+							data-rule="required;bankName;"
+                       		data-rule-bankName="[/^[^! @#$%^&*()?/]{2,100}$/,'银行名格式错误']"
+                       		placeholder="请输入正确的银行名称(至少两个字符)，不包含特殊字符"
+							/>
+					</li>
+					<li class="border">
+						<label for="companyTle">对公银行账号：</label>
+						<input type="text" 
+							id="openBankNum"
+							name="openBankNum"
+							data-rule="required;openBankNum;"
+                       		data-rule-openBankNum="[/^([1-9]{1})(\d{11,19})$/,'银行账号格式错误']"
+                       		placeholder="请输入12至20位银行账号"
+							/>
+					</li>
+					<li class="border" id="certificate">
+						<span>我的证件：</span>
+						<div>
+							<span>三合一（普通营业执照）</span>
+							<span class="iconfont icon-s-right"></span>
+						</div>
+					</li>
+				</ul>
+				<div class="contractorSubmit">
+					<input id="contractorSubmit" type="button" value="重新认证"/>
+				</div>
+			</form>	
+		</div>
+	</body>
+	<script type="text/javascript" src="js/mui.min.js"></script>
+	<script type="text/javascript" src="js/h.min.js"></script>
+	<script src="js/mui.picker.all.js"></script>
+	<script type="text/javascript">
+		document.getElementById("contractorSubmit").addEventListener('tap',function(event){
+			event.preventDefault();
+			serializeObject("contractorForm");
+		})
+			function serializeObject(id){
+				var inputs = document.getElementsByTagName("input");
+				var total = 0;
+				var num =0;
+				for(var i=0;i<inputs.length;i++){
+					if(inputs[i].value){
+						if(inputs[i].type!='submit'&&inputs[i].type!='hidden'){
+							total ++;
+							var rule =new RegExp(inputs[i].getAttribute("data-rule-"+inputs[i].id).split("'")[0].slice(2,-2));
+							if(rule.test(inputs[i].value)){
+								num++;
+								inputs[i].style.outline="1px solid transparent";
+							}else{
+								var msg = inputs[i].getAttribute("data-rule-"+inputs[i].id).split("'")[1];
+								mui.toast(msg);
+								inputs[i].style.outline="1px solid red";
+								break;
+							}
+						}
+					}else{
+						mui.toast('不能为空');
+						inputs[i].style.outline="1px solid red";
+						break;
+					}
+				}
+				if(num==total&&num!=0&&total!=0){
+					var formData = document.getElementById(id).serialize();
+				}
+			}
+		HTMLFormElement.prototype.serialize = function() {
+    		var form = this;
+    		// 表单数据
+    		var arrFormData = [], objFormData = {};
+    		[].slice.call(form.elements).forEach(function(ele) {
+        		// 元素类型和状态
+        		var type = ele.type, disabled = ele.disabled;
+        		// 元素的键值
+        		var name = ele.name, value = ele.value;
+        		// name参数必须，元素非disabled态，一些类型忽略
+        		if (!name || disabled || !type || (/^reset|submit|image$/i.test(type)) || (/^checkbox|radio$/i.test(type) && !ele.checked)) {
+            		return;
+        		}
+        		type = type.toLowerCase();
+        		if (type !== 'select-multiple') {
+            		if (objFormData[name]) {
+                		objFormData[name].push(value);
+            		} else {
+                		objFormData[name] = [value];
+            		}
+        		} else {
+            		[].slice.call(ele.querySelectorAll('option')).forEach(function(option) {
+                		var optionValue = option.value;
+                		if (option.selected) {
+                    		if (objFormData[name]) {
+                        		objFormData[name].push(optionValue);
+                    		} else {
+                        		objFormData[name] = [optionValue];
+                    		}
+                		}
+            		});
+        		}                
+    		});
+    		for (var key in objFormData) {
+        		arrFormData.push(key + '=' + objFormData[key].join());
+    		}
+    		arrFormData=arrFormData.join('&').replace(/&/g,"\",\"").replace(/=/g,"\":\"");  
+    		arrFormData="{\""+arrFormData+"\"}";  
+    		return arrFormData; 
+		};
+	</script>
+</html>

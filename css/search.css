@@ -1,0 +1,152 @@
+html,body{
+	width: 100%;
+	height: 100%;
+	margin: 0 ;
+	padding: 0;
+	background-color: rgba(249,247,246,1);
+}
+header{
+	width: 100%;
+	height: 1.7rem;
+	background-color: rgba(255,61,0,1);
+	padding-top: 0.8rem;
+	box-sizing: border-box;
+}
+.searchbar{
+	width: 8.5rem;
+	height: 0.77rem;
+	line-height: 0.77rem;
+	background-color: rgba(256,256,256,1);
+	border-radius: 0.38rem;
+	margin-left: 0.26rem;
+}
+.searchbar form{
+	width: 100%;
+	height: 100%;
+}
+.searchbar i{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 0.04rem;
+	padding-left: 0.26rem;
+}
+.searchbar input{
+	vertical-align: top;
+	text-align: left;
+	height: 100%;
+	width: 80%;
+	border: 0;
+	background-color: rgba(256,256,256,1);
+}
+.searchbar button{
+	display: none;
+}
+header>.cancel{
+	display: inline-block;
+	height: 100%;
+	line-height: 0.9rem;
+	font-size: 0.4rem;
+	color: #FFFFFF;
+	font-weight: 400;
+	padding-right: 0.26rem;
+}
+.searchIcon{
+	font-size: 0.53rem;
+	color: #9E9E9E;
+}
+.searchbar input{
+	font-size: 0.37rem;
+}
+.hotSearch{
+	background-color: rgba(256,256,256,1);
+	padding: 0.26rem;
+}
+.hotSearch p{
+	font-size: 0.37rem;
+	color: #333333;
+	font-weight: 500;
+	margin-bottom: 0.13rem;
+}
+.hotSearchList{
+	width: 100%;
+	height: 0.66rem;
+	overflow: hidden;
+}
+.hotSearchList li{
+	float: left;
+	margin-right: 0.26rem;
+}
+.hotSearchList li a{
+	display: inline-block;
+	height: 0.66rem;
+	text-align: center;
+	line-height: 0.66rem;
+	background-color: rgba(243,241,240,1);
+	color: #333333;
+	font-size: 0.32rem;
+	border-radius: 0.33rem;
+	padding: 0 0.2rem;
+}
+.historySearch{
+	margin-top: 0.26rem;
+	background-color: rgba(256,256,256,1);
+	padding-top: 0.26rem;
+}
+.historySearch>p{
+	width: 100%;
+	height: 1.17rem;
+	line-height: 1.17rem;
+	padding-left: 0.26rem;
+	font-size: 0.37rem;
+	color: #333333;
+	font-weight: 500;
+	border-bottom:1px solid #DDDDDD;
+}
+.historySearch>ul>li{
+	width: 100%;
+	padding-left: 0.26rem;
+	height: 1.17rem;
+	border-bottom: 1px solid #DDDDDD;
+}
+.historySearch>ul>li>a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	line-height: 1.17rem;
+	font-size: 0.37rem;
+	color: #9e9e9e;
+}
+.icon-cha1{
+	width: 1rem;
+	text-align: right;
+	padding-right: 0.26rem;
+	font-size: 0.53rem;
+	color: #F3F1F0;
+}
+.delete{
+	margin-top: 0.93rem;
+	text-align: center;
+}
+.delete a{
+	display: inline-block;
+	width: 6.32rem;
+	height: 1.01rem;
+	line-height: 1.01rem;
+	text-align: center;
+	border: 1px solid #DDDDDD;
+}
+.delete a:after{
+	border-color: #666666;
+	border-radius: 0.13rem;
+}
+.delete a span:not(.icon-shanchu){
+	font-size: 0.37rem;
+	color: #9e9e9e;
+}
+.icon-shanchu{
+	font-size: 0.53rem;
+	color: #666666;
+}
+
+
+

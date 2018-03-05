@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.all.css" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/contractor.css" />
+	</head>
+
+	<body>
+		<!--<header class="personMsgArea">
+			<p class="title">
+				<a class="mui-action-back back">
+					<span>×</span>
+				</a>
+				<span id="title">工程商认证</span>
+			</p>
+		</header>-->
+		<div class="mui-content">
+			<form id="conForm">
+				<ul class="contractor">
+					<input type="hidden" name="type" id="type" />
+					<input type="hidden" name="port" id="port" value="" />
+					<li>
+						<label for="companyName"><span class="key">*</span>公司名称：</label>
+						<input type="text" id="companyName" placeholder="请输入正确的公司名称,不包含特殊字符" name="companyName" data-rule="required;companyName;" data-rule-companyName="[/^[^! @#$%^&*()?/]*$/,'公司名格式错误']" data-tip="请输入正确的公司名称，不包含特殊字符" class="registerVali"/>
+					</li>
+					<li>
+						<label for="legalPerson">公司法人：</label>
+						<input type="text" id="legalPerson" placeholder="请填写法人代表" name="legalPerson" data-rule="legalPerson;" data-rule-legalPerson="[/^[^! @#$%^&*()?/]{2,15}$/,'格式错误']" data-tip="请输入2至15个字符，不包含特殊字符" class="registerVali"/>
+					</li>
+					<li>
+						<label for="registerAddress">注册所在地：</label>
+						<input type="text" id="registerAddress" placeholder="请填写公司注册地址" name="registerAddress" data-rule="registerAddress;" data-rule-registerAddress="[/^[^! @#$%^&*()?/]*$/,'地址格式错误']" data-tip="请输入正确的地址，不包含特殊字符" class="registerVali"/>
+					</li>
+					<li>
+						<label for="companyAddress"><span class="key">*</span>公司地址：</label>
+						<input type="text" id="companyAddress" placeholder="请输入您的公司地址" name="companyAddress" data-rule="required;companyAddress;" data-rule-companyAddress="[/^[^! @#$%^&*()?/]*$/,'地址格式错误']" data-tip="请输入正确的地址，不包含特殊字符" class="registerVali"/>
+					</li>
+					<li>
+						<label for="companyTle"><span class="key">*</span>公司电话：</label>
+						<input type="text" id="companyTle" placeholder="请输入您所属公司的电话号码" name="companyTle" data-rule="required;companyTle;" data-rule-companyTle="[/^((0\d{2,3}-\d{7,8})|(1[3584]\d{9}))$/,'电话格式错误']" data-tip="请输入公司电话" class="registerVali"/>
+					</li>
+					<li>
+						<label for="bankName">开户银行：</label>
+						<input type="text" id="bankName" placeholder="请输入您的开户银行名称" name="bankName" data-rule="bankName;" data-rule-bankName="[/^[^! @#$%^&*()?/]{2,100}$/,'银行名格式错误']" data-tip="请输入正确的银行名称(至少两个字符)，不包含特殊字符" class="registerVali"/>
+					</li>
+					<li>
+						<label for="openBank">对公银行账号：</label>
+						<input type="text" id="openBank" placeholder="请输入您对公银行账号" name="openBank" data-rule="openBank;" data-rule-openBank="[/^([1-9]{1})(\d{11,19})$/,'银行账号格式错误']" data-tip="请输入12至20位银行账号" class="registerVali"/>
+					</li>
+				</ul>
+				<div class="photoid">
+					<span><span class="key">*</span>证件类型</span>
+					<div id="chooseType">
+						<span class="iconfont icon-shenglvehao"></span>
+						<!--弹出层-->
+						<div class="choosePoper">
+							<div class="poperArrow"></div>
+							<div class="chooseItem">
+								<ul>
+									<li>
+										<a href="#threeOne"><span class="key">*</span>三证合一</a>
+									</li>
+									<li>
+										<a href="#MoreCer"><span class="key">*</span>普通营业执照</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--图片展示区-->
+				<div class="loadImgBox" id="loadImgList">
+					<ul id="MoreCer" style="display: none;">
+						<li>
+							<div class="chooseImg" id="insertImg0">
+								<!--<img src="images/details_comment_product_01.png" alt="" />-->
+							</div>
+							<div class="loadImg">
+								<div class="loadBtn" data-index="0">
+									<span class="iconfont icon-tianjiapx"></span>
+								</div>
+								<input type="hidden" name="yingyezhizhao" id="loadImg0" value="" />
+								<p>营业执照</p>
+							</div>
+						</li>
+						<li>
+							<div class="chooseImg" id="insertImg1">
+								<!--<img src="images/details_comment_product_01.png" alt="" />-->
+							</div>
+							<div class="loadImg">
+								<div class="loadBtn" data-index="1">
+									<span class="iconfont icon-tianjiapx"></span>
+								</div>
+								<input type="hidden" name="shuiwudengji" id="loadImg1" value="" />
+								<p>税务登记证</p>
+							</div>
+						</li>
+						<li>
+							<div class="chooseImg" id="insertImg2">
+								<!--<img src="images/details_comment_product_01.png" alt="" />-->
+							</div>
+							<div class="loadImg">
+								<div class="loadBtn" data-index="2">
+									<span class="iconfont icon-tianjiapx"></span>
+								</div>
+								<input type="hidden" name="zuzhijigou" id="loadImg2" value="" />
+								<p>组织机构代码证</p>
+							</div>
+						</li>
+					</ul>
+					<ul id="threeOne">
+						<li>
+							<div class="chooseImg" id="insertImg3">
+								<!--<img src="images/details_comment_product_01.png" alt="" />-->
+							</div>
+							<div class="loadImg">
+								<div class="loadBtn" data-index="3">
+									<span class="iconfont icon-tianjiapx"></span>
+								</div>
+								<input type="hidden" name="threeOne" id="loadImg3" value="" />
+								<p>三证合一</p>
+							</div>
+							<div class="cerRemark">
+								上传三证合一之后无需上传营业执照、税务登记证、组织机构代码证
+							</div>
+						</li>
+					</ul>
+				</div>
+				<input type="button" id="conSubmit" value="下一步" />
+			</form>
+		</div>
+		<div class="bakcDrop"></div>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/h.min.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/viewsjs/contractor.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

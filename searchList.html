@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/mescroll.min.css" />
+		<link rel="stylesheet" href="css/searchList.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar-nav">
+			<a class="mui-action-back lf searchListBack mui-icon mui-icon-left-nav">
+				<!--<span class="mui-icon mui-icon-left-nav"></span>-->
+			</a>
+			<div class="searchbar searchListBar">
+				<form action="" id="searchBtn">
+					<i class="iconfont icon-sousuo searchIcon"></i>
+					<input type="search" name="username" placeholder="摄像机" id="searchWord" data-default="">
+					<button type="submit">搜索</button>
+				</form>
+			</div>
+			<a href="javascript:void(0)" id="returnHome" class="iconfont icon-shouye">
+				<!--<span class="iconfont icon-shouye"></span>-->
+			</a>
+		</header>
+		<!--主体-->
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll">
+						<div class="classBox">
+							<ul class="searchClass" id="searchClass">
+								<li class="searchActive" data-searchId="1">
+									<a href="javascript:void(0)">综合</a>
+									<em></em>
+								</li>
+								<li data-searchId="2">
+									<a href="javascript:void(0)">销量</a>
+									<em></em>
+								</li>
+								<li data-searchId="3">
+									<a href="javascript:void(0)">品牌</a>
+									<em></em>
+								</li>
+								<li data-searchId="4" class="priceLi">
+									<a href="javascript:void(0)">
+										价格
+										<span class="iconfont icon-xiangxiajiantou arrowColor" id="priceIcon"></span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="searchContent">
+					<div class="mescroll" id="mescroll">
+						<!--综合-->
+						<ul class="mui-table-view showSearch" id="typeList">
+							
+						</ul>
+						<div class="loadingImg">
+							<img src="images/loading.gif" alt="" />
+						</div>
+					</div>
+				</div>
+				<!--品牌下拉框-->
+				<div class="brandBox" id="showBrand" style="display: none;">
+					<ul class="brandList clearFloat" id="brand">
+						<script type="text/html" id="brandList">
+							<%if(model) {%>
+							<%for( i = 0; i < model.length; i++) {%>
+							<li>
+								<a href="javascript:void(0)">
+									<%=model[i]%>
+								</a>
+							</li>
+							<%}%>
+							<%}%>
+						</script>
+					</ul>
+					<!--重置与取消-->
+					<div class="resetBox clearFloat">
+						<a href="javascript:void(0);" class="lf" id="cancel">取消</a>
+						<a href="javascript:void(0);" class="rf" id="reset">重置</a>
+					</div>
+				</div>
+				<!--遮罩-->
+				<div class="mark" id="isMark" style="display: none;"></div>
+			</div>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/mui.lazyload.js"></script>
+		<script src="js/mui.lazyload.img.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/mescroll.min.js"></script>
+		<script src="js/viewsjs/pageList.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

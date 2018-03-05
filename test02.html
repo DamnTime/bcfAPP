@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/pay.css" />
+	</head>
+
+	<body>
+		<!--<header class="personMsgArea">
+			<p class="title clearFloat">
+				<span id="title">微信支付</span>
+				<a id="returnHome" href="javascript:void(0)">
+					<span class="iconfont icon-shouye"></span>
+				</a>
+			</p>
+		</header>-->
+		<h1 id="isSucc" style="color: red;"></h1>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/base.js"></script>
+		<script type="text/javascript">
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+
+				mui.ajax(services.baseUrl + '/wx/confirm/pay', {
+					data: services.Encrypt(JSON.stringify({
+						orderId: self.orderId
+					})),
+					beforeSend: function(request) {
+						request.setRequestHeader("Content-type", "Application/JSON; charset=utf-8");
+						request.setRequestHeader("uuid", "phone");
+						if(token) {
+							request.setRequestHeader("Authorization", self.token);
+						}
+					},
+					type: 'post',
+					timeout: 20000,
+					success: function(data) {
+						var result = JSON.parse(services.Decrypt(data));
+						if(result.status === 200) {
+							h('#isSucc').html('支付成功');
+						}
+					},
+					error: function(xhr, type, errorThrown) {
+						h('#loadingFailArea').show();
+					},
+					complete: function() {
+						h('.loadingImg').hide();
+					}
+				});
+
+			});
+		</script>
+	</body>
+
+</html>

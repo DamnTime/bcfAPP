@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>引导页</title>
+		<script src="js/rem.js"></script>
+		<link href="css/mui.css" rel="stylesheet" />
+		<style type="text/css">
+			body {
+				background-color: #FFFFFF;
+			}
+			
+			.guide-img {
+				width: 100%;
+			}
+			
+			#start {
+				position: absolute;
+				bottom: 1.06rem;
+				left: 50%;
+				-webkit-transform: translateX(-50%);
+				transform: translateX(-50%);
+				width: 120px;
+				height: 36px;
+				border: 1px solid #FF3D00;
+				border-radius: 18px;
+				color: #FF3C20;
+				font-size: 14px;
+				padding: 0;
+			}
+			
+			.mineSlider>a {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			.mui-slider-indicator {
+				bottom: 0.66rem;
+			}
+			
+			.mui-slider-indicator .mui-indicator {
+				width: 0.26rem;
+				height: 0.26rem;
+				border-radius: 0.13rem;
+				border: 1px solid #FF3D00;
+			}
+			
+			.dowmTime {
+				position: absolute;
+				top: 0.53rem;
+				right: 0.53rem;
+				width: 0.8rem;
+				height: 0.8rem;
+				display: -webkit-flex;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: #FFFFFF;
+				border: 1px solid #FFFFFF;
+				border-radius: 0.4rem;
+				font-size: 14px;
+				z-index: 999;
+				box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				padding: 0;
+			}
+			
+			.timeDownHide {
+				-webkit-opacity: 0;
+				opacity: 0;
+			}
+			
+			.timeDownShow {
+				-webkit-opacity: 1;
+				opacity: 1;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-slider mui-fullscreen">
+				<div class="mui-slider-group">
+					<div class="mui-slider-item mineSlider">
+						<a href="javascript:;">
+							<img class="guide-img" src="images/guide_01.png">
+						</a>
+					</div>
+					<div class="mui-slider-item mineSlider">
+						<a href="javascript:;">
+							<img class="guide-img" src="images/guide_02.png">
+						</a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="javascript:;">
+							<img class="guide-img" src="images/guide_03.png">
+							<input type="button" id="start" value="开始体验" />
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator" id="point">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+			<!--倒计时-->
+			<p class="dowmTime timeDownHide">3s</p>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/base.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				gestureConfig: {
+					tap: true,
+					doubletap: true,
+					longtap: true,
+					swipe: true,
+					drag: true,
+					hold: false,
+					release: false
+				}
+			});
+			var timer;
+			var time = 3;
+			mui.plusReady(function() {
+				// 全屏显示
+				//				plus.navigator.setFullscreen(true);
+				var sh = plus.navigator.getStatusbarHeight();
+				var h = plus.screen.resolutionHeight;
+				var w = plus.screen.resolutionWidth;
+				var imgs = document.querySelectorAll(".guide-img");
+				for(var i = 0, len = imgs.length; i < len; i++) {
+					imgs[i].style.width = w + "px";
+				}
+				plus.navigator.closeSplashscreen();
+				document.getElementById("start").addEventListener("tap", function(event) {
+					event.preventDefault();
+					localStorage["lauchFlag"] = true;
+					clearInterval(timer);
+					services.returnHome('slide-in-right', 'slide-out-left');
+				});
+				//再按一次退出应用
+				services.againQuite();
+			});
+			document.querySelector('.mui-slider').addEventListener('slide', function(event) {
+				//显示倒计时
+				h('.dowmTime').removeClass('timeDownHide').addClass('timeDownShow');
+				var dragstart, drag;
+				if(event.detail.slideNumber + 1 === 3) {
+					mui('.mui-slider-group').on("dragstart", '.mui-slider-item', function(e) {
+						dragstart = e.detail.center.x;
+					}).on("drag", '.mui-slider-item', function(e) {
+						drag = e.detail.center.x;
+						if(dragstart > drag && (dragstart - drag) >= 150) {
+							localStorage["lauchFlag"] = true;
+							clearInterval(timer);
+							var allWv = plus.webview.all();
+							var self = plus.webview.currentWebview();
+							for(var i = 0, len = allWv.length; i < len; i++) {
+								if(allWv[i].id == self.id) {
+									continue;
+								} else {
+									allWv[i].close('none');
+								}
+							}
+							var creatMain = plus.webview.create('main.html', 'main.html');
+							creatMain.show('slide-in-right');
+							self.close('slide-out-left');
+						}
+					});
+					timer = setInterval(function() {
+						time--;
+						if(time >= 0) {
+							h('.dowmTime').html(time + 's');
+						} else {
+							localStorage["lauchFlag"] = true;
+							clearInterval(timer);
+							services.returnHome('slide-in-right', 'slide-out-left');
+						}
+					}, 1000);
+				} else {
+					h('.dowmTime').removeClass('timeDownShow').addClass('timeDownHide');
+					mui('.mui-slider-group').off();
+					clearInterval(timer);
+					time = 3;
+					h('.dowmTime').html('3s');
+				}
+			});
+		</script>
+	</body>
+
+</html>

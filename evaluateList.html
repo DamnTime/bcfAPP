@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link href="css/mui.css" rel="stylesheet"/>
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/evaluate.css" />
+	</head>
+	<body>
+		<!--<header class="personMsgArea">
+			<p class="title">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    	<span id="title">评价</span>
+			</p>
+		</header>-->
+		<div class="mui-content">
+			<ul class="evaluateList" id="evaluateList">
+				<script type="text/html" id="evaluateBox">
+				    <%for( i = 0; i < model.goods.length; i++) {%>
+						<li class="clearFloat">
+							<div class="evaluateImg lf">
+								<a href="javascript:void(0)" class="jumpProDetail">
+									<img src="<%=model.goods[i].phimage%>" alt="" />
+								</a>
+							</div>
+							<div class="evaluatePro rf">
+								<p><%=model.goods[i].title%></p>
+								<div> 
+									<a href="javascript:void(0)" class="border jumpEvaluate" data-id="<%=i%>" data-proId="<%=model.goods[i].commodityId%>">去评价</a>
+								</div>
+							</div>
+						</li>
+				    <%}%>
+				</script>
+			</ul>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/viewsjs/evaluateList.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

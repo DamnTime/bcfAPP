@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link href="css/mui.css" rel="stylesheet"/>
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/search.css" />
+	</head>
+	<body>
+		<header class="clearFloat">
+			<div class="searchbar lf">
+				<form action="" id="searchBtn">
+					<i class="iconfont icon-sousuo searchIcon"></i>
+					<input type="search" name="username" placeholder="摄像机" id="searchWord" data-default="摄像机">
+					<button type="submit">搜索</button>
+				</form>
+				<!--<span>
+					<i class="iconfont icon-sousuo searchIcon"></i>
+				</span>
+				<input type="search" name="" id="strName" placeholder="摄像机"/>-->
+			</div>
+			<a href="javascript:void(0)" class="rf mui-action-back cancel">取消</a>
+		</header>
+		<!--主体-->
+		<div class="mui-content">
+			<div class="hotSearch">
+				<p>热门搜索</p>
+				<ul class="hotSearchList clearFloat" id="hotSearch">
+					<script type="text/html" id="hotSearchBox">
+					    <%for( i = 0; i < model.length; i++) {%>
+						<li>
+							<a href="javascript:void(0)"><%=model[i]%></a>
+						</li>
+					    <%}%>
+					</script>
+				</ul>
+			</div>
+			<!--历史搜索-->
+			<div class="historySearch">
+				<p>历史搜索</p>
+				<ul id="historySearchList">
+					<script type="text/html" id="historySearchBox">
+					    <%for( i = 0; i < model.length; i++) {%>
+							<li>
+								<a href="javascript:void(0)" class="clearFloat">
+									<span class="lf"><%=model[i]%></span>
+									<span class="iconfont icon-cha1 rf"></span>
+								</a>
+							</li>
+					    <%}%>
+					</script>
+				</ul>
+			</div>
+			<div class="delete">
+				<a href="javascript:void(0)" id="cancelAll">
+					<span class="iconfont icon-shanchu"></span>
+					<span>清空历史搜索</span>
+				</a>
+			</div>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/viewsjs/searchPage.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

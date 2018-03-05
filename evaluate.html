@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/evaluate.css" />
+	</head>
+
+	<body>
+		<header class="personMsgArea evaluateHeader">
+			<!--<p class="title">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    	<span>评价</span>
+			</p>-->
+			<!--产品详情-->
+			<div class="evaluateContentPro" id="evaProBox">
+				<script id="evaProList" type="text/html">
+					<p class="jumpDetail" data-id="<%=model.commodityId%>">
+						<img src="<%=model.phimage%>" alt="" />
+					</p>
+					<p>
+						<%=model.title%>
+					</p>
+				</script>
+			</div>
+		</header>
+		<!--弧线-->
+		<div class="arc">
+
+		</div>
+		<!--主体部分-->
+		<div class="mui-content">
+			<div class="userStar" id="starEva">
+				<span data-index="1" class="iconfont icon-iconfontxingxing"></span>
+				<span data-index="2" class="iconfont icon-iconfontxingxing"></span>
+				<span data-index="3" class="iconfont icon-iconfontxingxing"></span>
+				<span data-index="4" class="iconfont icon-iconfontxingxing"></span>
+				<span data-index="5" class="iconfont icon-iconfontxingxing"></span>
+			</div>
+			<!--文字-->
+			<div class="evaTxtBox padding20">
+				<textarea name="" id="evaTxt" placeholder="请输入您对该商品的评价...(100字以内)"></textarea>
+			</div>
+			<!--拍照-->
+			<div class="camarea">
+				<div id='F_CKJLBS' class="row">
+					<div id="imageList">
+						<!--<div class="image-item ">
+							<p>
+								<img src="images/orderDetail_pro01_03.png" />
+							</p>
+							<em class="del" data-index="0">×</em>
+							<span class="clickDel"></span>
+						</div>
+						<div class="image-item ">
+							<p>
+								<img src="images/orderDetail_pro01_03.png" />
+							</p> 
+							<em class="del">×</em>
+							<span class="clickDel"></span>
+						</div>
+						<div class="image-item ">
+							<p>
+								<img src="images/orderDetail_pro01_03.png" />
+							</p>
+							<em class="del">×</em>
+							<span class="clickDel"></span>
+						</div>
+						<div class="image-item">
+							<p>
+								<img src="images/orderDetail_pro01_03.png" />
+							</p>
+							<em class="del">×</em>
+							<span class="clickDel"></span>
+						</div>
+						<div class="image-item">
+							<p>
+								<img src="images/orderDetail_pro01_03.png" />
+							</p> 
+							<em class="del">×</em>
+							<span class="clickDel"></span>
+						</div>-->
+					</div>
+					<div class="image-item " id="F_CKJLB"></div>
+				</div>
+			</div>
+			<!--提交-->
+			<div class="imgBtn">
+				<input type="button" value="提交" id="uploadimge"/>
+			</div>
+		</div>
+		<script src="js/jquery-min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/utitls.js"></script>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/viewsjs/evaluate.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

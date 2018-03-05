@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link href="css/mui.css" rel="stylesheet"/>
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/register.css" />
+	</head>
+	<body>
+		<!--<header>
+			<p class="title">
+				<a class="mui-action-back back">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</a>
+		    	<span id="title">设置账号</span>
+			</p>
+		</header> -->
+		<div class="mui-content">
+			<div class="padding20">
+				<ul class="registerList">
+					<li>
+						<label for="nickName" class="loginLeft">昵 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称: </label>
+						<input type="text" id="nickName" placeholder="推荐使用公司名称"/>
+					</li>
+					<li>
+						<label for="phoneNum" class="loginLeft">手机号码: </label>
+						<input type="number" id="phoneNum"/>
+						<input type="button" id="getCode" value="获取验证码">
+					</li>
+					<li>
+						<label for="voliCode" class="loginLeft">验&nbsp;&nbsp;证&nbsp;&nbsp;码: </label>
+						<input type="text" id="voliCode"/>
+					</li>
+				</ul>
+				<div class="nextStatus">
+					<input id="nextStatusBtn" class="errNext" type="button" disabled="disabled" value="下一步">
+				</div>
+			</div>
+		</div> 
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script> 
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/viewsjs/registerStatusOne.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

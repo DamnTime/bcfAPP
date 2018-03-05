@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>品牌馆</title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/brand.css" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="type" id="chooseType">
+				<a href="javascript:void(0);" class="classActive">
+					<span>按分类</span>
+				</a>
+				<a href="javascript:void(0);">
+					<span>按字母</span>
+				</a>
+			</div>
+
+			<div class="allClassify">
+				<!--按分类-->
+				<div id="classify" class="chooseDetail">
+					<script type="text/html" id="classifyList">
+						<%for( i = 0; i < model.list.length; i++) {%>
+						<%if(model.list[i].list&&model.list[i].list.length>0) {%>
+						<div class="accordClass">
+							<p>
+								<span><%=model.list[i].name%></span>
+								<%if(model.list[i].list.length>8) {%>
+								<a href="javascript:void(0)" data-id="<%=model.items[i].id%>" class="checkMore" data-name="<%=model.list[i].name%>" data-length="<%=model.list[i].list.length%>">
+									查看更多
+									<em class="iconfont icon-s-right"></em>
+								</a>
+								<%}%>
+							</p>
+							<ul class="acdClassList">
+								<%for(j=0;j<model.list[i].list.length;j++) {%>
+								<%if(j<8) {%>
+								<li>
+									<a href="javascript:void(0);" data-search="<%=model.list[i].list[j].name%>" class="jumpSearch">
+										<img src="images/img_loading.png" data-lazyload="<%=model.list[i].list[j].logo%>"/>
+									</a>
+								</li>
+								<%}%>
+								<%}%>
+							</ul>
+						</div>
+						<%}%>
+						<%}%>
+					</script>
+				</div>
+
+				<!--按名称-->
+				<div id="brandName" class="chooseDetail" style="display: none;">
+					<script type="text/html" id="brandNameList">
+						<%for( i = 0; i < brandModel.list.length; i++) {%>
+						<div class="acdBrand">
+							<p>
+								与
+								<span><%=brandModel.list[i].name%></span> 相关,共
+								<%=brandModel.list[i].list.length%>
+								<span></span> 个
+							</p>
+							<ul class="acdBrandList">
+								<%for( j = 0; j < brandModel.list[i].list.length; j++) {%>
+								<li>
+									<a href="javascript:void(0)" data-search="<%=brandModel.list[i].list[j].name%>">
+										<span>
+										<img src="<%=brandModel.list[i].list[j].logo%>" alt="" />
+									</span>
+										<span>
+										<%=brandModel.list[i].list[j].name%>
+									</span>
+									</a>
+								</li>
+								<%}%>
+							</ul>
+						</div>
+						<%}%>
+					</script>
+				</div>
+			</div>
+			<!--侧边栏-->
+			<div class="letterbox" style="display: none;">
+				<ul id="letterList">
+					<li class="letterActive">
+						<a href="javascript:void(0);" data-letter="ABC">
+							<span>A</span>
+							<span>B</span>
+							<span>C</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" data-letter="DEF">
+							<span>D</span>
+							<span>E</span>
+							<span>F</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" data-letter="GHI">
+							<span>G</span>
+							<span>H</span>
+							<span>I</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" data-letter="JKL">
+							<span>J</span>
+							<span>K</span>
+							<span>L</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" data-letter="MNO">
+							<span>M</span>
+							<span>N</span>
+							<span>O</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" data-letter="PQR">
+							<span>P</span>
+							<span>Q</span>
+							<span>R</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" data-letter="STU">
+							<span>S</span>
+							<span>T</span>
+							<span>U</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" data-letter="VWX">
+							<span>V</span>
+							<span>W</span>
+							<span>X</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" data-letter="YZ">
+							<span>Y</span>
+							<span>Z</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/h.min.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/mui.lazyload.js"></script>
+		<script src="js/mui.lazyload.img.js"></script>
+		<script src="js/viewsjs/brand.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

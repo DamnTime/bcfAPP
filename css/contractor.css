@@ -1,0 +1,300 @@
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: rgba(249, 247, 246, 1);
+}
+
+
+/*主体*/
+
+.mui-content {
+	padding-bottom: 1.3rem;
+}
+
+.mui-content>form {
+	width: 100%;
+	height: auto;
+	background-color: rgba(249, 247, 246, 1);
+}
+
+.contractor {
+	margin-top: 0.4rem;
+}
+
+.contractor>li {
+	width: 100%;
+	height: 1.13rem;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 0.26rem;
+	background-color: rgba(255, 255, 255, 1);
+	font-size: 0.37rem;
+	line-height: 1.13rem;
+	color: rgba(51, 51, 51, 1);
+	padding: 0 0.26rem;
+	border-top:1px solid #DDDDDD;
+	border-bottom:1px solid #DDDDDD;
+	overflow: hidden;
+}
+
+.contractor>li>input {
+	width: 70%;
+	height: 1.13rem;
+	color: rgba(158, 158, 158, 1);
+	text-align: right;
+	outline: none;
+	border: none;
+	font-size: 0.37rem;
+	margin-bottom: 0;
+}
+
+#conSubmit {
+	width: 100%;
+	height: 44px;
+	text-align: center;
+	font-size: 0.48rem;
+	background-color: rgba(255, 61, 0, 1);
+	color: rgba(255, 255, 255, 1);
+	font-weight: 600;
+	position: fixed;
+	outline: none;
+	border: none;
+	bottom: 0;
+	left: 0;
+	border-radius: 0;
+	z-index: 1;
+}
+
+
+/*升级认证的按钮*/
+
+.newBuiltBox {
+	margin-top: 0.4rem;
+	text-align: center;
+}
+
+.newBuiltBox input {
+	width: 7.86rem;
+	height: 1.06rem;
+	padding: 0;
+	border: 0;
+	border-radius: 3px;
+	font-size: 16px;
+	background-color: rgba(255, 61, 0, 1);
+	color: rgba(255, 255, 255, 1);
+}
+
+
+/*证件上传*/
+
+.photoid {
+	width: 100%;
+	height: 1.13rem;
+	display: -webkit-flex;
+	display: flex;
+	background-color: rgba(255, 255, 255, 1);
+	font-size: 0.37rem;
+	line-height: 1.13rem;
+	color: rgba(51, 51, 51, 1);
+	justify-content: space-between;
+	align-content: center;
+	padding-left: 0.26rem;
+	border-top: 1px solid #DDDDDD;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.photoid>div {
+	display: block;
+	width: 10%;
+	height: 100%;
+	position: relative;
+}
+
+.choosePoper {
+	position: absolute;
+	bottom: 1.53rem;
+	right: 0.26rem;
+	z-index: 999;
+	width: 4rem;
+	height: 4.66rem;
+	background-color: rgba(255, 255, 255, 1);
+	border-radius: 10px;
+	-webkit-transition: all 0.3s linear;
+	transition: all 0.3s linear;
+	/*-webkit-opacity: 0; 
+	opacity: 0;*/
+	display: none;
+}
+
+.choosePoperActive {
+	/*-webkit-opacity: 100; !important;
+	opacity: 100; !important;*/
+	display: block !important;
+	-webkit-transition: all 0.3s linear;
+	transition: all 0.3s linear;
+}
+
+.chooseItem a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding-left: 0.26rem;
+	color: #333333;
+	font-size: 0.4rem;
+	border-bottom: 1px solid #DDDDDD;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.poperArrow {
+	position: absolute;
+	bottom: -0.4rem;
+	right: 0.26rem;
+	width: 0;
+	height: 0;
+	border-left: 0.2rem solid transparent;
+	border-right: 0.2rem solid transparent;
+	border-top: 0.4rem solid white;
+}
+
+.bakcDrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.3);
+	z-index: 1;
+	/*-webkit-opacity: 0; 
+	opacity: 0;*/
+	display: none;
+	-webkit-transition: all 0.3s linear;
+	transition: all 0.2s linear;
+}
+
+.bakcDropActive {
+	-webkit-transition: all 0.3s linear;
+	transition: all 0.2s linear;
+	/*-webkit-opacity: 100; 
+	opacity: 100;*/
+	display: block !important;
+}
+
+
+/*图片上传*/
+
+.loadImgBox {
+	margin-top: 0.26rem;
+}
+
+#MoreCer li {
+	padding-left: 0.66rem;
+	margin-bottom: 0.13rem;
+	overflow: hidden;
+}
+
+#MoreCer li>div {
+	float: left;
+	margin-right: 0.13rem;
+}
+
+.loadBtn {
+	width: 2.13rem;
+	height: 2.13rem;
+	background-color: rgba(255, 255, 255, 1);
+	position: relative;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	overflow: hidden;
+	border: 1px solid #DDDDDD;
+}
+
+.loadBtn span {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	color: #E7E7E7;
+	font-size: 0.66rem;
+}
+
+.loadImgBox li p {
+	width: 2.13rem;
+	text-align: center;
+	margin-top: 0.13rem;
+	font-size: 0.26rem;
+	color: #666666;
+}
+
+#threeOne li {
+	padding-left: 0.26rem;
+	margin-bottom: 0.13rem;
+	overflow: hidden;
+}
+
+#threeOne li>div {
+	margin-right: 0.13rem;
+	float: left;
+}
+
+#threeOne li div:last-child {
+	margin-right: 0;
+}
+
+.cerRemark {
+	max-width: 5rem;
+	/*padding-right: 0.26rem;*/
+	font-size: 0.32rem;
+	color: #a8a8a8;
+}
+
+
+/*选择的图片*/
+
+.chooseImg img {
+	width: 2.13rem;
+	height: 2.13rem;
+}
+
+.contractor input::-webkit-input-placeholder {
+	color: #c7c7c7;
+	font-size: 0.34rem;
+}
+
+
+/*验证失败*/
+
+.validationErr {
+	border: 1px solid red !important;
+}
+
+
+/*提示信息*/
+
+.rigesTost {
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.4rem 0.26rem 0 0.26rem;
+}
+
+.rigesTost span:first-child {
+	font-size: 1.01rem;
+	color: #FF3D00;
+}
+#errMsg{
+	color: #FF3D00;
+}
+.rigesTost span:last-child {
+	font-size: 14px;
+	color: #333333;
+	margin-left: 0.13rem;
+	overflow: hidden;
+}
+.key{
+	color: #FF3D00;
+}

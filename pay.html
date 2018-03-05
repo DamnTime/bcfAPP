@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/pay.css" />
+	</head>
+
+	<body>
+		<header class="personMsgArea">
+			<p class="title clearFloat">
+				<span id="title">支付订单</span>
+				<a id="returnHome" href="javascript:void(0)">
+					<span class="iconfont icon-shouye"></span>
+				</a>
+			</p>
+		</header>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/base.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				subpages: [{
+					url: 'payResult.html',
+					id: 'payResult.html',
+					styles: {
+						top: "60px",
+						bottom: '0',
+						width: "100%"
+					}
+				}]
+			});
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				window.addEventListener('payType', function(event) {
+					var payType = event.detail.type;
+					var selfUrl = plus.webview.getWebviewById('payResult.html').getURL();
+					if(payType == 0) { //支付宝支付
+						var timer = setInterval(function() {
+							checkOrder(timer, self.orderId);
+						}, 2000);
+					} else if(payType == 1) { //微信支付
+						var timer = setInterval(function() {
+							checkOrder(timer, self.orderId);
+						}, 2000);
+					}
+				});
+
+				//轮询订单是否是否成功
+				function checkOrder(time, orderId) {
+					mui.ajax(services.baseUrl + '/wx/confirm/pay', {
+						data: services.Encrypt(JSON.stringify({
+							orderId: orderId
+						})),
+						beforeSend: function(request) {
+							services.beforeHeader(request);
+						},
+						type: 'post',
+						timeout: 20000,
+						success: function(data) {
+							var result = JSON.parse(services.Decrypt(data));
+							if(result.status == 200) {
+								clearInterval(time);
+								mui.alert('支付成功!', '温馨提示', '回到首页', callback);
+							}
+						},
+						error: function(xhr, type, errorThrown) {
+							h('#loadingFailArea').show();
+						},
+						complete: function() {
+							h('.loadingImg').hide();
+						}
+					});
+				}
+
+				//回到首页的回调
+				function callback() {
+					var allWv = plus.webview.all();
+					var _self = plus.webview.currentWebview();
+					for(var i = 0, len = allWv.length; i < len; i++) {
+						if(allWv[i].id == _self.id) {
+							continue;
+						} else {
+							allWv[i].close('none');
+						}
+					}
+					var creatMain = plus.webview.create('main.html', 'main.html');
+					creatMain.show('slide-in-left');
+					_self.close('slide-out-right');
+				}
+				//返回首页
+				h('#returnHome').tap(function() {
+					callback();
+				});
+			});
+		</script>
+	</body>
+
+</html>

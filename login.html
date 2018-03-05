@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link href="css/mui.css" rel="stylesheet"/>
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/login.css" />
+	</head>
+	<body>
+		<header>
+			<p>
+				<a href="javascript:void(0)" id="close">×</a>
+				登录
+			</p>
+		</header>
+		<div class="mui-content">
+			<div class="padding20">
+				<p class="logoImg">
+					<span></span>
+				</p>
+				<!--登录表单-->
+				<ul class="formBox">
+					<li>
+						<label class="loginLeft" for="uPhone">手机号</label>
+						<input type="number" placeholder="请输入手机号" id="uPhone"/>
+					</li>
+					<li>
+						<label class="loginLeft" for="uPwd">密 &nbsp;&nbsp; 码</label>
+						<input type="password" placeholder="请输入密码" id="uPwd"/>
+					</li>
+				</ul>
+				<div class="loginBtnBox">
+					<input class="errActive" id="loginBtn" value="登 录" type="button"/>
+				</div>
+				<!--立即注册-->
+				<div class="loginBottom clearFloat">
+					<a href="javascript:void(0)" class="lf" id="immRegister">立即注册</a>
+					<a href="javascript:void(0)" class="rf" id="forgetPwd">忘记密码</a>
+					
+				</div>
+			</div>
+		</div> 
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script> 
+		<script src="js/base.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/viewsjs/login.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

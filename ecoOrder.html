@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link href="css/mui.css" rel="stylesheet"/>
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/mui.picker.all.css" />
+		<link rel="stylesheet" href="css/ecoOrder.css" />
+	</head>
+	<body>
+		<!--banner-->
+		<header>
+			<img src="images/eco_banner.png" alt="" />
+		</header>
+		<div class="mui-content">
+			<!--流程-->
+			<div class="flow">
+				<!--图片信息-->
+				<ul class="flowList">
+					<li>
+						<div class="flowImg">
+							<img src="images/choose.png" alt="" />
+						</div>
+						<p class="flwoTxt">选择需求</p>
+					</li>
+					<li class="flowArrow">
+						<img src="images/arrow.png" alt="" />
+					</li>
+					<li>
+						<div class="flowImg">
+							<img src="images/generate.png" alt="" />
+						</div>
+						<p class="flwoTxt">生成配单</p>
+					</li>
+					<li class="flowArrow">
+						<img src="images/arrow.png" alt="" />
+					</li>
+					<li>
+						<div class="flowImg">
+							<img src="images/modify.png" alt="" />
+						</div>
+						<p class="flwoTxt">在线修改</p>
+					</li>
+					<li class="flowArrow">
+						<img src="images/arrow.png" alt="" />
+					</li>
+					<li>
+						<div class="flowImg">
+							<img src="images/pay.png" alt="" />
+						</div>
+						<p class="flwoTxt">确认支付</p>
+					</li>
+				</ul>
+			</div>
+			<!--选择配单-->
+			<div class="chooseOrder">
+				<div class="padding20 clearFloat">
+					<span class="lf orderTitle">请选择您的配单需求</span>
+					<span class="rf" id="chooseBtn">
+						<i class="iconfont icon-shenglvehao"></i>
+					</span>
+				</div>
+			</div>
+			<!--选择结果-->
+			<ul class="chooseResult">
+				<li>
+					<div class="padding20 clearFloat">
+						<span>已选择配单种类: </span>
+						<span id="orderClass" class="inputTxt"></span>
+					</div>
+				</li>
+				<li>
+					<div class="padding20 clearFloat">
+						<span>已选择配单类目: </span>
+						<span id="orderKind" class="inputTxt"></span>
+					</div>
+				</li>
+			</ul>
+			<!--配单参数-->
+			<div class="orderPara">
+				<div class="padding20">
+					<ul>
+						<li>
+							<span class=""></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/mui.picker.all.js"></script>
+		<script>
+			//脚部选项卡切换   
+			mui.plusReady(function(){
+				plus.webview.currentWebview().setStyle({scrollIndicator:'none'});
+				window.addEventListener('refresh', function(e){
+				    var status = e.detail.loginStatus;
+				     if(status==1){
+//				     	alert('电子配单已经登录了');
+				     }else if(status==0){
+//				     	alert('电子配单已经退出登录了');
+				     }
+				    
+				});
+				//页面跳转
+		  		mui('#footer').on('tap','a',function(){
+		  			var url=h(this).attr('data-url');
+		  			if(url){
+		  				jumpTo(url);
+		  			}
+		  		}); 
+		  		function jumpTo(url){
+		  			mui.openWindow({
+			  			url:url,
+	    				id:url,
+	    				aniShow:'none',
+	    				waiting:{
+					      autoShow:true,
+					      title:'正在加载...'
+					     }
+		  			})
+		  		};	
+			})
+			//选择配单
+			h('#chooseBtn').tap(function(){
+				 var picker = new mui.PopPicker({
+			    	layer: 2
+				}); 
+				 picker.setData([
+				 	{
+				 		value:'101',
+				 		text:'安防监控系统',
+				 		children:
+				 			[{
+				 				value:'102',
+				 				text:'交通监控'
+				 			},
+				 			{
+				 				value:'103',
+				 				text:'工厂监控系统'
+				 			},
+				 			{
+				 				value:'104',
+				 				text:'小区监控系统'
+				 			}]
+				 			
+				 		},
+				 	{
+				 		value:'111',
+				 		text:'停车场收费系统',
+				 		children:
+				 			[{
+				 				value:'112',
+				 				text:'小区停车场'
+				 			},
+				 			{
+				 				value:'113',
+				 				text:'写字楼停产场'
+				 			},
+				 			{
+				 				value:'114',
+				 				text:'工厂进出管理'
+				 			}]
+				 			
+				 		},
+				 	{
+				 		value:'121',
+				 		text:'楼宇对讲',
+				 		children:
+				 			[{
+				 				value:'122',
+				 				text:'别墅楼宇对讲'
+				 			},
+				 			{
+				 				value:'123',
+				 				text:'小区楼宇对讲'
+				 			}]
+				 			
+				 	}
+				 	]);
+			 picker.show(function (selectItems) {
+				console.log(selectItems[0].text+''+selectItems[0].children[0].text)
+			 	h('#orderClass').html(selectItems[0].text);
+			 	h('#orderKind').html(selectItems[0].children[0].text);
+			 });
+			});
+		</script>
+	</body>
+</html>

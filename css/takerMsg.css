@@ -1,0 +1,166 @@
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: rgba(249,247,246,1);
+}
+
+.personMsgArea {
+	width: 100%;
+	height: 1.7rem;
+	padding-top: 0.85rem;
+	box-sizing: border-box;
+	background-color: rgba(255, 61, 0, 1);
+}
+
+.title {
+	width: 100%;
+	height: 0.85rem;
+	line-height: 0.85rem;
+	text-align: center;
+	position: relative;
+}
+
+.title a {
+	position: absolute;
+	top: 50%;
+	left: 0.26rem;
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	font-size: 0.66rem;
+	color: #FFFFFF;
+}
+
+.title span {
+	font-size: 0.48rem;
+	color: #FFFFFF;
+}
+/*发票类型*/
+.takerType{
+	width: 100%;
+	height: 1.73rem;
+	background-color: rgba(255,255,255,1);
+	margin-top: 0.4rem;
+}
+.takerType>p{
+	line-height: 0.8rem;
+	font-size: 0.37rem;
+	color: #333333;
+}
+.takerType>ul li{
+	float: left;
+	height: 0.58rem;
+	margin-right: 0.53rem;
+	margin-bottom: 0.26rem;
+}
+.takerType>ul li a{
+	display: inline-block;
+	padding: 0 0.13rem;
+	line-height: 20px;
+	text-align: center;
+	font-size: 12px;
+	color: #c7c7c7;
+	border: 1px solid #DDDDDD;
+}
+.takerType>ul li a:after{
+	border-color: #c7c7c7;
+}
+.chooseTypeActive a{
+	color: #ff3d00 !important;
+	border-color: #ff3d00 !important;
+}
+/*普通发票*/
+#commTaker{
+	background-color: rgba(255,255,255,1);
+	margin-top: 0.26rem;
+}
+#commTaker>p{
+	padding-top: 0.26rem;
+	font-size: 0.37rem;
+	color: #333333;
+}
+.beautyCheck{
+	line-height: 0.8rem;
+}
+.beautyCheck>div.lf{
+	margin-right: 1.04rem;
+}
+.beautyCheck input[type="radio"]:checked + label em{
+  background:#FF3D00;
+  color: #ffffff;
+  border-color: transparent;
+}
+.beautyCheck label{
+	font-size: 12px;
+	color: #333333;
+	display: inline-block;
+	height: 100%;
+}
+.beautyCheck input[type="radio"]{
+  display: none;
+}
+.beautyCheck label em {
+  display:inline-block;
+  width:14px;
+  height:14px;
+  border-radius: 7px;
+  border: 1px solid #c7c7c7;
+  text-align:center;
+  line-height:14px;
+  color:transparent;
+  vertical-align:middle;
+  margin-right: 0.13rem;
+  font-size: 10px;
+  margin-top: -0.06rem;
+}
+.inputArea li{
+	margin-bottom: 0.21rem;
+}
+.inputArea input{
+	width: 100%;
+	height: 0.93rem;
+	background-color: rgba(245,245,245,1);
+	border:1px solid transparent;
+	font-size: 12px;
+	color: #666666;
+}
+.inputArea input::-webkit-input-placeholder{color:#c7c7c7;font-size: 0.34rem;}
+.commSubmit{
+	text-align: center;
+	margin-top: 1.62rem;
+}
+.commSubmit input{
+	width: 7.89rem;
+	height: 1.04rem;
+	background-color: rgba(255,61,0,1);
+	font-size: 0.34rem;
+	color: #FFFFFF;
+	margin-bottom: 0.4rem;
+}
+
+/*增值税发票*/
+#addTakerMsg{
+	background-color: rgba(255,255,255,1);
+	margin-top: 0.26rem;
+}
+#addTakerMsg>p{
+	padding-top: 0.26rem;
+	font-size: 0.37rem;
+	color: #333333;
+	margin-bottom: 0.26rem;
+}
+
+
+/*验证失败*/
+.validationErr{
+	border: 1px solid red !important;
+}
+
+
+
+
+

@@ -1,0 +1,625 @@
+{
+	"main.html": {
+		"resources": [
+			"css/mui.min.css",
+			"fonts/mui.ttf",
+			"js/mui.min.js",
+			"css/mui.css",
+			"js/base.js",
+			"js/h.min.js",
+			"css/main.css",
+			"css/iconfont.css",
+			"fonts/iconfont.ttf",
+			"css/reset.css",
+			"images/banner_01.png",
+			"images/quick_order.png",
+			"images/product_index_01.png",
+			"fonts/iconfont.woff",
+			"images/bg_tab_bar.png",
+			"images/electronic_billboards.png",
+			"images/bg_circle.png",
+			"images/bg_01.png",
+			"images/product_index_02.png",
+			"home.html",
+			"classify.html",
+			"tpl/footer.html",
+			"js/rem.js",
+			"js/aes.js",
+			"js/mode-ecb.js",
+			"js/mui.lazyload.js",
+			"js/mui.lazyload.img.js",
+			"js/art-template.js",
+			"images/img_loading.png",
+			"js/projs/index.js",
+			"js/util.js"
+		],
+		"refer": [
+			"home.html",
+			"classify.html",
+			"mine.html",
+			"ecoOrder.html",
+			"shopCart.html",
+			"proDetail.html",
+			"program.html",
+			"newPro.html",
+			"searchPage.html",
+			"zc.html",
+			"spePrice.html",
+			"brand.html"
+		]
+	},
+	"index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"home.html",
+			"css/main.css",
+			"css/iconfont.css",
+			"images/electronic_billboards.png",
+			"images/bg_tab_bar.png",
+			"css/mui.css",
+			"css/reset.css",
+			"fonts/iconfont.woff"
+		],
+		"refer": [
+			"main.html",
+			"guide.html",
+			"home.html",
+			"classify.html",
+			"mine.html",
+			"ecoOrder.html",
+			"shopCart.html"
+		]
+	},
+	"guide.html": {
+		"resources": [
+			"images/guide_01.png",
+			"images/guide_03.png",
+			"css/mui.css",
+			"images/guide_02.png",
+			"js/mui.min.js",
+			"js/h.min.js"
+		],
+		"refer": [
+			"main.html",
+			"index.html"
+		]
+	},
+	"home.html": {
+		"resources": [
+			"css/mui.css",
+			"css/reset.css",
+			"css/main.css",
+			"css/iconfont.css",
+			"images/bg_01.png",
+			"images/product_index_02.png",
+			"images/banner_01.png",
+			"images/product_index_01.png",
+			"images/quick_order.png",
+			"js/base.js",
+			"js/h.min.js",
+			"js/mui.min.js",
+			"js/rem.js",
+			"images/bg_circle.png",
+			"images/electronic_billboards.png",
+			"fonts/iconfont.woff",
+			"images/bg_tab_bar.png",
+			"classify.html"
+		],
+		"refer": [
+			"proDetail.html",
+			"searchPage.html",
+			"zcDetail.html",
+			"spePrice.html",
+			"program.html",
+			"newPro.html",
+			"zc.html",
+			"classify.html",
+			"mine.html",
+			"ecoOrder.html",
+			"shopCart.html",
+			"brand.html"
+		]
+	},
+	"mine.html": {
+		"resources": [
+			"css/mui.css",
+			"css/reset.css",
+			"fonts/iconfont.woff",
+			"css/mine.css",
+			"images/guide_01.png",
+			"js/base.js",
+			"js/h.min.js",
+			"js/mui.min.js",
+			"js/rem.js",
+			"images/allOrder.png",
+			"images/chou.png",
+			"fonts/mui.ttf",
+			"images/bg_tab_bar.png",
+			"images/electronic_billboards.png",
+			"images/bg_01.png",
+			"css/iconfont.css",
+			"images/erweima.png",
+			"images/all_order.png",
+			"images/wait_pay.png",
+			"images/be_evaluated.png",
+			"images/receipt.png",
+			"images/bg_person.png",
+			"images/head_box.png",
+			"images/mine_bg_01.png",
+			"js/aes.js",
+			"js/mode-ecb.js"
+		],
+		"refer": [
+			"personMsg.html",
+			"address.html",
+			"editPwd.html",
+			"login.html",
+			"registerStatusOne.html",
+			"myOrder.html",
+			"historyOrder.html",
+			"account.html",
+			"registerType.html",
+			"editBuiltBusi.html"
+		]
+	},
+	"ecoOrder.html": {
+		"resources": [
+			"css/mui.css",
+			"css/reset.css",
+			"css/main.css",
+			"css/iconfont.css",
+			"fonts/iconfont.woff",
+			"fonts/mui.ttf",
+			"js/base.js",
+			"js/h.min.js",
+			"js/mui.min.js",
+			"js/rem.js",
+			"css/ecoOrder.css",
+			"images/eco_banner.png",
+			"images/modify.png",
+			"images/generate.png",
+			"images/choose.png",
+			"images/arrow.png",
+			"css/mui.picker.all.css",
+			"images/pay.png",
+			"js/mui.picker.all.js",
+			"images/electronic_billboards.png",
+			"images/bg_tab_bar.png"
+		],
+		"refer": []
+	},
+	"classify.html": {
+		"resources": [
+			"css/mui.css",
+			"css/reset.css",
+			"css/main.css",
+			"css/iconfont.css",
+			"tpl/footer.html",
+			"css/classify.css",
+			"js/base.js",
+			"js/h.min.js",
+			"js/mui.min.js",
+			"images/bg_tab_bar.png",
+			"fonts/iconfont.woff",
+			"images/banner.png",
+			"images/product_classification.png",
+			"js/rem.js",
+			"images/electronic_billboards.png"
+		],
+		"refer": [
+			"searchList.html"
+		]
+	},
+	"shopCart.html": {
+		"resources": [
+			"css/mui.css",
+			"css/reset.css",
+			"css/main.css",
+			"css/shopCart.css",
+			"images/shopCart_01.jpg",
+			"images/chou.png",
+			"js/base.js",
+			"js/h.min.js",
+			"js/mui.min.js",
+			"js/rem.js"
+		],
+		"refer": [
+			"referOrder.html",
+			"mine.html"
+		]
+	},
+	"personMsg.html": {
+		"resources": [
+			"css/mine.css",
+			"css/mui.css",
+			"js/rem.js",
+			"css/reset.css",
+			"js/base.js",
+			"js/h.min.js",
+			"js/mui.min.js",
+			"js/mui.picker.min.js",
+			"css/mui.picker.all.css",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"demo.mp4",
+			"js/mui.picker.js",
+			"js/mui.picker.all.js"
+		],
+		"refer": []
+	},
+	"address.html": {
+		"resources": [
+			"js/base.js",
+			"css/mine.css",
+			"js/h.min.js",
+			"js/mui.min.js",
+			"css/mui.picker.all.css",
+			"css/mui.css",
+			"js/rem.js",
+			"js/mui.picker.all.js",
+			"css/reset.css",
+			"fonts/mui.ttf",
+			"fonts/iconfont.woff"
+		],
+		"refer": [
+			"delAddress.html"
+		]
+	},
+	"delAddress.html": {
+		"resources": [
+			"js/base.js",
+			"js/h.min.js",
+			"js/mui.min.js",
+			"css/mui.css",
+			"js/rem.js",
+			"js/mui.picker.all.js",
+			"css/reset.css",
+			"js/city.data-3.js",
+			"css/mine.css",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.picker.all.css",
+			"fonts/iconfont.woff"
+		],
+		"refer": [
+			"delAddress.html"
+		]
+	},
+	"editPwd.html": {
+		"resources": [
+			"fonts/mui.ttf",
+			"js/base.js",
+			"css/mine.css",
+			"js/h.min.js",
+			"js/mui.min.js",
+			"css/iconfont.css",
+			"css/mui.css",
+			"js/rem.js",
+			"css/reset.css"
+		],
+		"refer": []
+	},
+	"proDetail.html": {
+		"resources": [
+			"css/mui.css",
+			"css/reset.css",
+			"fonts/mui.ttf",
+			"css/proDetail.css",
+			"js/art-template.js",
+			"images/details_product_01.png",
+			"images/details_head_box.png",
+			"js/mui.zoom.js",
+			"js/mui.previewimage.js",
+			"images/details_comment_product_01.png",
+			"css/iconfont.css",
+			"js/mui.min.js",
+			"js/projs/proDetail.js"
+		],
+		"refer": [
+			"referOrder.html",
+			"login.html",
+			"zcDetail.html"
+		]
+	},
+	"login.html": {
+		"resources": [
+			"images/login.png",
+			"css/login.css",
+			"js/mui.min.js",
+			"css/mui.css",
+			"css/reset.css",
+			"js/aes.js",
+			"js/mode-ecb.js",
+			"js/base.js",
+			"js/h.min.js",
+			"js/rem.js"
+		],
+		"refer": [
+			"forgetPwd.html",
+			"registerStatusOne.html",
+			"main.html"
+		]
+	},
+	"registerStatusOne.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/register.css",
+			"css/mui.css",
+			"css/reset.css",
+			"fonts/mui.ttf",
+			"js/aes.js",
+			"js/mode-ecb.js"
+		],
+		"refer": [
+			"registerSatusTwo.html"
+		]
+	},
+	"program.html": {
+		"resources": [
+			"css/program.css",
+			"js/mui.min.js",
+			"css/mui.css",
+			"css/reset.css",
+			"fonts/mui.ttf",
+			"images/program_btn.png",
+			"images/program_img01.png",
+			"images/ellipsis_bg.png",
+			"js/h.min.js",
+			"js/base.js",
+			"images/banner_01.png",
+			"js/rem.js"
+		],
+		"refer": []
+	},
+	"referOrder.html": {
+		"resources": [
+			"js/mui.min.js",
+			"images/refer_orderimg01.png",
+			"images/refer_orderbg.png",
+			"fonts/mui.ttf",
+			"css/referOrder.css",
+			"css/mui.picker.all.css",
+			"css/mui.css",
+			"js/mui.picker.all.js",
+			"css/reset.css",
+			"js/base.js",
+			"js/h.min.js",
+			"js/rem.js"
+		],
+		"refer": [
+			"address.html",
+			"takerMsg.html",
+			"pay.html"
+		]
+	},
+	"newPro.html": {
+		"resources": [
+			"images/program_btn.png",
+			"images/new_pro01.png",
+			"images/newpro_banner.png",
+			"css/mui.css",
+			"css/newPro.css",
+			"css/reset.css",
+			"js/base.js",
+			"js/h.min.js",
+			"js/mui.min.js",
+			"js/rem.js"
+		],
+		"refer": [
+			"proDetail.html"
+		]
+	},
+	"searchPage.html": {
+		"resources": [
+			"css/search.css"
+		],
+		"refer": [
+			"searchList.html",
+			"searchList01.html"
+		]
+	},
+	"evaluateList.html": {
+		"resources": [
+			"css/evaluate.css"
+		],
+		"refer": [
+			"evaluate.html"
+		]
+	},
+	"myOrder.html": {
+		"resources": [
+			"images/orderDetail_pro01_03.png",
+			"css/myOrder.css",
+			"js/base.js",
+			"js/h.min.js",
+			"js/mui.min.js",
+			"css/mui.css",
+			"js/rem.js",
+			"css/reset.css"
+		],
+		"refer": [
+			"evaluateList.html",
+			"pay.html",
+			"proDetail.html"
+		]
+	},
+	"evaluate.html": {
+		"resources": [
+			"images/camarea_01_03.png",
+			"js/common.js",
+			"images/evaluation_bg.png",
+			"js/jquery-min.js",
+			"js/utitls.js"
+		],
+		"refer": [
+			"evaSucc.html"
+		]
+	},
+	"zc.html": {
+		"resources": [
+			"images/zc_brand01.png",
+			"images/zc_titilebg.png",
+			"images/zc_banner.png",
+			"images/zc_pro01.png",
+			"css/zc.css",
+			"js/base.js",
+			"js/h.min.js",
+			"js/mui.min.js",
+			"css/mui.css",
+			"js/rem.js",
+			"css/reset.css",
+			"images/program_btn.png"
+		],
+		"refer": [
+			"zcDetail.html"
+		]
+	},
+	"zcDetail.html": {
+		"resources": [
+			"images/zc_detailbuy.png",
+			"images/zc_detailbanner.png",
+			"images/zc_detailreturn.png",
+			"css/zcDetail.css",
+			"images/zc_detailpay.png",
+			"images/zc_detailchoose.png",
+			"images/zc_detailprocessbar.png",
+			"css/mui.css",
+			"js/rem.js",
+			"js/base.js",
+			"js/mui.zoom.js",
+			"js/h.min.js",
+			"js/mui.min.js",
+			"js/mui.previewimage.js",
+			"js/art-template.js",
+			"css/reset.css",
+			"images/arrow.png"
+		],
+		"refer": [
+			"login.html",
+			"referOrder.html",
+			"main.html",
+			"proDetail.html"
+		]
+	},
+	"spePrice.html": {
+		"resources": [
+			"images/spesell_banner.png",
+			"images/spesell_pro01.png",
+			"css/spePrice.css",
+			"js/base.js",
+			"js/h.min.js",
+			"js/mui.min.js",
+			"css/mui.css",
+			"js/rem.js",
+			"css/reset.css",
+			"images/program_btn.png"
+		],
+		"refer": [
+			"proDetail.html"
+		]
+	},
+	"registerSatusTwo.html": {
+		"resources": [
+			"css/mui.css",
+			"css/reset.css",
+			"css/register.css"
+		],
+		"refer": []
+	},
+	"forgetPwd.html": {
+		"resources": [
+			"css/mine.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.css",
+			"css/reset.css"
+		],
+		"refer": []
+	},
+	"historyOrder.html": {
+		"resources": [
+			"images/history_bg.png",
+			"images/history_img01.png",
+			"css/historyOrder.css",
+			"css/mui.css",
+			"css/reset.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"js/base.js",
+			"js/h.min.js",
+			"js/rem.js"
+		],
+		"refer": []
+	},
+	"searchList.html": {
+		"refer": [
+			"main.html",
+			"proDetail.html"
+		]
+	},
+	"pay.html": {
+		"resources": [
+			"payResult.html"
+		],
+		"refer": [
+			"payResult.html",
+			"main.html"
+		]
+	},
+	"registerType.html": {
+		"refer": [
+			"registerStatusOne.html",
+			"contractorIdentity.html",
+			"contractor.html"
+		]
+	},
+	"contractor.html": {
+		"refer": [
+			"contractor.html"
+		]
+	},
+	"brand.html": {
+		"refer": [
+			"brandMore.html",
+			"searchList.html"
+		],
+		"resources": [
+			"images/img_loading.png%%3E"
+		]
+	},
+	"account.html": {
+		"refer": [
+			"account.html",
+			"newBuiltBusi.html",
+			"progressBussi.html"
+		]
+	},
+	"payResult.html": {
+		"refer": [
+			"wxpay.html"
+		],
+		"resources": [
+			"wxpay.html"
+		]
+	},
+	"wxpay.html": {
+		"refer": [
+			"main.html",
+			"test01.html"
+		],
+		"resources": [
+			"test01.html"
+		]
+	},
+	"businessSucc.html": {
+		"refer": [
+			"main.html"
+		]
+	},
+	"editBuiltBusi.html": {
+		"refer": [
+			"businessSucc.html"
+		]
+	}
+}

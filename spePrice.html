@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/spePrice.css" />
+	</head>
+
+	<body>
+		<div class="mui-off-canvas-wrap mui-slide-in" id="offCanvasWrapper">
+			<!--侧滑菜单-->
+			<aside id="offCanvasSide" class="mui-slide-in mui-off-canvas-left mui-transitioning">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<ul class="programClassfiy" id="programClassfiyList">
+						<script type="text/html" id="programClassfiyBox">
+							<li class="itemActive">
+								<a href="javascript:void(0);" data-typeId="">
+									<span class="iconfont icon-yuan"></span> 全部
+								</a>
+							</li>
+							<%for( i = 0; i < model.item.length-1; i++) {%>
+							<li>
+								<a href="javascript:void(0);" data-typeId="<%=model.item[i].id%>">
+									<span class="iconfont icon-yuan"></span>
+									<%=model.item[i].itmeName%>
+								</a>
+							</li>
+							<%}%>
+						</script>
+					</ul>
+				</div>
+			</aside>
+			<!--主界面-->
+			<div class="mui-inner-wrap">
+				<div class="mui-content" id="offCanvasContentScroll">
+					<header class="zcHeader">
+						<a href="javascript:void(0)" class="mui-action-back" id="close">×</a>
+						<div id="speBanner">
+							<script type="text/html" id="speBannerBox">
+								<img src="<%=model.banner.phImg%>" />
+							</script>
+						</div>
+					</header>
+					<div class="spePriceBox">
+						<ul class="spePriceList" id="spePriceList">
+							<script type="text/html" id="spePriceBox">
+								<%for( i = 0; i < model.list.length; i++) {%>
+								<li>
+									<a href="javascript:void(0)" class="jumpProDetail" data-speId="<%=model.list[i].commodityId%>">
+										<p class="spePriceImg">
+											<img alt="" data-lazyload="<%=model.list[i].url%>" src="images/img_loading.png" />
+										</p>
+										<p class="spePriceTxt"><%=model.list[i].title%></p>
+									</a>
+									<div class="clearFloat speImmBuy">
+										<span class="lf">¥<%=(model.list[i].specialOffer/100).toFixed(2)%></span>
+										<a href="javascript:void(0)" class="rf jumpProDetail" data-speId="<%=model.list[i].id%>">立即购买</span>
+									</div>
+								</li>
+								<%}%>
+							</script>
+						</ul>
+					</div>
+					<!-- off-canvas backdrop -->
+					<div class="mui-off-canvas-backdrop"></div>
+					<!--侧滑按钮-->
+					<div class="slideBtn" id="offCanvasShow"></div>
+				</div>
+			</div>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.lazyload.js"></script>
+		<script src="js/mui.lazyload.img.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/viewsjs/spePrice.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>账户信息</title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.all.css" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/account.css" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<form id="accountForm">
+				<ul class="perMsgTop">
+					<li class="border">
+						<label for="userName">用户名：</label>
+						<input type="text" id="userName" disabled="disabled"/>
+					</li>
+					<li class="border">
+						<label for="uName">昵称：</label>
+						<input type="text" id="uName" placeholder="张三" name="uName" data-rule="required;uName;" data-rule-uName="[/^[^! @#$%^&*()?/]{2,15}$/,'昵称格式错误']" data-tip="请输入2至15个字符,不包含特殊字符" />
+					</li>
+				</ul>
+				<ul class="perMsgBottom">
+					<li id="sexArea" class="border">
+						<span>性别：</span>
+						<div>
+							<span id="sex"></span>
+							<span class="iconfont icon-s-right"></span>
+						</div>
+					</li>
+					<li id="birthArea" class="border">
+						<span>生日：</span>
+						<div>
+							<span id="birth"></span>
+							<span class="iconfont icon-s-right"></span>
+						</div>
+					</li>
+					<li id="contractorArea" class="border">
+						<span>工程商认证：</span>
+						<div>
+							<span id="contractor" data-lock=""></span>
+							<span class="iconfont icon-s-right"></span>
+						</div>
+					</li>
+				</ul>
+				<div class="accSubmit">
+					<input type="button" id="AccSubmit" value="提交" />
+				</div>
+			</form>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/mui.min.js"></script>
+	<script type="text/javascript" src="js/h.min.js"></script>
+	<script src="js/aes.js"></script>
+	<script src="js/mode-ecb.js"></script>
+	<script src="js/art-template.js"></script>
+	<script src="js/base.js"></script>
+	<script src="js/mui.picker.all.js"></script>
+	<script src="js/viewsjs/account.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

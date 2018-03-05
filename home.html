@@ -1,0 +1,495 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta content="telephone=no" name="format-detection">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/mescroll.min.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+
+	<body>
+		<!--搜索条-->
+		<div class="searchBar mui-bar-nav mui-bar-transparent">
+			<ul class="clearFloat">
+				<li class="scanIcon" id="scan">
+					<span class="iconfont icon-552dc065f0478"></span>
+				</li>
+				<li class="searchBox" id="search" data-url="searchPage.html">
+					<div>
+						<span class="iconfont icon-sousuo searchIcon"></span>
+						<span class="sreachName">摄像机</span>
+					</div>
+				</li>
+				<li class="msgIcon" id="msg">
+					<span class="iconfont icon-xiaoxi"></span>
+				</li>
+			</ul>
+		</div>
+		<div class="mui-content" id="refreshContainer">
+			<div id="mescroll" class="mescroll">
+				<!--轮播组件--> 
+				<div class="mui-slider">
+					<div class="mui-slider-group mui-slider-loop" id="sliderBox">
+						<script type="text/html" id="getSliderBox">
+							<div class="mui-slider-item mui-slider-item-duplicate">
+								<a href="javascript:void(0)" data-url="<%=model.nav[model.nav.length-1].url%>">
+									<img src="<%=model.nav[model.nav.length-1].image%>" />
+								</a>
+							</div>
+							<%for( i = 0; i < model.nav.length; i++) {%>
+							<div class="mui-slider-item mui-slider-item-duplicate">
+								<a href="javascript:void(0)" data-url="<%=model.nav[i].url%>">
+									<img src="<%=model.nav[i].image%>" />
+								</a>
+							</div>
+							<%}%>
+							<div class="mui-slider-item mui-slider-item-duplicate">
+								<a href="javascript:void(0)" data-url="<%=model.nav[0].url%>">
+									<img src="<%=model.nav[0].image%>" />
+								</a>
+							</div>
+						</script>
+					</div>
+					<div class="mui-slider-indicator" id="point">
+						<script type="text/html" id="pointBox">
+							<div class="mui-indicator mui-active"></div>
+							<%for( i = 1; i < model.nav.length; i++) {%>
+							<div class="mui-indicator"></div>
+							<%}%>
+						</script>
+					</div>
+				</div>
+				<!--网站特色服务-->
+				<div class="container">
+					<ul class="speServer">
+						<!--<li>
+							<a href="javascript:void(0)" id="jumpEcoOrder" data-url="ecoOrder.html">
+								<ul>
+									<li>
+										电子配单
+									</li>
+									<li>
+										智能高效便捷
+									</li>
+									<li>
+										省心配单方便你我
+									</li>
+									<li>
+										进入
+									</li>
+								</ul>
+								<span>
+								<img src="images/icon_quickorder.png?__inline" alt="" />
+							</span>
+							</a>
+						</li>-->
+						<li>
+							<a href="javascript:void(0)" id="jumpBrand" data-url="brand.html">
+								<ul>
+									<li>
+										品牌馆
+									</li>
+									<li>
+										安防大牌云集
+									</li>
+									<li>
+										优质产品值得信赖
+									</li>
+									<li>
+										进入
+									</li>
+								</ul>
+								<span>
+								<img src="images/icon_brand_hall.png?__inline" alt="" />
+							</span>
+							</a>
+						</li>
+						<!--<li>
+							<a href="javascript:void(0)" id="jumpEcoCounter" data-url="ecoCounter.html">
+								<ul>
+									<li>
+										弱电计算器
+									</li>
+									<li>
+										省时精确精通
+									</li>
+									<li>
+										您的安防小助手
+									</li>
+									<li>
+										进入
+									</li>
+								</ul>
+								<span>
+								<img src="images/icon_calculator.png?__inline" alt="" />
+							</span>
+							</a>
+						</li>-->
+						<li>
+							<a href="javascript:void(0)" id="jumpProgram" data-url="program.html">
+								<ul>
+									<li>
+										智能方案
+									</li>
+									<li>
+										优质解决方案
+									</li>
+									<li>
+										安防界百科全书
+									</li>
+									<li>
+										进入
+									</li>
+								</ul>
+								<span>
+								<img src="images/program.png?__inline" alt="" />
+							</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!--众筹专区-->
+				<div class="zcArea" id="jumpZcDetail">
+					<div class="firstZcproList">
+						<!--众筹专区封面-->
+						<div class="zcCover">
+							<a href="javascript:;" id="jumpZc" data-url="zc.html">
+								<ul class="zcIntro">
+									<li>众筹专区</li>
+									<li>筹得多、省得多</li>
+									<li>
+										<img src="images/picture_zc.png" alt="" />
+									</li>
+								</ul>
+								<span class="zcIcon"></span>
+								<span class="zcGo">Go</span>
+							</a>
+						</div>
+						<!--众筹专区产品-->
+						<ul id="zcShangBox">
+							<script type="text/html" id="zcShangList">
+								<%for( i = 0; i < model.APPZCS.length; i++) {%>
+								<li>
+									<a href="javascript:;" class="jumpZcPro" data-zcProid="<%=model.APPZCS[i].id%>">
+										<img src="<%=model.APPZCS[i].url%>" alt="" />
+									</a>
+								</li>
+								<%}%>
+							</script>
+						</ul>
+					</div>
+					<!--第二排产品列表-->
+					<ul class="nextZcproList" id="zcXiaBox">
+						<script type="text/html" id="zcXiaList">
+							<%for( i = 0; i < model.APPZCX.length; i++) {%>
+							<li>
+								<a href="javascript:;" class="jumpZcPro" data-zcProid="<%=model.APPZCX[i].id%>">
+									<img src="<%=model.APPZCX[i].url%>" alt="" />
+								</a>
+							</li>
+							<%}%>
+						</script>
+					</ul>
+				</div>
+				<section id="jumpComProDetail">
+					<!--新品首发-->
+					<div class="newProArea">
+						<!--新品封面图-->
+						<div class="newProCover">
+							<a href="javascript:;" id="jumpNewPro" data-url="newPro.html">
+								<ul class="newProIntro">
+									<li>
+										新品首发
+									</li>
+									<li>
+										海量新品等你淘
+									</li>
+									<li>
+										<img src="images/picture_newproduct.png" alt="" />
+									</li>
+								</ul>
+								<p class="clearFloat">
+									<a href="javascript:;" class="rf">
+										<span>进入专题</span>
+										<em class="iconfont icon-fanhui-copy-copy jumpArrow"></em>
+									</a>
+								</p>
+							</a>
+						</div>
+						<!--新品产品列表-->
+						<ul class="newProList" id="newProBox">
+							<script type="text/html" id="newProList">
+								<%for( i = 0; i < model.APPINEW.length; i++) {%>
+								<li>
+									<a href="javascript:;" class="jumpPro" data-proid="<%=model.APPINEW[i].id%>">
+										<img src="<%=model.APPINEW[i].url%>" />
+									</a>
+								</li>
+								<%}%>
+							</script>
+						</ul>
+					</div>
+					<!--限时特价及热销-->
+					<div class="spePriceHot">
+						<!--特价-->
+						<div class="commPrice" style="border-right: 1px solid #E7E7E7;">
+							<div class="commTitle clearFloat">
+								<span class="lf speTimeTitle">限时特价</span>
+								<a href="javascript:;" class="rf" id="jumpSpePrice" data-url="spePrice.html">
+									<span>进入专题</span>
+									<em class="iconfont icon-fanhui-copy-copy jumpArrow"></em>
+								</a>
+							</div>
+							<p>特价爆款 限时抢购</p>
+							<ul class="commProList" id="timePriceBox">
+								<script type="text/html" id="timePriceList">
+									<%for( i = 0; i < model.APPIS.length; i++) {%>
+									<li>
+										<a href="javascript:;" class="jumpPro" data-proid="<%=model.APPIS[i].id%>">
+											<img src="<%=model.APPIS[i].url%>" />
+										</a>
+									</li>
+									<%}%>
+								</script>
+							</ul>
+						</div>
+						<!--热销-->
+						<div class="commPrice" style="border-right: 1px solid #E7E7E7;">
+							<div class="commTitle clearFloat">
+								<span class="lf newTimeTitle">热销精品</span>
+							</div>
+							<p>大众选择 值得信赖</p>
+							<ul class="commProList" id="hotSaleBox">
+								<script type="text/html" id="hotSaleList">
+									<%for( i = 0; i < model.APPIB.length; i++) {%>
+									<li>
+										<a href="javascript:;" class="jumpPro" data-proid="<%=model.APPIB[i].id%>">
+											<img src="<%=model.APPIB[i].url%>" alt="" />
+										</a>
+									</li>
+									<%}%>
+								</script>
+							</ul>
+						</div>
+					</div>
+					<!--视频监控-->
+					<div class="commClass">
+						<div class="commClassTitle">
+							<span class="videoLinear">
+							视频监控
+						</span>
+							<!--<a href="javascript:;" class="rf">
+								<span>查看更多</span>
+								<em class="iconfont icon-fanhui-copy-copy jumpArrow"></em>
+							</a>-->
+						</div>
+						<ul class="commList" id="vedioBox">
+							<script type="text/html" id="vedioList">
+								<%for( i = 0; i < model.APPSURVEILLANCE.length; i++) {%>
+								<li>
+									<a href="javascript:void(0);" class="jumpPro" data-proid="<%=model.APPSURVEILLANCE[i].id%>">
+										<p>
+											<img src="<%=model.APPSURVEILLANCE[i].url%>" />
+										</p>
+										<p>
+											<%=model.APPSURVEILLANCE[i].title%>
+										</p>
+										<%if(userRole==0) {%>
+										<p class="aroundCenter">
+											<span>市场价 : </span>
+											<span style="color: #333333;"><%=model.APPSURVEILLANCE[i].price/100==0?'面议':'¥'+(model.APPSURVEILLANCE[i].price/100).toFixed(2)%></span>
+										</p>
+										<%}%>
+										<%if(userRole==1) {%>
+										<p class="aroundCenter">
+											<span>市场价 : </span>
+											<span style="color: #333333;"><%=model.APPSURVEILLANCE[i].price/100==0?'面议':'¥'+(model.APPSURVEILLANCE[i].price/100).toFixed(2)%></span>
+										</p>
+										<p class="aroundCenter">
+											<span>企业价 : </span>
+											<span style="color: #ee0505;"><%=model.APPSURVEILLANCE[i].thirdPrice/100==0?'面议':'¥'+(model.APPSURVEILLANCE[i].thirdPrice/100).toFixed(2)%></span>
+										</p>
+										<%}%>
+
+									</a>
+								</li>
+								<%}%>
+							</script>
+						</ul>
+					</div>
+
+					<!--网络产品-->
+					<div class="commClass">
+						<div class="commClassTitle">
+							<span class="netLinear">
+							网络产品
+						</span>
+							<!--<a href="javascript:;" class="rf">
+								<span>查看更多</span>
+								<em class="iconfont icon-fanhui-copy-copy jumpArrow"></em>
+							</a>-->
+						</div>
+						<ul class="commList" id="netProBox">
+							<script type="text/html" id="netProList">
+								<%for( i = 0; i < model.APPNETWORKPRODUCTS.length; i++) {%>
+								<li>
+									<a href="javascript:void(0);" class="jumpPro" data-proid="<%=model.APPNETWORKPRODUCTS[i].id%>">
+										<p>
+											<img src="<%=model.APPNETWORKPRODUCTS[i].url%>" />
+										</p>
+										<p>
+											<%=model.APPNETWORKPRODUCTS[i].title%>
+										</p>
+										<%if(userRole==0) {%>
+										<p class="aroundCenter">
+											<span>市场价 : </span>
+											<span style="color: #333333;"><%=model.APPNETWORKPRODUCTS[i].price/100==0?'面议':'¥'+(model.APPNETWORKPRODUCTS[i].price/100).toFixed(2)%></span>
+										</p>
+										<%}%>
+										<%if(userRole==1) {%>
+										<p class="aroundCenter">
+											<span>市场价 : </span>
+											<span style="color: #333333;"><%=model.APPNETWORKPRODUCTS[i].price/100==0?'面议':'¥'+(model.APPNETWORKPRODUCTS[i].price/100).toFixed(2)%></span>
+										</p>
+										<p class="aroundCenter">
+											<span>企业价 : </span>
+											<span style="color: #ee0505;"><%=model.APPNETWORKPRODUCTS[i].thirdPrice/100==0?'面议':'¥'+(model.APPNETWORKPRODUCTS[i].thirdPrice/100).toFixed(2)%></span>
+										</p>
+										<%}%>
+
+									</a>
+								</li>
+								<%}%>
+							</script>
+						</ul>
+					</div>
+
+					<!--线缆布控-->
+					<div class="commClass">
+						<div class="commClassTitle">
+							<span class="lineLinear">
+							线缆布控
+						</span>
+							<!--<a href="javascript:;" class="rf">
+								<span>查看更多</span>
+								<em class="iconfont icon-fanhui-copy-copy jumpArrow"></em>
+							</a>-->
+						</div>
+						<ul class="commList" id="lineProBox">
+							<script type="text/html" id="lineProList">
+								<%for( i = 0; i < model.APPCABLE.length; i++) {%>
+								<li>
+									<a href="javascript:void(0);" class="jumpPro" data-proid="<%=model.APPCABLE[i].id%>">
+										<p>
+											<img src="<%=model.APPCABLE[i].url%>" />
+										</p>
+										<p>
+											<%=model.APPCABLE[i].title%>
+										</p>
+										<%if(userRole==0) {%>
+										<p class="aroundCenter">
+											<span>市场价 : </span>
+											<span style="color: #333333;"><%=model.APPCABLE[i].price/100==0?'面议':'¥'+(model.APPCABLE[i].price/100).toFixed(2)%></span>
+										</p>
+										<%}%>
+										<%if(userRole==1) {%>
+										<p class="aroundCenter">
+											<span>市场价 : </span>
+											<span style="color: #333333;"><%=model.APPCABLE[i].price/100==0?'面议':'¥'+(model.APPCABLE[i].price/100).toFixed(2)%></span>
+										</p>
+										<p class="aroundCenter">
+											<span>企业价 : </span>
+											<span style="color: #ee0505;"><%=model.APPCABLE[i].thirdPrice/100==0?'面议':'¥'+(model.APPCABLE[i].thirdPrice/100).toFixed(2)%></span>
+										</p>
+										<%}%>
+
+									</a>
+								</li>
+								<%}%>
+							</script>
+						</ul>
+					</div>
+					<!--精品推荐-->
+					<div class="recom">
+						<!--标题-->
+						<p class="recomTitle">精品推荐</p>
+						<!--主体内容-->
+						<div class="container">
+							<ul class="proList clearFloat" id="proList">
+								<script type="text/html" id="proBox">
+									<%for( i = 0; i < model.length; i++) {%>
+									<li class="clearFloat">
+										<a href="javascript:void(0)" class="jumpPro" data-proid='<%=model[i].id%>'>
+											<p class="proImg">
+												<img class="lazyImg" src="<%=model[i].image%>">
+											</p>
+											<p class="proIntro">
+												<%=model[i].title%>
+											</p>
+										</a>
+										<p class="personPrice aroundCenter">
+											<span>
+											市场价 : 
+										</span>
+											<span style="color: #333333;">
+												<%=model[i].price/100==0?'面议':'¥'+(model[i].price/100).toFixed(2)%>
+										</span>
+										</p>
+										<%if(userRole==1) {%>
+										<p class="companyPrice aroundCenter">
+											<span>
+											企业价 : 
+										</span>
+											<span style="color: #ee0505;">
+											<%=model[i].thirdPrice/100==0?'面议':'¥'+(model[i].thirdPrice/100).toFixed(2)%>
+										</span>
+										</p>
+										<%}%>
+									</li>
+									<%}%>
+								</script>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</div>
+
+		</div>
+		<!--loading-->
+		<div class="loadingImg">
+			<img src="images/loading.gif" alt="" />
+		</div>
+
+		<!--加载失败-->
+		<div class="loadingFailBox" style="display: none;" id="loadingFailArea">
+			<div class="loadingFail">
+				<div class="loadingFailImg">
+					<img src="images/fail_load.png" alt="" />
+				</div>
+				<p>加载失败，请检查网络链接，或点击重试</p>
+				<div>
+					<a href="javascript:void(0)" id="againLine">重试</a>
+				</div>
+			</div>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<!--<script src="js/mui.pullToRefresh.js"></script>
+		<script src="js/mui.pullToRefresh.material.js"></script>-->
+		<script src="js/mescroll.min.js"></script>
+		<script type="text/javascript" src="js/viewsjs/home.js"></script>
+	</body>
+
+</html>

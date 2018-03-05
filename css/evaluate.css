@@ -1,0 +1,260 @@
+html,body{
+	width: 100%;
+	height: 100%;
+	margin: 0 ;
+	padding: 0;
+	background-color: rgba(249,247,246,1);
+}
+/*主体*/
+.evaluateList{
+	width: 100%;
+	margin-top: 0.4rem;
+	background-color: rgba(256,256,256,1);
+	padding-top: 0.29rem;
+}
+.evaluateList li{
+	width: 100%;
+	height: 2.16rem;
+	padding: 0.26rem;
+	box-sizing: border-box;
+	margin-bottom: 0.13rem;
+}
+.evaluateImg{
+	width: 18%;
+}
+.evaluatePro{
+	width: 78%;
+}
+.evaluatePro p{
+	font-size: 0.34rem;
+	color: #333333;
+	height: 1rem;
+	overflow: hidden;
+}
+.evaluatePro div{
+	width: 100%;
+	height: 0.76rem;
+	text-align: right;
+}
+.evaluatePro div a{
+	display: inline-block;
+	width: 1.57rem;
+	height: 0.56rem;
+	line-height: 0.56rem;
+	text-align: center;
+	font-size: 0.34rem;
+	color: #ff3300;
+	vertical-align: top;
+	margin-top: 0.18rem;
+}
+.border:after{
+	border-color: #ff3300;
+	border-radius: 3px;
+}
+.evaluateImg{
+	text-align: center;
+}
+.evaluateImg img{
+	width: 1.76rem;
+	height: 1.76rem;
+}
+
+
+/*评价内容页*/
+.mui-content{
+	padding-bottom: 0.4rem;
+}
+.evaluateHeader{
+	height: 3.33rem !important;
+	background-color: rgba(255,61,0,1);
+	padding-top: 0.21rem;
+	overflow: hidden;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.arc{
+	width: 100%;
+	height: 0.82rem;
+	background: url(../images/evaluation_bg.png) no-repeat center;
+	background-size: cover;
+}
+.evaluateContentPro p{
+	text-align: center;
+}
+.evaluateContentPro p:first-child{
+	width: 1.86rem;
+	max-height: 1.86rem;
+	overflow: hidden;
+	margin: 0 auto 0.21rem;
+	background-color: white;
+}
+.evaluateContentPro p:first-child img{
+	width: 100%;
+	height: 100%;
+}
+.evaluateContentPro p:last-child{
+	width: 5.33rem;
+	margin: 0 auto;
+	font-size: 14px;
+	color: #FFFFFF;
+	line-height: 16px;
+	height: 32px;
+	overflow: hidden;
+}
+/*星级评价*/
+.userStar{
+	width: 100%;
+	text-align: center;
+	margin-top: 0.4rem;
+}
+.icon-iconfontxingxing{
+	font-size: 0.4rem;
+	color: #E7E7E7;
+}
+.startActive{
+	color: #E1C52A !important;
+}
+.evaTxtBox{
+	margin-top: 0.64rem;
+}
+.evaTxtBox textarea{
+	font-size: 0.34rem;
+	width: 100%;
+	height: 4rem;
+	border: 0;
+	background-color: rgba(245,245,245,1);
+}
+.camarea{
+	margin-top: 0.4rem;
+	padding: 0 0.26rem;
+}
+#F_CKJLB{
+	width: 1.6rem;
+	height: 1.6rem;
+	background: url(../images/camarea_01_03.png) no-repeat center;
+	background-size: cover;
+}
+.image-item{  
+    position: relative;
+    display: inline-block;
+    margin-right: 0.21rem; 
+}  
+.image-item p{
+	width: 1.6rem;
+	max-height: 1.6rem;
+	overflow: hidden;
+}
+.image-item p img{
+	width: 100%;
+	height: 100%;
+}
+.del {  
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    text-align: center;  
+    top:-6px;  
+    right: -6px;   
+    color:#fff;
+    z-index: 2;
+    background-color: rgba(255,61,0,1);
+    border-radius: 7px;  
+    font-size: 14px;
+}
+.clickDel{
+	position: absolute;
+    width: 26px;
+    height: 26px;  
+    top:-13px;  
+    right: -13px;   
+    color:#fff;
+    z-index: 3;
+    background-color: rgba(255,255,255,0); 
+}
+.imgBtn{
+	margin-top: 1rem;
+	width: 100%;
+	text-align: center;
+}
+.imgBtn input{
+	width: 7.86rem;
+	height: 1.04rem;
+	border-radius: 0.06rem;
+	border: 0;
+	background-color: rgba(255,61,0,1);
+	color: #FFFFFF;
+	font-size: 0.4rem;
+	padding: 0;
+}
+
+
+/*评价成功*/
+.evaSuccHeaderBox{
+	width: 100%;
+	position: relative;
+}
+.evaSuccHeader{
+	width: 100%;
+	height: 4.95rem;
+	background: url(../images/eva_succbg_01.png) no-repeat center rgba(255,61,0,1);
+	background-size: cover;
+}
+.evaSuccArc{
+	width: 100%;
+	height: 0.93rem;
+	background: url(../images/eva_succbg_02.png) no-repeat center;
+	background-size: cover;
+}
+.evaSuccIntro{
+	position: absolute;
+	top: 1.2rem;
+	left: 50%;
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+.evaSuccGou{
+	width: 2.45rem;
+	height: 2.45rem;
+	background: url(../images/eva_succ_gou.png) no-repeat center;
+	background-size: cover;
+	margin-bottom: 0.13rem;
+}
+.evaSuccIntro p{
+	font-size: 0.48rem;
+	color: #FFFFFF;
+	font-weight: 400;
+	margin-bottom: 0.13rem;
+}
+.evaSuccIntro a{
+	display: block;
+	width: 2.32rem;
+	height: 0.61rem;
+	line-height: 0.61rem;
+	font-size: 0.34rem;
+	color: #FFFFFF;
+	margin: 0 auto;
+	border-radius: 0.05rem;
+	border: 1px solid #FFFFFF;
+	text-align: center;
+}
+.continuEva{
+	width: 100%;
+	height: 0.4rem;
+	line-height: 0.4rem;
+	text-align: center;
+	margin-top: 0.4rem;
+}
+.continuEva span:not(.evaSuccLine){
+	font-size: 0.37rem;
+	color: #9e9e9e;
+}
+.evaSuccLine{
+	display: inline-block;
+	vertical-align: middle;
+	width: 2.42rem;
+	height: 2px;
+	background-color: rgba(231,231,231,1);
+}

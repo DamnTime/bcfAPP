@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/classify.css" />
+	</head>
+
+	<body>
+		<!--搜索条-->
+		<header>
+			<p>分类</p>
+		</header>
+		<!--主体-->
+		<div class="classifyContent clearFloat">
+			<!--左侧悬浮-->
+			<div class="classify" id="classify">
+				<ul id="classifyBox">
+					<script type="text/html" id="classifyList">
+						<li class="classifyActive">
+							<a href="javascript:void(0)" data-typeId="<%=model.node[0].id%>"><%=model.node[0].itmeName%></a>
+						</li>
+						<%for( i = 1; i < model.node.length; i++) {%>
+						<li>
+							<a href="javascript:void(0)" data-typeId="<%=model.node[i].id%>">
+								<%=model.node[i].itmeName%>
+							</a>
+						</li>
+						<%}%>
+					</script>
+				</ul>
+			</div>
+			<!--右侧内容-->
+			<div class="classifyDetail" id="rightClassify">
+				<p class="classImg" id="classImgBox" style="display: none;">
+					<script type="text/html" id="classImgList">
+						<img src="<%=model.banner.phImg%>" alt="" />
+					</script>
+				</p>
+				<!--<p class="title">产品分类</p>-->
+				<ul class="proList" id="proArea">
+					<script type="text/html" id="proAreaList">
+						<%for( i = 0; i < model.length; i++) {%>
+						<li>
+							<a href="javascript:void(0)" data-searchKey="<%=model[i].text%>">
+								<p class="proImg">
+									<img src="images/img_loading.png" data-lazyload="<%=model[i].img%>"/>
+								</p>
+								<p class="proTxt"><%=model[i].text%></p>
+							</a>
+						</li>
+						
+						<%}%>
+					</script>
+				</ul>
+			</div>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.lazyload.js"></script>
+		<script src="js/mui.lazyload.img.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/viewsjs/classify.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

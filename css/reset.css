@@ -1,0 +1,246 @@
+@charset "utf-8";  
+html,body{-webkit-user-select:none;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;-webkit-user-select:none;-webkit-touch-callout:none;-webkit-touch-callout:none;}  
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {margin:0;padding:0;}  
+body,button,input,select,textarea {font:14px \5b8b\4f53,'Helvetica Neue',Arial,'Liberation Sans',FreeSans,'Hiragino Sans GB',sans-serif\"Microsoft YaHei"\"微软雅黑";}      
+h1,h2,h3,h4,h5,h6 {font-weight:normal;}  
+html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {-webkit-text-size-adjust:none;}/*阻止旋转屏幕时自动调整字体大小*/  
+textarea{resize:none;}  
+/*取消按钮在inphone上的默认样式*/  
+input[type=button]{-webkit-appearance:none;outline:none}   
+input::-webkit-input-placeholder{color:#F0F0F0;}  
+textarea::-webkit-input-placeholder{color:#F0F0F0;}  
+input::-webkit-input-speech-button {display:none}  
+table {border-collapse:collapse;border-spacing:0;}  
+th {text-align:inherit;}  
+fieldset,img {border:none;}  
+abbr,acronym {border:none;font-variant:normal;}  
+del {text-decoration:line-through;}  
+ol,ul {list-style:none;}  
+caption,th {text-align:left;}  
+sub,sup {font-size:75%;line-height:0;position:relative;vertical-align:baseline;}  
+sup {top:-0.5em;}  
+sub {bottom:-0.25em;}  
+ins,a,a:hover {text-decoration:none;}  
+a:focus,*:focus {outline:none;}        
+/*清楚浮动*/    
+.clearFloat:after{
+	content:'';
+	display: block;
+	clear: both;
+}
+/*浮动*/
+.lf{
+	float: left;
+}
+.rf{
+	float: right;
+}
+.container{
+	padding: 0 0.2rem;
+	/*background-color: #FFFFFF;*/
+}
+
+/*1px边框*/
+.border{
+	position: relative;
+	width: 100%;
+}
+.border:after {
+    border: 1px solid #DDDDDD;
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0; 
+    left: 0;
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: scale(1);
+    transform-origin: 0 0;
+    transform: scale(1);
+    pointer-events: none;
+}
+/*@media only screen and (-webkit-min-device-pixel-ratio: 1) {
+    .border:after {
+        right: -100%;
+        bottom: -100%;
+        -webkit-transform: scale(1);
+    }
+}*/
+@media (-webkit-min-device-pixel-ratio:2),(min-device-pixel-ratio:2) {
+    .border:after {
+        right: -100%;
+        bottom: -100%;
+        -webkit-transform: scale(0.5);
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 3),(device-pixel-ratio: 3) {
+    .border:after {
+        right: -100%;
+        bottom: -100%;
+        -webkit-transform: scale(0.25);
+    }
+}
+
+
+/*footer*/
+.footerBox{
+	position:fixed;
+	left: 0 ;
+	right: 0;
+	bottom:0;
+	width: 100%;
+	height: 50px;
+	z-index: 999;
+	border-top: 1px solid #DDDDDD;
+	/*-webkit-box-shadow:0 0 5px rgba(249,247,246,1);
+	box-shadow:0 0 5px rgba(249,247,246,1);*/
+	-webkit-box-shadow:0 0 5px rgba(0,0,0,0.2);
+	box-shadow:0 0 5px rgba(0,0,0,0.2);
+	/*-webkit-box-sizing: border-box;
+	box-sizing: border-box;*/  
+}
+.footItem span{
+	font-weight: bold;
+}
+.footerBox ul{
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	width: 100%;
+	height: 100%;
+}
+.footerBox ul:after{
+	content: '';
+	width: 20%;
+}
+.footItem{
+	width: 25%;
+	height: 100%;
+	text-align: center;
+	display: table;
+}
+.footerBox ul li a{
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	height: 100%;
+}
+.footLabel{
+	display: block;
+	font-size: 12px;
+	/*font-weight: bold;*/
+}
+.footItem span{
+	color: #717077;
+}
+.footActive span{
+	color: #ff3d00 !important;
+}
+.icon-shouye,.icon-fenlei,.icon-gerenzhongxin,.icon-gouwuche-copy{
+	font-size: 14px !important;
+	line-height: 14px;
+	/*font-weight: 400;*/
+}
+/*边距20*/
+.padding20{
+	padding: 0 0.26rem;
+} 
+
+/*loading*/
+.loadingImg{
+	position: fixed !important;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	width: 100% !important;
+	height: 100% !important;
+	text-align: center !important;
+	background-color:rgba(256,256,256,1);
+}
+.loadingImg>img{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+	width: 3.04rem;
+	height: 2.4rem;
+}
+/*改变inputplaceholder样式*/
+input,textarea::-webkit-input-placeholder{ 
+color: #9a9a9a; 
+} 
+input,textarea:-moz-placeholder{ 
+color: #9a9a9a; 
+} 
+input,textarea::-moz-placeholder{ 
+color: #9a9a9a; 
+} 
+input,textarea:-ms-input-placeholder{ 
+color: #9a9a9a; 
+} 
+
+
+/*加载失败*/
+.loadingFailBox{
+	position: fixed !important;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+	width: 100% !important;
+	height: 100% !important;
+	text-align: center !important;
+	background-color:rgba(256,256,256,1);
+}
+.loadingFail{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 100%;
+	-webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+.loadingFailImg{
+	width: 4rem;
+	height: 4rem;
+	text-align: center;
+}
+.loadingFailImg>img{
+	width: 4rem;
+	height: 4rem;
+}
+.loadingFail>p{
+	font-size: 0.4rem;
+	color: #9e9e9e;
+	font-weight: 600;
+}
+.loadingFail>div{
+	width: 100%;
+	text-align: center;
+	margin-top: 0.53rem;
+}
+.loadingFail>div>a{
+	display: inline-block;
+	width: 1.92rem;
+	height: 0.93rem;
+	line-height: 0.93rem;
+	text-align: center;
+	background-color: rgba(255,61,0,1);
+	color: #FFFFFF;
+	font-size: 16px;
+	color: #FFFFFF;
+	font-weight: 400;
+	border-radius: 0.05rem;
+}

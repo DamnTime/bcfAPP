@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/pay.css" />
+	</head>
+	<body>
+		<div class="mui-content">
+			<!--订单对应的产品-->
+			<div class="padding20" id="orderBox">
+				<script type="text/html" id="orderList">
+					<div class="orderPro">
+						<p class="orderTitle">
+							订单编号 :
+							<span><%=model.id%></span>
+						</p>
+						<ul class="orderProList">
+							<%for( i = 0; i < model.goods.length; i++) {%>
+							<li>
+								<a href="javascript:void(0);" class="clearFloat">
+									<div class="lf orderImg" data-id="<%=model.goods[i].commodityId%>">
+										<img src="<%=model.goods[i].phimage%>" />
+									</div>
+									<div class="rf orderProIntro">
+										<p class="proTitle">
+											<%=model.goods[i].title%>
+										</p>
+										<p class="clearFloat">
+											<span class="lf">
+										¥<%=(model.goods[i].oldPrice/100).toFixed(2)%>
+									</span>
+											<span class="rf">
+										×<%=model.goods[i].number%>
+									</span>
+										</p>
+									</div>
+								</a>
+							</li>
+							<%}%>
+						</ul>
+						<p class="clearFloat proTotle">
+							<span class="lf">
+						共计 <span class="key"><%=model.goods.length%></span> 件商品
+							</span>
+							<span class="rf">
+						运费 : ¥<%=(model.postage/100).toFixed(2)%>
+					</span>
+						</p>
+						<p class="clearFloat priceTotle">
+							<span class="rf">
+						共计金额: ¥<%=(model.prices/100).toFixed(2)%>
+					</span>
+						</p>
+					</div>
+				</script>
+			</div>
+			<!--如果是线上支付-->
+			<ul class="payStyleList" style="display: none;" id="inlinePay">
+				<li>
+					<a href="javascript:void(0)" class="clearFloat" id="alipay">
+						<div class="lf payStyle">
+							<em></em>
+							<!--<img src="images/pay_01_03.png" alt="" />-->
+							<span>支付宝支付</span>
+						</div>
+						<span class="iconfont icon-s-right arrow"></span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)" class="clearFloat" id="weixinPay">
+						<div class="lf payStyle">
+							<em></em>
+							<span>微信支付</span>
+						</div>
+						<span class="iconfont icon-s-right arrow"></span>
+					</a>
+				</li>
+			</ul>
+			<!--如果是线下支付-->
+			<div class="padding20" style="display: none;" id="outlinePay">
+				<div class="remittance">
+					<p class="remittanceTitle">
+						汇款账户信息
+					</p>
+					<ul class="remittanceList">
+						<li>
+							公司名称: 成都恒立方科技有限公司
+						</li>
+						<li>
+							银行账户: 51001416185052503327
+						</li>
+						<li>
+							开户银行: 中国建设银行成都益州支行
+						</li>
+					</ul>
+				</div>
+				<div class="clickInput">
+					<a href="javascript:void(0);">
+						如已打款，请点击填写汇款信息
+					</a>
+				</div>
+			</div>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/viewsjs/pay.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

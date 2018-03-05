@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link href="css/mui.css" rel="stylesheet"/>
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/mine.css" />
+	</head>
+	<body>
+		<header class="personMsgArea">
+			<p class="title">
+				<a class="mui-action-back back">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</a>
+		    	<span id="title">忘记密码</span>
+			</p>
+		</header>
+		<div class="mui-content" id="forgetBox">
+			<!--上-->
+			<div class="forgetPwdContent">
+				<p class="handleTitle">手机验证</p>
+				<ul class="forgetInputList"> 
+					<li> 
+						<label for="phoneNum" class="loginLeft">手机号码: </label>
+						<input type="number" id="phoneNum"/>
+						<input id="getCode" type="button" type="button" value="获取验证码">
+					</li>
+					<li> 
+						<label for="voliCode" class="loginLeft">验&nbsp;&nbsp;证&nbsp;&nbsp;码: </label>
+						<input type="text" id="voliCode"/>
+					</li>
+				</ul>
+			</div>
+			<!--下-->
+			<div class="forgetPwdContent">
+				<p class="handleTitle">重置密码</p>
+				<ul class="forgetInputList">
+					<li>
+						<label for="resetPwd" class="loginLeft" placeholder="请输入6到20位字符">设置密码: </label>
+						<input type="password" id="resetPwd"/>
+					</li>
+					<li>
+						<label for="surePwd" class="loginLeft">确认密码: </label>
+						<input type="password" id="surePwd"/>
+					</li>
+				</ul>
+			</div>
+			<!--完成-->
+			<div class="forgetPwdBtn"> 
+				<input type="button" class="forgetErr" id="final" value="完 成">
+			</div>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.plusReady(function(){
+				
+			}); 
+			//验证码 
+			var code=null;
+			var username=null;
+			var tel=null;
+			var codeKey=null;
+			var password=null;
+			var passwordAgain=null;
+			h('#getCode').tap(function() {
+				tel = h('#phoneNum').val();
+				var time = 60;
+				var self = this;
+				if(!tel){
+					mui.alert('请先输入手机号!');
+					return false;
+				}else if(/^[1][34578]\d{9}$/.test(tel)) {
+					h(self).addClass('noUseCode').attr('disabled', 'true').val(time + 's后重新发送');
+					var timer = setInterval(function() {
+						if(time > 0) {
+							time--;
+							h(self).addClass('noUseCode').attr('disabled', 'true').val(time + 's后重新发送');
+						} else {
+							clearInterval(timer);
+							h(self).removeClass('noUseCode').val('获取验证码').removeAttr('disabled');
+						}
+					}, 1000);
+					//验证手机号
+					mui.ajax(services.baseUrl+'/customer/phone',{
+						data:services.Encrypt(JSON.stringify({
+							tel:tel
+						})),
+						beforeSend:function(request){
+          					services.beforeHeader(request);
+        				},  
+						type:'post',
+						timeout:10000,              
+						success:function(data){
+							h(self).removeClass('noUseCode').html('获取验证码').removeAttr('disabled');
+							alert(services.Decrypt(data));
+							var res=JSON.parse(services.Decrypt(data));
+							if(res.status==400){
+							//获取验证码			
+							mui.ajax(services.baseUrl+'/user/code',{
+								data:services.Encrypt(JSON.stringify({
+									tel:tel
+								})),
+								beforeSend:function(request){
+		          					services.beforeHeader(request);
+		        				},  
+								type:'post',
+								timeout:10000,              
+								success:function(data){
+									var res=JSON.parse(services.Decrypt(data));
+									if(res.status==200){
+										codeKey=res.data;
+										 alert(codeKey);
+									}
+									else{
+										alert(res.msg);
+										h(self).removeClass('noUseCode').val('获取验证码').removeAttr('disabled');
+									}
+									
+								},
+								error:function(xhr,type,errorThrown){
+									mui.toast("系统繁忙请稍后重试");
+									
+									h(self).removeClass('noUseCode').val('获取验证码').removeAttr('disabled');
+								}
+							});	
+							}else{
+								mui.alert(res.msg);
+							}
+							
+						},
+						error:function(xhr,type,errorThrown){
+							mui.toast("系统繁忙请稍后重试");
+							clearInterval(timer);
+							h(self).removeClass('noUseCode').val('获取验证码').removeAttr('disabled');
+						}
+					});
+					
+				}else{
+					alert("请输入正确的电话号码");
+                 	clearInterval(timer);
+					h(self).removeClass('noUseCode').val('获取验证码').removeAttr('disabled');
+				}
+				
+			});
+			
+			
+			h('#final').tap(function(){
+				if(!codeKey){
+					mui.alert("温馨提示","请先获取验证码");
+					return false;
+				}if(!/^[0-9A-Za-z]{6,20}$/.test(h('#resetPwd').val())){
+					mui.alert('密码格式不正确!');
+					return false;
+				}else if(h('#resetPwd').val()!==h('#surePwd').val()){
+					mui.alert('两次密码不一致!');
+					return false;
+				}
+				else {
+					code=h('#voliCode').val();
+					tel=h('#phoneNum').val();
+					mui.ajax(services.baseUrl+'/user/compare',{
+						data:services.Encrypt(JSON.stringify({
+							key:codeKey,
+							code:code
+						})),
+						beforeSend:function(request){
+          					services.beforeHeader(request);
+        				}, 
+						type:'post',
+						timeout:10000,	              
+						success:function(data){
+							var res=JSON.parse(services.Decrypt(data));
+							if(res.status==200){
+								mui.ajax(services.baseUrl+'/customer/updatepw',{
+									data:services.Encrypt(JSON.stringify({
+										password:h('#resetPwd').val(),
+							            passwordAgain:h('#surePwd').val(),
+							            tel:h('#phoneNum').val()
+									})),
+									beforeSend:function(request){
+			          					services.beforeHeader(request);
+			        				},  
+									type:'post',
+									timeout:10000,              
+									success:function(data){
+										var res=JSON.parse(services.Decrypt(data));
+										if(res.status==200){
+											mui.toast('修改成功!');
+											setTimeout(function(){
+												mui.openWindow({
+									  			url:'login.html',
+							    				id:'login.html',
+							    				waiting:{
+											      autoShow:true,
+											      title:'正在加载...'
+											     }
+								  			});
+											},1000);
+										}
+										else{
+											mui.alert(res.msg);
+											
+										}
+									},
+									error:function(xhr,type,errorThrown){
+										mui.toast("系统繁忙请稍后重试");
+									}
+								});
+							}
+						},
+						error:function(xhr,type,errorThrown){
+							mui.toast("系统繁忙请稍后重试");
+						}
+					});	
+				}
+				
+				 
+					});
+			
+			
+			
+			//监听input框输入
+			var inputPhone=false;
+			var inputCode=false;
+			var inputPwd=false;
+			var inputSurePwd=false;
+			
+			document.getElementById("phoneNum").addEventListener('input',function(){
+				if(this.value.length>0){
+					inputPhone=true; 
+					if(inputPhone&&inputCode&&inputPwd&&inputSurePwd){
+						h('#final').removeAttr('disabled').removeClass('forgetErr').addClass('forgetSucc')
+					}
+				}else{
+					inputPhone=false;
+					if(inputPhone||inputCode||inputPwd||inputSurePwd){
+						h('#final').attr('disabled','true').removeClass('forgetSucc').addClass('forgetErr')
+					}
+				}
+			});
+			document.getElementById("voliCode").addEventListener('input',function(){
+				if(this.value.length>0){
+					inputCode=true; 
+					if(inputPhone&&inputCode&&inputPwd&&inputSurePwd){
+						h('#final').removeAttr('disabled').removeClass('forgetErr').addClass('forgetSucc')
+					}
+				}else{
+					inputCode=false;
+					if(inputPhone||inputCode||inputPwd||inputSurePwd){
+						h('#final').attr('disabled','true').removeClass('forgetSucc').addClass('forgetErr')
+					}
+				}
+			});
+			document.getElementById("resetPwd").addEventListener('input',function(){
+				if(this.value.length>0){
+					inputPwd=true; 
+					if(inputPhone&&inputCode&&inputPwd&&inputSurePwd){
+						h('#final').removeAttr('disabled').removeClass('forgetErr').addClass('forgetSucc')
+					}
+				}else{
+					inputPwd=false;
+					if(inputPhone||inputCode||inputPwd||inputSurePwd){
+						h('#final').attr('disabled','true').removeClass('forgetSucc').addClass('forgetErr')
+					}
+				}
+			});
+			document.getElementById("surePwd").addEventListener('input',function(){
+				if(this.value.length>0){
+					inputSurePwd=true; 
+					if(inputPhone&&inputCode&&inputPwd&&inputSurePwd){
+						h('#final').removeAttr('disabled').removeClass('forgetErr').addClass('forgetSucc')
+					}
+				}else{
+					inputSurePwd=false;
+					if(inputPhone||inputCode||inputPwd||inputSurePwd){
+						h('#final').attr('disabled','true').removeClass('forgetSucc').addClass('forgetErr')
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

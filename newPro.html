@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/newPro.css" />
+	</head>
+
+	<body>
+		<div class="mui-off-canvas-wrap mui-slide-in" id="offCanvasWrapper">
+			<!--侧滑菜单-->
+			<aside id="offCanvasSide" class="mui-slide-in mui-off-canvas-left mui-transitioning">
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+					<ul class="programClassfiy" id="programClassfiyList">
+						<script type="text/html" id="programClassfiyBox">
+							<li class="itemActive">
+								<a href="javascript:void(0);" data-typeId="">
+									<span class="iconfont icon-yuan"></span> 全部
+								</a>
+							</li>
+							<%for( i = 0; i < model.item.length-1; i++) {%>
+							<li>
+								<a href="javascript:void(0);" data-typeId="<%=model.item[i].id%>">
+									<span class="iconfont icon-yuan"></span>
+									<%=model.item[i].itmeName%>
+								</a>
+							</li>
+							<%}%>
+						</script>
+					</ul>
+				</div>
+			</aside>
+			<!--主界面-->
+			<div class="mui-inner-wrap">
+				<div class="mui-content" id="offCanvasContentScroll">
+					<header class="zcHeader">
+						<a href="javascript:void(0)" class="mui-action-back" id="close">×</a>
+						<div id="newProBanner">
+							<script type="text/html" id="newProBannerBox">
+								<img src="<%=model.banner.phImg%>" />
+							</script>
+						</div>
+					</header>
+					<div class="newProBox">
+						<ul class="newProList" id="newProList">
+							<script type="text/html" id="newProBox">
+								<%for( i = 0; i < model.list.length; i++) {%>
+								<li>
+									<a href="javascript:void(0)" class="jumpProDetail" data-newProId="<%=model.list[i].commodityId%>">
+										<p class="newProImg">
+											<img data-lazyload="<%=model.list[i].phimage%>" src="images/img_loading.png" alt="" />
+										</p>
+										<p class="newProTxt">
+											<%=model.list[i].title%>
+										</p>
+									</a>
+									<p class="newProPrice">
+										¥<%=(model.list[i].price/100).toFixed(2)%>
+									</p>
+									<a href="javascript:void(0)" class="jumpProDetail newProImmBuy" data-newProId="1">立即购买</a>
+								</li>
+								<%}%>
+							</script>
+						</ul>
+					</div>
+					<!-- off-canvas backdrop -->
+					<div class="mui-off-canvas-backdrop"></div>
+					<!--侧滑按钮-->
+					<div class="slideBtn" id="offCanvasShow"></div>
+				</div>
+			</div>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.lazyload.js"></script>
+		<script src="js/mui.lazyload.img.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/viewsjs/newPro.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

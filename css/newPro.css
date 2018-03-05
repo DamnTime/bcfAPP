@@ -1,0 +1,124 @@
+html,body{
+	width: 100%;
+	height: 100%;
+	margin: 0 ;
+	padding: 0;
+}
+.zcHeader{
+	width: 100%;
+	min-height: 3rem;
+	position: relative;
+	overflow: hidden;
+}
+#newProBanner{
+	width: 100%;
+	height: 100%;
+}
+#newProBanner>img{
+	width: 100%;
+	vertical-align: bottom;
+}
+.zcHeader>a{
+	position: absolute;
+	top: 0.8rem;
+	left: 0.26rem;
+	color: #FFFFFF;
+	font-size: 0.8rem;
+}
+.newProBox{
+	width: 100%;
+	padding: 0.26rem;
+	background-color: rgba(6,74,153,1);
+	border-radius: 0.1rem;
+	position: relative;
+	top: -0.13rem;
+}
+.newProList{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.newProList:after{
+	content:'';
+	width: 49%;
+}
+.newProList li{
+	width: 49%;
+	background-color: rgba(256,256,256,1);
+	border-radius: 0.05rem;
+	margin-bottom: 0.13rem;
+}
+.newProImg{
+	text-align: center;
+	padding: 0.13rem 0;
+}
+.newProImg img{
+	width: 3.06rem;
+	height: 3.06rem;
+}
+.newProTxt{
+	color: #333333;
+	font-size: 13px;
+	line-height: 1.2em;
+	height: 2.4em;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.newProPrice{
+	text-align: center;
+	font-size: 0.4rem;
+	color: #e73b05;
+	line-height: 0.72rem;
+}
+.newProImmBuy{
+	display: block;
+	width: 100%;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	text-align: center;
+	background-color: rgba(255,61,0,1);
+	color: #FFFFFF !important;
+	font-size: 0.34rem;
+}
+/*侧滑按钮*/
+.slideBtn{
+	position: fixed;
+	right: 0.26rem;
+	bottom: 1.33rem;
+	width: 1.41rem;
+	height: 1.41rem;
+	background: url(../images/program_btn.png) no-repeat center;
+	background-size: cover;
+	z-index: 999;
+}
+.mui-off-canvas-left{
+	width: 5.7rem !important;
+	background-color: rgba(255,61,0,1) !important;
+}
+.programClassfiy{
+	padding-top: 0.93rem;
+}
+.programClassfiy li{
+	/*margin-bottom: 0.13rem;*/
+	padding-left: 0.93rem;
+	font-size: 0.37rem;
+	color: #FFFFFF;
+	height: 0.66rem;
+}
+.programClassfiy li a{
+	color: #FFFFFF;
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+/*分类选中状态*/
+.icon-yuan{
+	color: #FF3D00;
+	margin-right: 0.13rem;
+}
+.itemActive span{
+	color: #FFFFFF !important;
+}

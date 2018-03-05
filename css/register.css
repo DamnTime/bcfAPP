@@ -1,0 +1,105 @@
+/*注册*/
+html,body{
+	width: 100%;
+	height: 100%;
+	margin: 0 ;
+	padding: 0;
+	background-color: rgba(249,247,246,1);
+}
+header{
+	width: 100%;
+	height: 1.73rem;
+	background-color: rgba(255,61,0,1);
+	padding-top: 0.93rem;
+	box-sizing: border-box;
+}
+.title{
+	width: 100%;
+	text-align: center;
+	line-height: 0.53rem;
+	position: relative;
+}
+.back{
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding-left: 0.26rem;
+	width: 1.33rem;
+	height: 0.8rem;
+	text-align: left;
+}
+.back>span{
+	font-size: 0.53rem;
+	color: #FFFFFF;
+}
+.title>span{
+	font-size: 0.48rem;
+	color: #FFFFFF;
+}
+.registerList li{
+	margin-top: 0.4rem;
+	background-color: rgba(256,256,256,1);
+	line-height: 1.17rem;
+	padding-left: 0.13rem;
+	border: 1px solid #DDDDDD;
+	border-radius: 0.08rem;
+}
+.loginLeft{
+	font-size: 0.37rem;
+	color: #333333;
+}
+.registerList li input{
+	height: 0.93rem;
+	line-height: 0.93rem;
+	border: 0;
+	width: 55%;
+	padding-left: 0.26rem;
+	font-size: 0.37rem;
+}
+.registerList li:nth-child(2){
+	position: relative;
+}
+#getCode{
+	position: absolute;
+	top: 50%;
+	right: 0.13rem;
+	transform:translateY(-50%);
+	-ms-transform:translateY(-50%); 	
+	-moz-transform:translateY(-50%); 	
+	-webkit-transform:translateY(-50%); 
+	-o-transform:translateY(-50%); 
+	transform: translateY(-50%);
+	width: 2.24rem;
+	height: 0.69rem;
+	line-height: 0.69rem;
+	padding: 0;
+	text-align: center;
+	border-radius: 0.34rem;
+	border: 0;
+	font-size: 0.32rem;
+	background-color: rgba(255,61,0,1);
+	color: #FFFFFF;
+}
+.noUseCode{
+	background-color: rgba(239,239,239,1) !important;
+	color: #9e9e9e !important;
+}
+.nextStatus{
+	margin-top: 0.88rem;
+	text-align: center;
+}
+.nextStatus input[type=button]{
+	width: 7.86rem;
+	height: 1.04rem;
+	font-size: 0.4rem;
+	border: 0;
+	border-radius: 0.08rem;
+}
+.errNext{
+	background-color: rgba(239,239,239,1) !important;
+	color: #9e9e9e !important;
+}
+.sucNext{
+	background-color: rgba(255,61,0,1) !important;
+	color: #FFFFFF !important;
+}

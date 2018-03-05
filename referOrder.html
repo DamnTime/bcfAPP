@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/mui.picker.all.css" />
+		<link rel="stylesheet" href="css/referOrder.css" />
+	</head>
+
+	<body>
+		<!--<header class="personMsgArea">
+			<p class="title">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<span id="title">填写订单</span>
+			</p>
+		</header>-->
+		<div class="mui-content referOrderBox">
+			<div class="wrap" id="addressBox">
+				<script type="text/html" id="addressList">
+					<!--如果获得收货地址-->
+					<%if(model.length>0) {%>
+					<%for( i = 0; i < model.length; i++) {%>
+					<%if(model[i].isDefault) {%>
+					<div class="getAddress" id="moreAddress">
+						<div class="defaultAddress">
+							<span class="iconfont icon-shouhuodizhi"></span>
+						</div>
+						<div class="detailAddress">
+							收货地址：
+							<span id="profile"><%=model[i].addressInfo%></span>
+						</div>
+						<div class="moreAddress">
+							<span class="iconfont icon-s-right selectAddressArrow"></span>
+						</div>
+					</div>
+					<input type="hidden" id="addressId" value="<%=model[i].id%>" />
+					<input type="hidden" id="tel" value="<%=model[i].tel%>" />
+					<%}%>
+					<%}%>
+					<%}%>
+					<!--如果没有收货地址-->
+					<%if(model.length==0) {%>
+					<div class="addAddressIcon" id="jumpChooseAddress">
+						<span class="iconfont icon-icon02"></span> 请新增收货地址~
+					</div>
+					<%}%>
+					<!--用户姓名及电话-->
+					<div id="userMsg">
+						<div class="referUname">
+							<span class="iconfont icon-yonghu"></span>
+							<span id="addUserName"><%=userMsg.userName%></span>
+						</div>
+						<div class="referUphone">
+							<span class="iconfont icon-83"></span>
+							<span id="addUserId"><%=userMsg.userId%></span>
+						</div>
+					</div>
+				</script>
+			</div>
+			<!--<p class="addAddress">请添加收货地址</p>-->
+			<!--产品参数-->
+			<div class="proPromater" id="proPromaterBox">
+				<script type="text/html" id="proPromaterList">
+					<%for( i = 0; i < model.list.length; i++) {%>
+					<div class="proMsg clearFloat" id="jumpProDetial">
+						<p class="orderImg lf" data-id="<%=model.list[i].commodityId%>">
+							<img src="<%=model.list[i].phimage%>" alt="" />
+						</p>
+						<div class="proIntroduce rf">
+							<p>
+								<%=model.list[i].title%>
+							</p>
+							<div class="clearFloat">
+								<span class="lf">¥<span class="orderProPrice"><%=(model.list[i].oldPrice/100).toFixed(2)%></span></span>
+								<span class="rf">×<span class="orderProNum"><%=model.list[i].number%></span></span>
+							</div>
+						</div>
+					</div>
+					<%}%>
+					<!--配送方式-->
+					<ul class="delivery padding20">
+						<li class="clearFloat">
+							<span class="lf font37">配送方式: </span>
+							<span class="rf font37">德邦物流</span>
+						</li>
+						<!--<li class="clearFloat">
+						<span class="lf font37">重量: </span>
+						<span class="rf font37">0.5kg</span>
+					</li>-->
+					</ul>
+					<!--运费-->
+					<!--<p class="freigh font37">
+						<span class="font37">运费 :</span>
+						<span class="freighPrice">¥<%=(model.postage/100).toFixed(2)%></span>
+					</p>-->
+				</script>
+			</div>
+			<!--选择支付方式-->
+			<div class="bill clearFloat">
+				<a href="javascript:void(0)" id="payStyle" class="clearFloat">
+					<span class="lf font37">支付方式 : </span>
+					<div class="rf">
+						<span id="payStyleHtml" data-payId="1">
+							在线支付
+						</span>
+						<span class="iconfont icon-s-right"></span>
+					</div>
+				</a>
+			</div>
+			<!--发票-->
+			<div class="bill">
+				<a href="javascript:void(0)" id="isBill" class="clearFloat">
+					<span class="lf font37">发票 : </span>
+					<div class="rf">
+						<span id="isBillBox">
+						不开发票
+						</span>
+						<span class="iconfont icon-s-right"></span>
+					</div>
+					<input type="hidden" id="invoiceType" value="0" 
+						data-takerMsg=""
+						/>
+				</a>
+				<a href="javascript:void(0)" class="clearFloat" id="takerAddressBox" style="display: none;">
+					<span class="lf font37">发票地址 : </span>
+					<div class="rf">
+						<span id="setTakerAddress">
+						
+						</span>
+						<span class="iconfont icon-s-right"></span>
+						<input type="hidden" id="invoiceAddress" value=""
+						/>
+					</div>
+				</a>
+			</div>
+			<!--备注-->
+			<div class="remark">
+				<span class="font37">备注: </span>
+				<textarea name="" rows="" cols="" maxlength="100" placeholder="请向商家留言...(100字以内)" id="action"></textarea>
+			</div>
+			<!--金额-->
+			<ul class="padding20 referOrder">
+				<li class="clearFloat">
+					<span class="lf font37">商品金额: </span>
+					<span class="rf" id="totlePrice"></span>
+				</li>
+				<li class="clearFloat">
+					<span class="lf font37">运费: </span>
+					<span class="rf" id="freighPrice"></span>
+				</li>
+			</ul>
+		</div>
+		<!--底部-->
+		<div class="referFoot clearFloat">
+			<span class="lf font37">应付金额: <span id="mustPrice"></span></span>
+			<!--<button class="rf errRefer" id="referBtn">提交订单</button>-->
+			<input type="button" name="" id="referBtn" value="提交订单"  class="rf succRefer"/>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/mui.picker.all.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/viewsjs/referOrder.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

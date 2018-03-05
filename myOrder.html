@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/mescroll.min.css" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/myOrder.css" />
+	</head>
+
+	<body>
+		<!--<header>
+			<div>
+				<a href="javascript:void(0)" class="mui-action-back" id="close">
+					<span class="mui-icon mui-icon-left-nav"></span>
+				</a>
+				<p>我的订单</p>
+			</div>
+		</header>-->
+
+		<div class="mui-content">
+			<div class="userHandle">
+				<ul id="userHandleList">
+					<li>
+						<a href="javascript:void(0)" data-typeId="0">
+							<span class="allOrderIcon Icon1"></span>
+							<span class="allOrder">全部订单</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" data-typeId="1">
+							<span class="allOrderIcon Icon2"></span>
+							<span class="allOrder">待支付</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" data-typeId="2">
+							<span class="allOrderIcon Icon3"></span>
+							<span class="allOrder">待收货</span>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" data-typeId="3">
+							<span class="allOrderIcon Icon4"></span>
+							<span class="allOrder">待评价</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div id="orderArea">
+				<!--全部订单-->
+				<div class="allOrderDetail mescroll" data-page="1" id="allOrderDetail0" style="display: none;">
+					<div id="dataList0">
+						<script type="text/html" id="typeOrderDetail0">
+							<%if (model.orders.rows){%>
+							<%for( i = 0; i < model.orders.rows.length; i++) {%>
+							<div class="orderDetailList">
+								<p class="orderTitle clearFloat">
+									<span class="lf">
+											订单编号： 
+											<span><%=model.orders.rows[i].id%></span>
+									</span>
+									<span class="rf">
+                                        	<%if(model.orders.rows[i].status===-1) {%>
+                                                    已失效
+                                                    <%}%>
+                                                    <%if(model.orders.rows[i].status===0) {%>
+                                                    待付款
+                                                    <%}%>
+                                                    <%if(model.orders.rows[i].status===1) {%>
+                                                    已支付待发货
+                                                    <%}%>
+                                                    <%if(model.orders.rows[i].status===2) {%>
+                                                    待收货
+                                                    <%}%>
+                                                    <%if(model.orders.rows[i].status===3&&(($imports.isShowBtn(model.orders.rows[i].goods)))){%>
+                                                    待评价
+                                                    <%}%>
+										</span>
+								</p>
+								<!--产品列表-->
+								<ul class="orderDetailProList">
+									<%for( j = 0; j < model.orders.rows[i].goods.length; j++) {%>
+									<li>
+										<a href="javascript:void(0)" class="clearFloat">
+											<div class="lf orderDetailImg" data-id="<%=model.orders.rows[i].goods[j].commodityId%>">
+												<img src="<%=model.orders.rows[i].goods[j].phimage%>" alt="" />
+											</div>
+											<div class="rf orderDetailProIntro">
+												<p>
+													<%=model.orders.rows[i].goods[j].title%>
+												</p>
+												<div class="clearFloat">
+													<span class="lf">¥<%=(model.orders.rows[i].goods[j].oldPrice/100).toFixed(2)%></span>
+													<span class="rf">x<%=model.orders.rows[i].goods[j].num%></span>
+												</div>
+											</div>
+										</a>
+										<!--是否下架-->
+										<%if(model.orders.rows[i].goods[j].status!=1||(model.orders.rows[i].goods[j].nowTime-model.orders.rows[i].goods[j].endTime)>0) {%>
+										<p class="sellOut">该商品已下架</p>
+										<%}%>
+									</li>
+									<%}%>
+								</ul>
+								<!--操作订单-->
+								<!--共计-->
+								<div class="count clearFloat">
+									<span class="lf">
+												共<span><%=model.orders.rows[i].goods.length%></span>件商品
+									</span>
+									<span class="rf">
+												<span>
+													运费:
+													<span class="orderDetailPrice">¥<%=(model.orders.rows[i].postage/100).toFixed(2)%></span>
+									</span>
+									<span>
+													共计:<span class="orderDetailPrice">¥<%=(model.orders.rows[i].prices/100).toFixed(2)%></span>
+									</span>
+									</span>
+								</div>
+								<!--按钮-->
+								<div class="orderDetailBtn">
+									<%if((model.orders.rows[i].status===3)&&(($imports.isShowBtn(model.orders.rows[i].goods)))){%>
+									<a href="javascript:void(0)" class="goEva" data-payOrderId="<%=model.orders.rows[i].id%>" data-orderSatus="<%=model.orders.rows[i].status%>">去评价</a>
+									<%}%>
+									<%if(model.orders.rows[i].status===0) {%>
+									<a href="javascript:void(0)" class="goPay" data-payOrderId="<%=model.orders.rows[i].id%>" data-orderSatus="<%=model.orders.rows[i].status%>">去支付</a>
+									<%}%>
+									<%if(model.orders.rows[i].status===0) {%>
+									<a href="javascript:void(0)" class="cancelBtn" data-orderid="<%=model.orders.rows[i].id%>">取消订单</a>
+									<%}%>
+									<%if(model.orders.rows[i].status===-1||model.orders.rows[i].status===0||model.orders.rows[i].status===3) {%>
+									<a href="javascript:void(0)" class="deleteOrder" data-orderid="<%=model.orders.rows[i].id%>">删除订单</a>
+									<%}%>
+									<%if(model.orders.rows[i].status===2) {%>
+									<a href="javascript:void(0)" class="comfirmGoods" data-orderid="<%=model.orders.rows[i].id%>">确认收货</a>
+									<%}%>
+								</div>
+							</div>
+							<%}%>
+							<%}%>
+						</script>
+					</div>
+				</div>
+				<!--待支付-->
+				<div class="allOrderDetail mescroll" data-page="1" id="allOrderDetail1" style="display: none;">
+					<div id="dataList1">
+						<script type="text/html" id="typeOrderDetail1">
+							<%if (model.orders.rows){%>
+							<%for( i = 0; i < model.orders.rows.length; i++) {%>
+							<div class="orderDetailList">
+								<p class="orderTitle clearFloat">
+									<span class="lf">
+											订单编号： 
+											<span><%=model.orders.rows[i].id%></span>
+									</span>
+									<span class="rf">
+                                        	<%if(model.orders.rows[i].status===-1) {%>
+                                                    已失效
+                                                    <%}%>
+                                                    <%if(model.orders.rows[i].status===0) {%>
+                                                    待付款
+                                                    <%}%>
+                                                    <%if(model.orders.rows[i].status===1) {%>
+                                                    已支付待发货
+                                                    <%}%>
+                                                    <%if(model.orders.rows[i].status===2) {%>
+                                                    待收货
+                                                    <%}%>
+                                                    <%if(model.orders.rows[i].status===3&&(($imports.isShowBtn(model.orders.rows[i].goods)))){%>
+                                                    待评价
+                                                    <%}%>
+										</span>
+								</p>
+								<!--产品列表-->
+								<ul class="orderDetailProList">
+									<%for( j = 0; j < model.orders.rows[i].goods.length; j++) {%>
+									<li>
+										<a href="javascript:void(0)" class="clearFloat">
+											<div class="lf orderDetailImg" data-id="<%=model.orders.rows[i].goods[j].commodityId%>">
+												<img src="<%=model.orders.rows[i].goods[j].phimage%>" alt="" />
+											</div>
+											<div class="rf orderDetailProIntro">
+												<p>
+													<%=model.orders.rows[i].goods[j].title%>
+												</p>
+												<div class="clearFloat">
+													<span class="lf">¥<%=(model.orders.rows[i].goods[j].oldPrice/100).toFixed(2)%></span>
+													<span class="rf">x<%=model.orders.rows[i].goods[j].num%></span>
+												</div>
+											</div>
+										</a>
+										<!--是否下架-->
+										<%if(model.orders.rows[i].goods[j].status!=1||(model.orders.rows[i].goods[j].nowTime-model.orders.rows[i].goods[j].endTime)>0) {%>
+										<p class="sellOut">该商品已下架</p>
+										<%}%>
+									</li>
+									<%}%>
+								</ul>
+								<!--操作订单-->
+								<!--共计-->
+								<div class="count clearFloat">
+									<span class="lf">
+												共<span><%=model.orders.rows[i].goods.length%></span>件商品
+									</span>
+									<span class="rf">
+												<span>
+													运费:
+													<span class="orderDetailPrice">¥<%=(model.orders.rows[i].postage/100).toFixed(2)%></span>
+									</span>
+									<span>
+													共计:<span class="orderDetailPrice">¥<%=(model.orders.rows[i].prices/100).toFixed(2)%></span>
+									</span>
+									</span>
+								</div>
+								<!--按钮-->
+								<div class="orderDetailBtn">
+									<%if((model.orders.rows[i].status===3)&&(($imports.isShowBtn(model.orders.rows[i].goods)))){%>
+									<a href="javascript:void(0)" class="goEva" data-payOrderId="<%=model.orders.rows[i].id%>" data-orderSatus="<%=model.orders.rows[i].status%>">去评价</a>
+									<%}%>
+									<%if(model.orders.rows[i].status===0) {%>
+									<a href="javascript:void(0)" class="goPay" data-payOrderId="<%=model.orders.rows[i].id%>" data-orderSatus="<%=model.orders.rows[i].status%>">去支付</a>
+									<%}%>
+									<%if(model.orders.rows[i].status===0) {%>
+									<a href="javascript:void(0)" class="cancelBtn" data-orderid="<%=model.orders.rows[i].id%>">取消订单</a>
+									<%}%>
+									<%if(model.orders.rows[i].status===-1||model.orders.rows[i].status===0||model.orders.rows[i].status===3) {%>
+									<a href="javascript:void(0)" class="deleteOrder" data-orderid="<%=model.orders.rows[i].id%>">删除订单</a>
+									<%}%>
+									<%if(model.orders.rows[i].status===2) {%>
+									<a href="javascript:void(0)" class="comfirmGoods" data-orderid="<%=model.orders.rows[i].id%>">确认收货</a>
+									<%}%>
+								</div>
+							</div>
+							<%}%>
+							<%}%>
+						</script>
+					</div>
+				</div>
+				<!--待收货-->
+				<div class="allOrderDetail mescroll" data-page="1" id="allOrderDetail2" style="display: none;">
+					<div id="dataList2">
+						<script type="text/html" id="typeOrderDetail2">
+							<%if (model.orders.rows){%>
+							<%for( i = 0; i < model.orders.rows.length; i++) {%>
+							<div class="orderDetailList">
+								<p class="orderTitle clearFloat">
+									<span class="lf">
+											订单编号： 
+											<span><%=model.orders.rows[i].id%></span>
+									</span>
+									<span class="rf">
+                                        	<%if(model.orders.rows[i].status===-1) {%>
+                                                    已失效
+                                                    <%}%>
+                                                    <%if(model.orders.rows[i].status===0) {%>
+                                                    待付款
+                                                    <%}%>
+                                                    <%if(model.orders.rows[i].status===1) {%>
+                                                    已支付待发货
+                                                    <%}%>
+                                                    <%if(model.orders.rows[i].status===2) {%>
+                                                    待收货
+                                                    <%}%>
+                                                    <%if(model.orders.rows[i].status===3&&(($imports.isShowBtn(model.orders.rows[i].goods)))){%>
+                                                    待评价
+                                                    <%}%>
+										</span>
+								</p>
+								<!--产品列表-->
+								<ul class="orderDetailProList">
+									<%for( j = 0; j < model.orders.rows[i].goods.length; j++) {%>
+									<li>
+										<a href="javascript:void(0)" class="clearFloat">
+											<div class="lf orderDetailImg" data-id="<%=model.orders.rows[i].goods[j].commodityId%>">
+												<img src="<%=model.orders.rows[i].goods[j].phimage%>" alt="" />
+											</div>
+											<div class="rf orderDetailProIntro">
+												<p>
+													<%=model.orders.rows[i].goods[j].title%>
+												</p>
+												<div class="clearFloat">
+													<span class="lf">¥<%=(model.orders.rows[i].goods[j].oldPrice/100).toFixed(2)%></span>
+													<span class="rf">x<%=model.orders.rows[i].goods[j].num%></span>
+												</div>
+											</div>
+										</a>
+										<!--是否下架-->
+										<%if(model.orders.rows[i].goods[j].status!=1||(model.orders.rows[i].goods[j].nowTime-model.orders.rows[i].goods[j].endTime)>0) {%>
+										<p class="sellOut">该商品已下架</p>
+										<%}%>
+									</li>
+									<%}%>
+								</ul>
+								<!--操作订单-->
+								<!--共计-->
+								<div class="count clearFloat">
+									<span class="lf">
+												共<span><%=model.orders.rows[i].goods.length%></span>件商品
+									</span>
+									<span class="rf">
+												<span>
+													运费:
+													<span class="orderDetailPrice">¥<%=(model.orders.rows[i].postage/100).toFixed(2)%></span>
+									</span>
+									<span>
+													共计:<span class="orderDetailPrice">¥<%=(model.orders.rows[i].prices/100).toFixed(2)%></span>
+									</span>
+									</span>
+								</div>
+								<!--按钮-->
+								<div class="orderDetailBtn">
+									<%if((model.orders.rows[i].status===3)&&(($imports.isShowBtn(model.orders.rows[i].goods)))){%>
+									<a href="javascript:void(0)" class="goEva" data-payOrderId="<%=model.orders.rows[i].id%>" data-orderSatus="<%=model.orders.rows[i].status%>">去评价</a>
+									<%}%>
+									<%if(model.orders.rows[i].status===0) {%>
+									<a href="javascript:void(0)" class="goPay" data-payOrderId="<%=model.orders.rows[i].id%>" data-orderSatus="<%=model.orders.rows[i].status%>">去支付</a>
+									<%}%>
+									<%if(model.orders.rows[i].status===0) {%>
+									<a href="javascript:void(0)" class="cancelBtn" data-orderid="<%=model.orders.rows[i].id%>">取消订单</a>
+									<%}%>
+									<%if(model.orders.rows[i].status===-1||model.orders.rows[i].status===0||model.orders.rows[i].status===3) {%>
+									<a href="javascript:void(0)" class="deleteOrder" data-orderid="<%=model.orders.rows[i].id%>">删除订单</a>
+									<%}%>
+									<%if(model.orders.rows[i].status===2) {%>
+									<a href="javascript:void(0)" class="comfirmGoods" data-orderid="<%=model.orders.rows[i].id%>">确认收货</a>
+									<%}%>
+								</div>
+							</div>
+							<%}%>
+							<%}%>
+						</script>
+					</div>
+				</div>
+				<!--待评价-->
+				<div class="allOrderDetail mescroll" data-page="1" id="allOrderDetail3" style="display: none;">
+					<div id="dataList3">
+						<script type="text/html" id="typeOrderDetail3">
+							<%if (model.orders.rows){%>
+							<%for( i = 0; i < model.orders.rows.length; i++) {%>
+							<div class="orderDetailList">
+								<p class="orderTitle clearFloat">
+									<span class="lf">
+											订单编号： 
+											<span><%=model.orders.rows[i].id%></span>
+									</span>
+									<span class="rf">
+                                        	<%if(model.orders.rows[i].status===-1) {%>
+                                                    已失效
+                                                    <%}%>
+                                                    <%if(model.orders.rows[i].status===0) {%>
+                                                    待付款
+                                                    <%}%>
+                                                    <%if(model.orders.rows[i].status===1) {%>
+                                                    已支付待发货
+                                                    <%}%>
+                                                    <%if(model.orders.rows[i].status===2) {%>
+                                                    待收货
+                                                    <%}%>
+                                                    <%if(model.orders.rows[i].status===3&&(($imports.isShowBtn(model.orders.rows[i].goods)))){%>
+                                                    待评价
+                                                    <%}%>
+										</span>
+								</p>
+								<!--产品列表-->
+								<ul class="orderDetailProList">
+									<%for( j = 0; j < model.orders.rows[i].goods.length; j++) {%>
+									<li>
+										<a href="javascript:void(0)" class="clearFloat">
+											<div class="lf orderDetailImg" data-id="<%=model.orders.rows[i].goods[j].commodityId%>">
+												<img src="<%=model.orders.rows[i].goods[j].phimage%>" alt="" />
+											</div>
+											<div class="rf orderDetailProIntro">
+												<p>
+													<%=model.orders.rows[i].goods[j].title%>
+												</p>
+												<div class="clearFloat">
+													<span class="lf">¥<%=(model.orders.rows[i].goods[j].oldPrice/100).toFixed(2)%></span>
+													<span class="rf">x<%=model.orders.rows[i].goods[j].num%></span>
+												</div>
+											</div>
+										</a>
+										<!--是否下架-->
+										<%if(model.orders.rows[i].goods[j].status!=1||(model.orders.rows[i].goods[j].nowTime-model.orders.rows[i].goods[j].endTime)>0) {%>
+										<p class="sellOut">该商品已下架</p>
+										<%}%>
+									</li>
+									<%}%>
+								</ul>
+								<!--操作订单-->
+								<!--共计-->
+								<div class="count clearFloat">
+									<span class="lf">
+												共<span><%=model.orders.rows[i].goods.length%></span>件商品
+									</span>
+									<span class="rf">
+												<span>
+													运费:
+													<span class="orderDetailPrice">¥<%=(model.orders.rows[i].postage/100).toFixed(2)%></span>
+									</span>
+									<span>
+													共计:<span class="orderDetailPrice">¥<%=(model.orders.rows[i].prices/100).toFixed(2)%></span>
+									</span>
+									</span>
+								</div>
+								<!--按钮-->
+								<div class="orderDetailBtn">
+									<%if((model.orders.rows[i].status===3)&&(($imports.isShowBtn(model.orders.rows[i].goods)))){%>
+									<a href="javascript:void(0)" class="goEva" data-payOrderId="<%=model.orders.rows[i].id%>" data-orderSatus="<%=model.orders.rows[i].status%>">去评价</a>
+									<%}%>
+									<%if(model.orders.rows[i].status===0) {%>
+									<a href="javascript:void(0)" class="goPay" data-payOrderId="<%=model.orders.rows[i].id%>" data-orderSatus="<%=model.orders.rows[i].status%>">去支付</a>
+									<%}%>
+									<%if(model.orders.rows[i].status===0) {%>
+									<a href="javascript:void(0)" class="cancelBtn" data-orderid="<%=model.orders.rows[i].id%>">取消订单</a>
+									<%}%>
+									<%if(model.orders.rows[i].status===-1||model.orders.rows[i].status===0||model.orders.rows[i].status===3) {%>
+									<a href="javascript:void(0)" class="deleteOrder" data-orderid="<%=model.orders.rows[i].id%>">删除订单</a>
+									<%}%>
+									<%if(model.orders.rows[i].status===2) {%>
+									<a href="javascript:void(0)" class="comfirmGoods" data-orderid="<%=model.orders.rows[i].id%>">确认收货</a>
+									<%}%>
+								</div>
+							</div>
+							<%}%>
+							<%}else{%>
+							<p class="noData">
+								<span class="iconfont icon-shibai"></span>
+								<span>暂无数据</span>
+							</p>
+							<%}%>
+						</script>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/mescroll.min.js"></script>
+		<script type="text/javascript" src="js/viewsjs/myOrder.js"></script>
+	</body>
+
+</html>

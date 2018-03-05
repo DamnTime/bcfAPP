@@ -1,0 +1,238 @@
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: rgba(249,247,246,1);
+}
+header{
+	width: 100%;
+	background-color: rgba(255,61,0,1);
+	height: 1.7rem;
+	padding-top: 0.93rem;
+}
+header>p{
+	font-size: 0.48rem;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-align: center;
+}
+.shopCartMain{
+	padding-top: 0.4rem;
+}
+.shopCartMain>ul{
+	background-color: transparent;
+}
+.shopCartMain li{
+	padding: 0.29rem 0;
+	background-color: rgba(255,255,255,1);
+	margin-bottom: 0.21rem;
+}
+.proImg{
+	width: 2.4rem;
+	height: 2.4rem;
+	text-align: center;
+	position: relative;
+}
+.proImg>span{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 0.4rem;
+	line-height: 0.4rem;
+	text-align: center;
+	font-size: 0.26rem;
+	color: #FF3D00;
+	background-color: rgba(0,0,0,0.3);
+}
+.proVal{
+	position:absolute;
+	top: -0.08rem;
+	right: -0.08rem;
+	width: 0.58rem;
+	height: 0.58rem;
+	background: url(../images/chou.png) no-repeat center;
+	background-size: cover;
+}
+.proImg img{
+	width: 100%;
+	height: 100%;
+}
+.proIntro{
+	padding-left: 0.53rem;
+}
+.proTxt{
+	width:100%;
+	height:1.9rem;
+	font-size: 0.34rem;
+	color: #333333;
+	overflow: hidden;
+}
+.proPrice>span{
+	font-size: 0.4rem;
+	color: #e73b05;
+}
+.proPrice>div{
+	margin-right: 0.26rem;
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.proPrice input{
+	font-size: 14px;
+	color: #333333;
+}
+.tapDel,.tapAdd{
+	position: absolute;
+	top: -0.13rem;
+	width: 1.06rem;
+	height: 0.8rem;
+}
+.tapDel{
+	left: -0.53rem;
+	
+}
+.tapAdd{
+	right: -0.45rem;
+}
+.icon-jian,.icon-jia{
+	display: inline-block;
+	vertical-align: top;
+	width: 0.53rem;
+	height: 0.53rem;
+	line-height: 0.53rem;
+	text-align: center;
+	border-radius: 0.26rem;
+	font-size: 0.34rem;
+}
+.icon-jia{
+	background-color: rgba(255,61,0,1);
+	color: #FFFFFF;
+}
+.icon-jian{
+	border: 1px solid #FF3D00;
+	color: #FF3D00;
+}
+/*#proNum{
+	font-size: 0.4rem;
+	color: #333333;
+	margin-left: 0.4rem;
+	margin-right: 0.4rem;
+}*/
+/*美化checkbox*/
+.shopCartList{
+	width: 100%;
+	height: 2.34rem;
+}
+.beautyCheck{
+	height: 100%;
+	position: relative;
+}
+.beautyCheck input[type="checkbox"]:checked + label i{
+  background:#FF3D00;
+  color: #ffffff;
+}
+.beautyCheck label{
+	position: absolute;
+	top: 50%;
+	left: 0.06rem;
+	width: 0.66rem;
+	height: 0.66rem;
+	text-align: left;
+	line-height: 0.66rem;
+	transform:translateY(-50%);
+	-ms-transform:translateY(-50%); 	
+	-moz-transform:translateY(-50%); 	
+	-webkit-transform:translateY(-50%); 
+	-o-transform:translateY(-50%);
+}
+.beautyCheck input[type="checkbox"]{
+  display: none;
+}
+.beautyCheck label i {
+  font-size:0.26rem;
+  font-style:normal;
+  display:inline-block;
+  width:0.42rem;height:0.42rem;
+  border-radius: 0.21rem;
+  border: 1px solid #FF3D00;
+  text-align:center;
+  line-height:0.42rem;
+  color:transparent;
+  vertical-align:middle;
+}
+.allSelectTxt{
+	margin-left: 0.66rem;
+}
+.allSelectChk label{
+	left: -0.26rem !important;
+	padding-left: 0.26rem;
+	width: 1.06rem;
+}
+.settleMent{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 1.14rem;
+	line-height: 1.14rem;
+	background-color: rgba(255,255,255,1);
+}
+.settleMent label i{
+	margin: 0 !important;
+}
+.delBtn{
+	display: inline-block;
+	width: 1.33rem;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	text-align: center;
+	color: #FF3D00;
+	font-size: 0.32rem;
+}
+.total{
+	font-size: 0.34rem;
+	color: #333333;
+	padding-left: 0.26rem;
+}
+.settltBtn{
+	display: inline-block;
+	width: 2.13rem;
+	height: 1.14rem;
+	text-align: center;
+	font-size: 0.4rem;
+	color: #FFFFFF;
+	background-color: rgba(255,61,0,1);
+}
+.selectCount{
+	width: 0.66rem;
+	text-align: center;
+	margin:  0 0.06rem;
+	border: 0;
+}
+/*未登录*/
+#noRigester,#nullShopCart{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	width: 4rem;
+	height: 4rem;
+}
+#noRigester p,#nullShopCart p{
+	text-align: center;
+}
+#noRigester img,#nullShopCart img{
+	width: 100%;
+	height: 100%;
+}
+#noRigester p:last-child,#nullShopCart p:last-child{
+	font-size: 14px;
+	color: #9e9e9e;
+}

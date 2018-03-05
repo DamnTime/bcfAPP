@@ -1,0 +1,301 @@
+html,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: rgba(249, 247, 246, 1);
+}
+
+header {
+	width: 100%;
+	height: 1.73rem;
+	background-color: rgba(255, 61, 0, 1);
+	padding-top: 0.93rem;
+	box-sizing: border-box;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 999;
+}
+
+header>div {
+	position: relative;
+	height: 0.53rem;
+	line-height: 0.53rem;
+}
+
+header a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding-left: 0.26rem;
+	width: 1.33rem;
+	height: 0.8rem;
+	text-align: left;
+}
+
+header a>span {
+	font-size: 0.53rem !important;
+	color: #FFFFFF;
+}
+
+header p {
+	width: 100%;
+	text-align: center;
+	font-size: 0.48rem;
+	color: #FFFFFF;
+}
+
+.icon-chevron-copy-copy {
+	font-size: 0.6rem;
+	font-weight: 500;
+}
+
+
+/*订单类型*/
+
+.userHandle {
+	width: 100%;
+	height: 2.2rem;
+	background-color: rgba(255, 255, 255, 1);
+	/*margin-top: 1.73rem;*/
+}
+
+.userHandle>ul {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	justify-content: space-around;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+.userHandle>ul>li {
+	width: 20%;
+	height: 80%;
+	text-align: center;
+	display: table;
+	border-bottom: 3px solid transparent;
+}
+
+.typeActive {
+	border-bottom: 3px solid #FF3D00 !important;
+}
+
+.userHandle>ul>li>a {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+	height: 100%;
+}
+
+.allOrderIcon {
+	display: inline-block;
+	width: 0.96rem;
+	height: 0.96rem;
+}
+
+.Icon1 {
+	background: url(../images/all_order.png) no-repeat center;
+	background-size: cover;
+	-webkit-background-size: cover;
+}
+
+.Icon2 {
+	background: url(../images/wait_pay.png) no-repeat center;
+	background-size: cover;
+	-webkit-background-size: cover;
+}
+
+.Icon3 {
+	background: url(../images/receipt.png) no-repeat center;
+	background-size: cover;
+	-webkit-background-size: cover;
+}
+
+.Icon4 {
+	background: url(../images/be_evaluated.png) no-repeat center;
+	background-size: cover;
+	-webkit-background-size: cover;
+}
+
+.allOrder {
+	display: block;
+	text-align: center;
+	width: 100%;
+	font-size: 0.34rem;
+	line-height: 0.34rem;
+	color: #333333;
+}
+
+
+/*列表*/
+
+#orderArea {
+	margin-top: 0.26rem;
+}
+
+.orderDetailList {
+	margin-bottom: 0.26rem;
+}
+
+.typeComm .mui-pull-bottom-tips {
+	text-align: center !important;
+	padding-top: 5px 0;
+}
+
+.orderTitle {
+	width: 100%;
+	height: 0.69rem;
+	padding: 0 0.26rem;
+	line-height: 0.69rem;
+	border-bottom: 1px solid #ddd;
+	background-color: rgba(255, 255, 255, 1);
+}
+
+.orderTitle span:first-child {
+	font-size: 0.32rem;
+	color: #666666;
+}
+
+.orderTitle span:last-child {
+	font-size: 0.32rem;
+	color: #FF3D00;
+}
+
+.orderDetailProList {
+	background-color: rgba(255, 255, 255, 1);
+}
+
+.orderDetailProList li {
+	padding: 0.2rem 0.26rem;
+	margin-bottom: 0.13rem;
+	background-color: rgba(249, 247, 246, 1);
+}
+
+.orderDetailProList li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.orderDetailImg img {
+	width: 1.76rem;
+	height: 1.76rem;
+}
+
+.orderDetailProIntro {
+	width: 7.28rem;
+}
+
+.orderDetailProIntro>p {
+	font-size: 0.34rem;
+	color: #333333;
+	line-height: 0.36rem;
+	height: 0.72rem;
+	overflow: hidden;
+	margin-top: 0.06rem;
+	margin-bottom: 0.06rem;
+}
+
+.orderDetailProIntro>div {
+	height: 0.48rem;
+}
+
+.orderDetailProIntro>div span:first-child {
+	font-size: 0.48rem;
+	color: #e73b05;
+}
+
+.orderDetailProIntro>div span:last-child {
+	font-size: 0.48rem;
+	color: #666666;
+}
+
+.sellOut {
+	text-align: right;
+	font-size: 0.34rem;
+	color: #FF3D00;
+}
+
+.count {
+	width: 100%;
+	height: 0.88rem;
+	line-height: 0.88rem;
+	border-bottom: 1px solid #ddd;
+	padding: 0 0.26rem;
+	background-color: rgba(255, 255, 255, 1);
+}
+
+.count>span {
+	font-size: 0.32rem;
+	color: #333333;
+}
+
+.count>span.rf>span:first-child {
+	margin-right: 10px;
+}
+
+.orderDetailPrice {
+	font-size: 0.37rem;
+	color: #333333;
+}
+
+.orderDetailBtn {
+	width: 100%;
+	height: 1.17rem;
+	background-color: rgba(255, 255, 255, 1);
+	/*padding: 0 0.26rem;*/
+	overflow: hidden;
+	text-align: right;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.orderDetailBtn a {
+	width: 1.6rem;
+	height: 0.56rem;
+	line-height: 0.56rem;
+	text-align: center;
+	font-size: 0.32rem;
+	border-radius: 0.08rem;
+	margin-right: 0.26rem;
+}
+
+.cancelBtn,
+.deleteOrder,
+.comfirmGoods {
+	border: 1px solid #666666;
+	color: #666666;
+}
+
+.goPay,
+.goEva {
+	border: 1px solid #FF3D00;
+	color: #FF3D00;
+}
+
+.mescroll {
+	position: fixed;
+	top: 2.2rem;
+	bottom: 0;
+	height: auto;
+}
+/*暂无数据*/
+.noData{
+	font-size: 18px;
+	color: #FF3D00;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 0.21rem;
+}
+.noData>span{
+	font-size: 20px;
+	margin-right: 0.13rem;
+}

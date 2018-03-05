@@ -1,0 +1,301 @@
+html,body{
+	width: 100%;
+	height: 100%;
+	margin: 0 ;
+	padding: 0;
+	background-color: rgba(249,247,246,1);
+}
+header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 1.8rem;
+	background-color: rgba(255,61,0,1);
+	padding: 0.8rem 0 0.13rem 0;
+	box-sizing: border-box;
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: space-around;
+	z-index: 999;
+}
+.searchListBack{
+	height: 100%;
+	line-height: 0.87rem;
+	padding-left: 0.16rem;
+}
+#returnHome{
+	height: 100%;
+	/*margin-top: 0.06rem;*/
+	line-height: 0.87rem;
+	padding:0 0.26rem 0 0.16rem; 
+}
+.icon-shouye{
+	font-size: 0.53rem !important;
+	color: #FFFFFF;
+	font-weight: 500;
+}
+.searchbar{
+	width: 7.84rem;
+	height: 0.77rem;
+	line-height: 0.77rem;
+	background-color: rgba(256,256,256,1);
+	border-radius: 0.38rem;
+	/*margin: 0 auto;*/
+}
+.searchbar i{
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 0.04rem;
+	margin-left: 0.26rem;
+}
+.searchbar>span{
+	padding-left: 0.26rem;
+}
+.searchbar form{
+	width: 100%;
+	height: 100%;
+}
+.searchbar input{
+	vertical-align: top;
+	text-align: left;
+	height: 100%;
+	width: 80%;
+	border: 0;
+	background-color: rgba(256,256,256,1);
+}
+.searchbar button{
+	display: none;
+}
+.mui-icon-left-nav{
+	font-size: 0.66rem;
+	color: #FFFFFF;
+	font-weight: 500;
+}
+.searchIcon{
+	font-size: 0.53rem;
+	color: #9E9E9E;
+}
+.searchbar input{
+	font-size: 0.37rem;
+}
+/*分类*/
+
+#sliderSegmentedControl .mui-scroll{
+	width: 100% !important;
+	height: 1.46rem !important;
+}
+.mui-fullscreen{
+	top: 1.8rem !important;
+}
+.mui-slider-group{
+	top: 1.46rem !important;
+}
+.mui-segmented-control.mui-scroll-wrapper{
+	height: 1.46rem !important;
+}
+.mui-segmented-control{
+	overflow: visible;
+}
+.slider-item{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.classBox{
+	/*position: absolute;
+	top: 1.8rem;
+	left: 0 ;
+	right: 0;*/
+	width: 100%;
+	z-index: 999;
+	position: relative;
+}
+.mui-content{
+	padding-top: 3.26rem;
+}
+.searchClass{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-wrap: nowrap;
+	background-color: rgba(256,256,256,1);
+}
+.searchClass li{
+	width: 25%;
+	height: 1.46rem;
+	border-bottom:1px solid #DDDDDD;
+	position: relative;
+}
+.searchClass li a{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	line-height:1.46rem;
+	font-size: 0.4rem;
+	color: #333333;
+	font-weight: 500;
+}
+.searchClass li em{
+	position: absolute;
+	top: 50%;
+	right: 0;
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	width: 1px;
+	height: 0.48rem;
+	background-color: rgba(231,231,231,1);
+}
+.arrowColor{
+	font-size: 0.33rem;
+	color: #FF3D00;
+}
+.searchActive a{
+	color: #FF3D00 !important;
+}
+.showSearch{
+	background-color: rgba(256,256,256,1);
+}
+.showSearch li{
+	width: 100%;
+	height: 2.64rem;
+	padding: 0.26rem 0.26rem;
+	border-bottom: 1px solid #DDDDDD;
+	box-sizing: border-box;
+}
+.showSearch li a{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.searchImg img{
+	width: 2.13rem;
+	height: 2.13rem;
+}
+.searchPro{
+	width: 6.93rem;
+}
+.searchPro p:first-child{
+	font-size: 14px;
+	line-height: 1.2em;
+	height: 2.3em;
+	color: #333333;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.searchPro p:last-child{
+	font-size: 16px;
+	color: #e73b05;
+	margin-top: 0.08rem;
+}
+.searchPro p:last-child span{
+	margin-right: 0.53rem;
+}
+/*品牌下拉菜单*/
+.brandBox{
+	position: absolute;
+	top: 1.46rem;
+	right: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba(256,256,256,1);
+	z-index: 9999;
+	border-radius: 0 0 0.26rem 0.26rem;
+}
+.brandList{
+	padding-top: 0.4rem;
+}
+.brandList li{
+	float: left;
+	width: 33.33%;
+	height: 0.74rem;
+	line-height: 0.74rem;
+	text-align: center;
+	margin-bottom: 0.53rem;
+}
+.brandList li a{
+	display: inline-block;
+	width: 2.24rem;
+	height: 100%;
+	border: 1px solid transparent;
+	border-radius: 0.05rem;
+	background-color: rgba(247,247,247,1);
+	font-size: 0.32rem;
+	color: #666666;
+}
+/*.showArea{
+	position: relative;
+}*/
+.mark{
+	position: absolute;
+	top: 1.46rem;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.4);
+	z-index: 100;
+}
+.brandCheck a{
+	width: 2.21rem;
+	height: 0.72rem;
+	border: 1px solid #FF3D00 !important;
+	border-radius: 0.05rem;
+	position: relative;
+}
+.brandCheck a:after{
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0.26rem;
+	height: 0.26rem;
+	background: url(../images/search_check.png) no-repeat center;
+	background-size: cover;
+}
+/*重置与取消*/
+.resetBox{
+	width: 100%;
+}
+.resetBox a{
+	width: 50%;
+	height: 0.93rem;
+	line-height: 0.93rem;
+	text-align: center;
+	font-size: 0.4rem;
+	font-weight: 500;
+}
+.resetBox a:first-child{
+	background-color: rgba(256,256,256,1);
+	color: #A8A8A8;
+	border-radius: 0 0 0 0.26rem;
+}
+.resetBox a:last-child{
+	background-color: rgba(255,61,0,1);
+	color: #FFF;
+	border-radius: 0 0 0.26rem 0;
+}
+.loadingImg{
+	position: absolute !important;
+}
+.searchContent{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.mescroll {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	height: auto;
+	padding-bottom: 1.33rem;
+}

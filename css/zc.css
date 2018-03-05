@@ -1,0 +1,238 @@
+html,body{
+	width: 100%;
+	height: 100%;
+	margin: 0 ;
+	padding: 0;
+	background-color: rgba(249,247,246,1);
+}
+.zcHeader{
+	width: 100%;
+	min-height: 3rem;
+	position: relative;
+	overflow: hidden;
+}
+#zcBanner{
+	width: 100%;
+	height: 100%;
+}
+#zcBanner>img{
+	width: 100%;
+	vertical-align: bottom;
+}
+.zcHeader>a{
+	position: absolute;
+	top: 0.8rem;
+	left: 0.26rem;
+	color: #FFFFFF;
+	font-size: 0.8rem;
+}
+#classifyBox>div{
+	margin-top: 0.13rem;
+}
+.rankList{
+	margin-top: 0.26rem;
+}
+.rankClass li{
+	float: left;
+	width: 50%;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	box-sizing: border-box;
+	border: 2px solid #FF3D00;
+	text-align: center;
+	font-size: 0.37rem;
+	color: #a8a8a8;
+}
+.brandRankActive{
+	background-color: rgba(255,61,0,1);
+	color: #FFFFFF !important;
+}
+.brandRank,.supporRank{
+	display: -webkit-flex;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 0.26rem;
+}
+.brandRank li{
+	width: 31%;
+	height: 1.73rem;
+	text-align: center;
+	border-radius: 4px;
+	overflow: hidden;
+	background-color: rgba(255,255,255,1);
+}
+.brandRank li img{
+	width: 100%;
+	height: 100%;
+}
+/*支持排名*/
+.supporRank li{
+	width: 31%;
+	height: 1.73rem;
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	flex-direction:column;
+	justify-content: center;
+	border-radius: 4px;
+	overflow: hidden;
+	background-color: rgba(255,255,255,1);
+}
+.userHeader{
+	width: 1.06rem;
+	height: 1.06rem;
+}
+.userHeader img{
+	width: 100%;
+	height: 100%;
+}
+.zcUserName{
+	height: 1.2em;
+	line-height: 1.2em;
+	font-size: 0.26rem;
+	color: #333333;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	margin-top: 0.06rem;
+}
+/*众筹产品列表*/
+.zcProBox>p{
+	width: 100%;
+	height: 0.66rem;
+	line-height: 0.66rem;
+	background: url(../images/zc_titilebg.png) no-repeat center;
+	background-size: cover;
+	text-align: center;
+	margin-top: 0.2rem;
+	font-size: 0.37rem;
+	color: #333333;
+}
+.zcProList{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 0.26rem;
+	flex-wrap: wrap;
+	padding: 0 0.26rem;
+}
+.zcProList:after{
+	content:'';
+	width: 49%;
+}
+.zcProList li{
+	width: 49%;
+	height: 6.4rem;
+	border-radius: 0.08rem;
+	background-color: rgba(256,256,256,1);
+	padding: 0.13rem;
+	box-sizing: border-box;
+	margin-bottom: 0.2rem;
+}
+.zcImg{
+	text-align: center;
+}
+.zcImg img{
+	width: 3.2rem;
+	height: 3.2rem;
+}
+.zcProIntro{
+	color: #333333;
+	font-size: 13px;
+	line-height: 1.2em;
+	height: 2.3em;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.zcPrecessNum{
+	font-size: 0.29rem;
+	color: #9e9e9e;
+	margin-top: 0.13rem;
+}
+.zcPrecessNum span{
+	font-size: 0.4rem;
+	color: #ff3d00;
+}
+.zcProcessBar{
+	width: 100%;
+	height: 0.13rem;
+	border-radius: 0.06rem;
+	background-color: rgba(224,223,222,1);
+	position: relative;
+	margin-top: 0.13rem;
+}
+.zcProcessBar span{
+	position: absolute;
+	top: 0 ;
+	left: 0;
+	/*width: 80%;*/
+	height: 0.13rem;
+	border-radius: 0.06rem;
+	background-color: rgba(255,61,0,1);
+}
+.zcPrice{
+	font-size: 0.29rem;
+	color: #9e9e9e;
+	margin-top: 0.2rem;
+	line-height: 0.5rem;
+}
+.zcPrice span{
+	font-size: 0.4rem;
+	color: #e73b05;
+}
+.zcPrice a{
+	width: 1.7rem;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	text-align: center;
+	background-color: rgba(255,61,0,1);
+	color: #FFFFFF;
+	border-radius: 0.05rem;
+	font-size: 0.32rem;
+}
+
+/*侧滑按钮*/
+.slideBtn{
+	position: fixed;
+	right: 0.26rem;
+	bottom: 1.33rem;
+	width: 1.41rem;
+	height: 1.41rem;
+	background: url(../images/program_btn.png) no-repeat center;
+	background-size: cover;
+	z-index: 999;
+}
+.mui-off-canvas-left{
+	width: 5.7rem !important;
+	background-color: rgba(255,61,0,1) !important;
+}
+.programClassfiy{
+	padding-top: 0.93rem;
+}
+.programClassfiy li{
+	/*margin-bottom: 0.13rem;*/
+	padding-left: 0.93rem;
+	font-size: 0.37rem;
+	color: #FFFFFF;
+	height: 0.66rem;
+}
+.programClassfiy li a{
+	color: #FFFFFF;
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+/*分类选中状态*/
+.icon-yuan{
+	font-size: 0.34rem;
+	color: #FF3D00;
+	margin-right: 0.13rem;
+}
+.itemActive span{
+	color: #FFFFFF !important;
+}
+

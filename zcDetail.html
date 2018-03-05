@@ -1,0 +1,363 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta content="telephone=no" name="format-detection">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/mescroll.min.css" />
+		<link rel="stylesheet" href="css/zcDetail.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav proDetailHeader">
+			<div class="padding20 moreSeverice">
+				<div class="mui-row">
+					<div class="mui-col-xs-1 mui-col-sm-1 height100">
+						<a class="mui-action-back lf iconfont icon-chevron-copy-copy"></a>
+					</div>
+					<div class="mui-col-xs-10 mui-col-sm-10">
+						<p class="zcDetailTitle">
+							众筹详情
+						</p>
+					</div>
+					<div class="mui-col-xs-1 mui-col-sm-1 height100">
+						<a href="javascript:void(0)" class="iconfont icon-shenglvehao rf" id="more"></a>
+					</div>
+				</div>
+				<div class="severBox" id="moreSe" style="display: none;">
+					<ul class="severiceList" id="severiceList">
+						<li data-index="0">
+							<a href="javascirpt:void(0)" id="returnHome">
+								<i class="iconfont icon-shouye"></i> 首页
+							</a>
+						</li>
+						<!--<li>
+							<a href="javascirpt:void(0)">
+								<i class="iconfont icon-gouwuche-copy"></i> 购物车
+							</a>
+						</li>-->
+						<li data-index="2">
+							<a href="javascirpt:void(0)">
+								<i class="iconfont icon-kefu"></i> 客服
+							</a>
+						</li>
+						<!--<li>
+							<a href="javascirpt:void(0)">
+								<i class="iconfont icon-shouye"></i> 分享
+							</a>
+						</li>-->
+					</ul>
+					<span class="triangle"></span>
+				</div>
+			</div>
+		</header>
+		<div class="mui-content">
+			<div class="mescroll" id="mescroll">
+				<div id="proIntroBox">
+					<script type="text/html" id="proIntroList">
+						<div class="banner">
+							<img src="<%=model.det.banner%>" alt="" />
+						</div>
+						<!--流程-->
+						<div class="flow">
+							<!--图片信息-->
+							<ul class="flowList">
+								<li>
+									<div class="flowImg">
+									</div>
+									<p class="flwoTxt">选择筹品</p>
+								</li>
+								<li class="flowArrow">
+								</li>
+								<li>
+									<div class="flowImg">
+									</div>
+									<p class="flwoTxt">预约购买</p>
+								</li>
+								<li class="flowArrow">
+								</li>
+								<li>
+									<div class="flowImg">
+									</div>
+									<p class="flwoTxt">支付市场价</p>
+								</li>
+								<li class="flowArrow">
+								</li>
+								<li>
+									<div class="flowImg">
+									</div>
+									<p class="flwoTxt">返还差价</p>
+								</li>
+							</ul>
+						</div>
+						<div class="zcContent">
+							<!--众筹详情-->
+							<p class="zcStatus clearFloat">
+								<a href="javascript:void(0)" class="lf">
+									<%=(isTime>0?'众筹中':'已结束')%>
+								</a>
+								<span class="rf">
+						已筹: 
+						<span><%=model.det.number%></span> 件
+								</span>
+							</p>
+							<p class="zcPro">
+								<%=model.det.title%>
+							</p>
+							<!--倒计时-->
+							<div class="countDown clearFloat">
+								<p class="lf">
+									<%if(isTime>0) {%>
+									<i>筹</i> 正在筹集,距结束
+									<%}else{%> 众筹已结束
+									<%}%>
+								</p>
+								<div id="timer" class="rf">
+
+								</div>
+							</div>
+							<!--当前进度-->
+							<div class="zcDetailProcess">
+								<span>
+						当前进度: 
+					</span>
+								<span class="processBar">
+							<span style="width: <%=nowPrecess%>%;"></span>
+								</span>
+								<span class="processNum"><%=nowPrecess%>%</span>
+							</div>
+						</div>
+						<!--活动选择-->
+						<div class="chooseParty clearFloat">
+							<span class="lf">
+					活动选择 : 
+				</span>
+							<ul id="choosePartyId" class="lf clearFloat">
+								<li class="chooseActive">
+									<a href="javascript:void(0)" data-paramId="0" data-priceId="model.goods[0].priceId">
+										活动1
+									</a>
+								</li>
+								<%for( i = 1; i < model.goods.length; i++) {%>
+								<li>
+									<a href="javascript:void(0)" data-paramId="<%=i%>" data-priceId="<%=model.goods[i].priceId%>">
+										活动
+										<%=i+1%>
+									</a>
+								</li>
+								<%}%>
+							</ul>
+						</div>
+					</script>
+				</div>
+				<div id="proParam">
+					<script id="proParamList" type="text/html">
+						<!--商品参数-->
+						<p class="marlPrice">
+							<%=model.title%>
+						</p>
+						<!--市场价-->
+						<p class="marlPrice">
+							市场价:
+							<span>¥<%=(model.price/100).toFixed(2)%></span>
+						</p>
+						<!--众筹价-->
+						<ul class="zcPriceList clearFloat">
+							<li>
+								<span class="lf zcTime">
+					第一阶段成功筹集
+					<span><%=proNum.det.firstNum%></span> 件则
+								</span>
+								<span class="rf zcresult">¥<%=(model.one/100).toFixed(2)%></span>
+							</li>
+							<li>
+								<span class="lf zcTime">
+					第二阶段成功筹集
+					<span><%=proNum.det.secondNum%></span> 件则
+								</span>
+								<span class="rf zcresult">¥<%=(model.two/100).toFixed(2)%></span>
+							</li>
+							<li>
+								<span class="lf zcTime">
+					众筹不足
+					<span><%=proNum.det.firstNum%></span> 件则
+								</span>
+								<span class="rf zcresult">¥<%=(model.discount/100).toFixed(2)%></span>
+							</li>
+						</ul>
+					</script>
+				</div>
+				<!--数量库存-->
+				<div class="stockBox">
+					<p>
+						数量:
+						<span id="currentNum">×1</span>
+						<!--当前库存:
+					<span>888</span> 件-->
+					</p>
+					<div>
+						<div class="numberBox" id="numberList">
+							<span class="minus iconfont icon-jian"></span>
+							<input type="number" value="1" class="border" id="selectNumber" />
+							<span class="add iconfont icon-jia"></span>
+						</div>
+					</div>
+				</div>
+				<!--tab切换-->
+				<ul class="zcTab" id="tabList">
+					<li class="zcTabActive" data-zcid='1'>
+						<a href="javascript:void(0)">
+							项目详情
+						</a>
+						<em></em>
+					</li>
+					<li data-zcid='2' data-activeId="">
+						<a href="javascript:void(0)">
+							项目进展
+						</a>
+						<em></em>
+					</li>
+					<li data-zcid='3' data-activeId=''>
+						<a href="javascript:void(0)">
+							公司排名
+						</a>
+					</li>
+				</ul>
+				<!--对应的项目-->
+				<div id="zcProgramBox">
+					<!--项目详情-->
+					<div class="zcProgramDetail comzc" id="zcProgramDetBox">
+						<script id="zcProgramDetList" type="text/html">
+							<%==model.det.descDet%>
+						</script>
+					</div>
+					<!--项目 进展-->
+					<ul class="comzc programProcess" style="display: none;" id="programProcessBox">
+						<script type="text/html" id="programProcessList">
+							<%if(model.length>0) {%>
+							<li class="clearFloat">
+								<div class="lf programTime">
+									<%= $imports.dateFormat(model[0].buyTime, 'yyyy-MM-dd') %>
+								</div>
+								<div class="rf programTxt">
+									<p>
+										<span class="firmName">
+									<%=model[0].username%>
+								</span>
+										<span class="buyNum">
+									购买了
+									<span><%=model[0].number%></span> 件
+										</span>
+									</p>
+									<p>
+										感谢大家的支持!
+									</p>
+								</div>
+								<div class="piontBox">
+									<span class="piont firstPiont"></span>
+									<span class="line"></span>
+								</div>
+							</li>
+							<%}else{%>
+							<li class="noData">
+								<span class="iconfont icon-shibai"></span> 暂无数据
+							</li>
+							<%}%>
+							<%if(model.length>1) {%>
+							<%for( i = 1; i < model.length; i++) {%>
+							<li class="clearFloat">
+								<div class="lf programTime">
+									<%= $imports.dateFormat(model[i].buyTime, 'yyyy-MM-dd') %>
+								</div>
+								<div class="rf programTxt">
+									<p>
+										<span class="firmName">
+									<%=model[i].username%>
+								</span>
+										<span class="buyNum">
+									购买了
+									<span><%=model[i].number%></span> 件
+										</span>
+									</p>
+									<p>
+										感谢大家的支持!
+									</p>
+								</div>
+								<div class="piontBox">
+									<span class="piont firstPiont"></span>
+									<span class="line"></span>
+								</div>
+							</li>
+							<%}%>
+							<%}%>
+						</script>
+					</ul>
+					<!--公司排名-->
+					<ul class="comzc firmRank" style="display: none;" id="companyRankBox">
+						<script type="text/html" id="companyRankList">
+							<%if(model[0]) {%>
+							<li class="num1">
+								<%=model[0].username%>
+							</li>
+							<%}%>
+							<%if(model[1]) {%>
+							<li class="num2">
+								<%=model[1].username%>
+							</li>
+							<%}%>
+							<%if(model[2]) {%>
+							<li class="num3">
+								<%=model[2].username%>
+							</li>
+							<%}%>
+						</script>
+						<!--<li class="num2">
+						汇通易达02
+						<span>支持256件</span>
+					</li>-->
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--底部-->
+		<div class="bottomHandle clearFloat" id="handle">
+			<!--加入配单-->
+			<!--<a href="javascript:void(0)" class="lf addOrder">
+				<div class="addOrderBox">
+					<p>
+						<span class="iconfont icon-jiarudingdan"></span>
+					</p>
+					<span>加入配单</span>
+				</div>
+			</a>-->
+			<!--立即购买-->
+			<div class="rf clearFloat userFun">
+				<input type="hidden" id="buyMsg" value="" />
+				<a href="javascript:void(0)" class="lf" id="immBuy" data-id="">普通购买</a>
+				<a href="javascript:void(0)" class="lf" id="subBuy">众筹购买</a>
+			</div>
+		</div>
+		<!--遮罩层-->
+		<div id="mark" style="display: none;"></div>
+		<!--loading-->
+		<div class="loadingImg">
+			<img src="images/loading.gif" alt="" />
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/mescroll.min.js"></script>
+		<script src="js/viewsjs/zcDetail.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

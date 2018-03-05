@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/iconfont.css" />
+		<link rel="stylesheet" href="css/takerMsg.css" />
+	</head>
+
+	<body>
+		<header class="personMsgArea">
+			<p class="title">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<span id="title">发票信息</span>
+			</p>
+		</header>
+		<div class="mui-content">
+			<input type="hidden" id="backMsg" />
+			<!--发票类型-->
+			<div class="takerType padding20">
+				<p>发票类型</p>
+				<ul class="clearFloat" id="choose">
+					<li class="chooseTypeActive">
+						<a href="javascript:void(0);" data-invoiceType='1'>普通发票</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);" data-invoiceType='2'>增值税发票</a>
+					</li>
+					<li id="noTaker" style="display: none;">
+						<a href="javascript:void(0);" data-invoiceType='0'>不开票</a>
+					</li>
+				</ul>
+				<input type="hidden" id="paymentId" value="" />
+				<input type="hidden" id="invoiceType" value="1" />
+			</div>
+			<!--普通发票-->
+			<div id="commTaker" class="padding20">
+				<p>发票抬头</p>
+				<form action="" id="takerForm">
+					<div class="clearFloat beautyCheck">
+						<div class="lf">
+							<input type="radio" id="person" name="openingType" checked="checked" value="1" />
+							<label for="person" data-id='0'><em>√</em>个人</label>
+						</div>
+						<div class="lf">
+							<input type="radio" id="company" name="openingType" value="2" />
+							<label for="company" data-id='1'><em>√</em>单位</label>
+						</div>
+					</div>
+					<ul class="inputArea" id="companyForm" style="display: none;">
+						<li>
+							<input type="text" id="name" class="invoiceTitle" name="name" data-rule="required;name;" data-rule-name="[/^[^! @#$%^&*()?/]*$/,'公司发票抬头格式错误']" placeholder="请输入正确的公司名称,不包含特殊字符" disabled="disabled" />
+						</li>
+						<li>
+							<input type="text" id="taxNumber" 
+								class="invoiceTitle" 
+								name="taxNumber" 
+								data-rule="required;taxNumber;" 
+								data-rule-taxNumber="[/[a-zA-Z0-9]+/,'纳税人识别号格式错误']" 
+								placeholder="请输入纳税人识别号" 
+								disabled="disabled" 
+								/>
+						</li>
+					</ul>
+					<div class="commSubmit">
+						<input type="button" name="" id="commTakerBtn" value="确定" />
+					</div>
+				</form>
+			</div>
+			<!--增值税发票-->
+			<div id="addTakerMsg" class="padding20" style="display: none;">
+				<p>填写信息</p>
+				<form action="" id="addTakerForm">
+					<ul class="inputArea">
+						<li>
+							<input type="text" 
+								id="companyName"
+								class="addTaker" 
+								name="name" 
+								data-rule="required;name;" 
+								data-rule-name="[/^[^! @#$%^&*()?/]*$/,'公司名字格式错误']" 
+								placeholder="请输入公司名字"
+								/>
+						</li>
+						<li>
+							<input type="text" id="taxNum"
+								class="addTaker" 
+								name="taxNumber" 
+								data-rule="required;taxNumber;" 
+								data-rule-taxNumber="[/^[^! @#$%^&*()?/]*$/,'纳税人识别号格式错误']" 
+								placeholder="请输入纳税人识别号"/>
+						</li>
+						<li>
+							<input type="text" id="address"
+								class="addTaker" 
+								name="address" 
+								data-rule="required;address;" 
+								data-rule-address="[/^[^! @#$%^&*()?/]*$/,'公司注册地格式错误']" 
+								placeholder="请输入公司注册地"/>
+						</li>
+						<li>
+							<input type="text" id="bankName"
+								class="addTaker" 
+								name="bankName" 
+								data-rule="required;bankName;" 
+								data-rule-bankName="[/^[^! @#$%^&*()?/]{2,100}$/,'对公银行格式错误']" 
+								placeholder="请输入对公银行"/>
+						</li>
+						<li>
+							<input type="text" id="bankNumber"
+								class="addTaker" 
+								name="bankNumber" 
+								data-rule="required;bankNumber;" 
+								data-rule-bankNumber="[/^([1-9]{1})(\d*)$/,'对公银行账号格式错误']" 
+								placeholder="请输入对公银行账号"/>
+						</li>
+					</ul>
+					<div class="commSubmit">
+						<input type="button" name="" id="addTakerBtn" value="确定" />
+					</div>
+				</form>
+			</div>
+			<!--不开发票-->
+			<div id="notakerBox" style="display: none;">
+				<div class="commSubmit">
+					<input type="button" name="" id="notakerBtn" value="确定" />
+				</div>
+			</div>
+		</div>
+		<script src="js/h.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/art-template.js"></script>
+		<script src="js/aes.js"></script>
+		<script src="js/mode-ecb.js"></script>
+		<script src="js/base.js"></script>
+		<script src="js/viewsjs/takerMsg.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>
